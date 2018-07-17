@@ -1,0 +1,5 @@
+/*!
+	@page USER_CONFIGURATION_DESCRIPTION User Configuration Layer
+
+	@details The user configuration layer gives the user a one-stop location to customize the driver to their specific MCU and flash device. Through the use of conditional compilation, function calls, and various c-defines the user can specify the GPIO driver used in their project and tie the SPI IO lines to specific ports and pins.
+ */

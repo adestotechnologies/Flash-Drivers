@@ -1,0 +1,52 @@
+/*!
+	@page ADESTO_LAYER_DESCRIPTION Adesto Layer
+
+	@details The Adesto layer is flash device/family specific. family of devices (i.e. Dataflash) has its own header and c file, and a set of opcodes defined in cmd_defs.h. Almost all commands available to each device have been declread and defined, and each has been commented. In addition, a sample sequence presented as a 'test' of the flash device can be found within the c files for each family. The 'test' runs through a sequence of events and showcases how to use the driver and commands. Not all commands are present in the sample 'test,' and they serve only as an example as to how the driver should be used.<br><br>
+	
+	All Adesto layer functions have 2 core elements: Load a buffer with data, then communicate with the flash device via the bit banged SPI driver. Building on top of these features on finds options for printing the received and transmitted bytes (debug tool), and certain conditionals for complex commands. A few functions can be found within each family which are clearly derived, such as phoenixWaitOnReady(). These fucntions are helpful for programming and showcase how other functions can be put together to form a 'complex' sequence of commands.<br><br>
+	Loading a buffer: @code txFusionInternalBuffer[0] = CMD_FUSION_WRITE_SRB2; @endcode
+	Transmitting via the SPI driver: @code SPI_Exchange(txFusionInternalBuffer, 2, NULL, 0, 0); @endcode \n
+	
+	A near comprehensive list of supported opcodes can be found in cmd_defs.h. The datasheet should still be consulted before using a flash device. The sample code is not intended as a be-all-end-all resource, rather it provides a point of reference for starting out with serial communication between an MCU and Adesto flash memory. Indeed, when tested on certain microcontrollers, the measured bit banged SPI clock rate when running through a test program was lower than 1MHz, less than ideal for high speed applications.\n\n
+
+	Included with each layer is a ___Test() function which shows the user how to call the various functions, how to switch between various modes when relevant, and programming examples.  See phoenixTest(), monetaTest(), dataflashTest(), and fusionTest(). If one has the driver properly set up (see @ref PORTING_GUIDE), these functions calls will run a testbench that should have 0 errors after completion.
+
+	@section ADESTO_LAYER_LINKS File Links
+		@subsection ADESTO_LAYER_FILES Adesto Layer Files
+			@ref ADESTO_LAYER
+		@subsection familySpecific Family Specific Files
+			@ref PHOENIX <br>
+			@ref MONETA <br>
+			@ref DATAFLASH <br>
+			@ref FUSION <br>
+ */
+/*!
+	@defgroup ADESTO_LAYER Adesto Layer
+	@brief All Adesto layer files.
+
+	@details This group includes all Adesto layer files including cmd_defs.h
+ */
+/*!
+	@defgroup MONETA Moneta
+	@brief Flash drivers for the Moneta family of devices.
+
+	@details Source code for the flash drivers can be found at the following URL: 
+ */
+ /*!
+	@defgroup DATAFLASH Dataflash
+	@brief Flash drivers for the Dataflash family of devices.
+
+	@details Source code for the flash drivers can be found at the following URL: 
+ */
+ /*!
+	@defgroup FUSION Fusion
+	@brief Flash drivers for the Fusion family of devices.
+
+	@details Source code for the flash drivers can be found at the following URL: 
+ */
+ /*!
+	@defgroup PHOENIX Phoenix
+	@brief Flash drivers for the Phoenix family of devices.
+
+	@details Source code for the flash drivers can be found at the following URL: 
+ */

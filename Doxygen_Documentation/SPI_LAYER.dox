@@ -1,0 +1,16 @@
+/*!
+  @page SPI_LAYER_DESCRIPTION SPI Layer
+  
+  @details The SPI layer is used as a SPI driver to communicate with the flash device. This is accomplished through the use of bit banging. As such, the SPI layer is built on top of a functional, MCU specific GPIO driver. Once a GPIO driver has been connected to this layer (see the @ref PORTING_GUIDE for a how-to), function calls from the Adesto or SPI layers should work.\n\n
+  The SPI layer contains functionality for sending and receiving data bytes via SPI. Included are functions such as SPI_Exchange(), SPI_DualExchange(), and SPI_QuadExchange(). Documentation for the SPI driver is comprehensive and can be found in the header file SPI_driver.h.  
+
+  @section SPI_LAYER_LINKS File Links
+	@ref SPI_LAYER
+*/
+
+/*!
+  @defgroup SPI_LAYER SPI Layer
+  @brief All SPI layer files.
+
+  @details This group includes all SPI layer files.
+ */

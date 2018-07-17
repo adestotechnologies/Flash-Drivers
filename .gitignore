@@ -1,0 +1,3 @@
+/Doxygen_Documentation/html/*
+/Doxygen_Documentation/latex/*
+/Doxygen_Documentation/*.tmp
