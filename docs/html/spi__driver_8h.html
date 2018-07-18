@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Adesto Flash Drivers: Adesto-Flash-Drivers/source/spi_driver.h File Reference</title>
+<title>Adesto Flash Drivers: Flash-Drivers/source/spi_driver.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_69504257db341e5b74fc84a56c3eacab.html">Adesto-Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_52beb24232acd37e6e939e109eb586c2.html">source</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97eae8f018b86b66cbd5d5c55269fecf.html">Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_8833f0deafcb5b7d589ca41553802abd.html">source</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,6 +86,50 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a1678acc83b89635797c577980225e72f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a1678acc83b89635797c577980225e72f">SPI_CSB_PORT</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a94d8d4ab8253282e9dff99b1359443ca">USER_CONFIG_CSB_PORT</a></td></tr>
+<tr class="memdesc:a1678acc83b89635797c577980225e72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for CSb control.  <a href="#a1678acc83b89635797c577980225e72f">More...</a><br /></td></tr>
+<tr class="separator:a1678acc83b89635797c577980225e72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade902845feb9681f6550117ba7aefbf0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#ade902845feb9681f6550117ba7aefbf0">SPI_TRIGGER_PORT</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a9a1a62529e14b3d2d700cf57dc72fb4f">USER_CONFIG_TRIGGER_PORT</a></td></tr>
+<tr class="memdesc:ade902845feb9681f6550117ba7aefbf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for TRIGGER control.  <a href="#ade902845feb9681f6550117ba7aefbf0">More...</a><br /></td></tr>
+<tr class="separator:ade902845feb9681f6550117ba7aefbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f9b7e59b3a2efdc061e0c886c80e068"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a6f9b7e59b3a2efdc061e0c886c80e068">SPI_SCK_PORT</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a44284d0f93cdb69aabaf04f547e49452">USER_CONFIG_SCK_PORT</a></td></tr>
+<tr class="memdesc:a6f9b7e59b3a2efdc061e0c886c80e068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for SCK control.  <a href="#a6f9b7e59b3a2efdc061e0c886c80e068">More...</a><br /></td></tr>
+<tr class="separator:a6f9b7e59b3a2efdc061e0c886c80e068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae524a02b21071c5529918a33e35e846b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#ae524a02b21071c5529918a33e35e846b">SPI_MOSI_PORT</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a6138e769139abf47d43e3dbc2e0d8415">USER_CONFIG_MOSI_PORT</a></td></tr>
+<tr class="memdesc:ae524a02b21071c5529918a33e35e846b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for MOSI control.  <a href="#ae524a02b21071c5529918a33e35e846b">More...</a><br /></td></tr>
+<tr class="separator:ae524a02b21071c5529918a33e35e846b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f80193fbde762d8b7f896aa393deb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a28f80193fbde762d8b7f896aa393deb6">SPI_MISO_PORT</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#acb486874cd2966b3e1d74cd5bc709cbc">USER_CONFIG_MISO_PORT</a></td></tr>
+<tr class="memdesc:a28f80193fbde762d8b7f896aa393deb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for MISO control.  <a href="#a28f80193fbde762d8b7f896aa393deb6">More...</a><br /></td></tr>
+<tr class="separator:a28f80193fbde762d8b7f896aa393deb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b05d215ec24c6a73edb2152fd5e36ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a3b05d215ec24c6a73edb2152fd5e36ea">SPI_WPB_PORT</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a60a5597786313d0ab11c94c6db4c618f">USER_CONFIG_IO2_PORT</a></td></tr>
+<tr class="memdesc:a3b05d215ec24c6a73edb2152fd5e36ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for WPb control.  <a href="#a3b05d215ec24c6a73edb2152fd5e36ea">More...</a><br /></td></tr>
+<tr class="separator:a3b05d215ec24c6a73edb2152fd5e36ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d07b309569186a05034ad516d5c43f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a4d07b309569186a05034ad516d5c43f1">SPI_HOLDB_PORT</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a7fc15384839bae2e30382934d4a46076">USER_CONFIG_IO3_PORT</a></td></tr>
+<tr class="memdesc:a4d07b309569186a05034ad516d5c43f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for HOLDb control.  <a href="#a4d07b309569186a05034ad516d5c43f1">More...</a><br /></td></tr>
+<tr class="separator:a4d07b309569186a05034ad516d5c43f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6395328cc97808bed84e09897a2baf0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#ae6395328cc97808bed84e09897a2baf0">SPI_CSB_PIN</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a87904fa3b101e43fc4332e815c875786">USER_CONFIG_CSB_PIN</a></td></tr>
+<tr class="separator:ae6395328cc97808bed84e09897a2baf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0da7cf15f73baef40e165338ab29c2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#ad0da7cf15f73baef40e165338ab29c2a">SPI_TRIGGER_PIN</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#afe245e869fc3e2bb21642925af8872c6">USER_CONFIG_TRIGGER_PIN</a></td></tr>
+<tr class="memdesc:ad0da7cf15f73baef40e165338ab29c2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for TRIGGER.  <a href="#ad0da7cf15f73baef40e165338ab29c2a">More...</a><br /></td></tr>
+<tr class="separator:ad0da7cf15f73baef40e165338ab29c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee89f642bb559e12db93e9f412ea185e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#aee89f642bb559e12db93e9f412ea185e">SPI_SCK_PIN</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a8a12e8356e8e88a7e1edb3e5b0f66a5b">USER_CONFIG_SCK_PIN</a></td></tr>
+<tr class="memdesc:aee89f642bb559e12db93e9f412ea185e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for SCK.  <a href="#aee89f642bb559e12db93e9f412ea185e">More...</a><br /></td></tr>
+<tr class="separator:aee89f642bb559e12db93e9f412ea185e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d2c0b6e0ecbd0351958756e4830172"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a67d2c0b6e0ecbd0351958756e4830172">SPI_MOSI_PIN</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#aa2ea48eee7df0cc112f0cba6c5254b54">USER_CONFIG_MOSI_PIN</a></td></tr>
+<tr class="memdesc:a67d2c0b6e0ecbd0351958756e4830172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for MOSI.  <a href="#a67d2c0b6e0ecbd0351958756e4830172">More...</a><br /></td></tr>
+<tr class="separator:a67d2c0b6e0ecbd0351958756e4830172"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a315722498711fce1e1aa6ea6654385cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a315722498711fce1e1aa6ea6654385cf">SPI_MISO_PIN</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a81733a30777c79cb394939f3deb1ccfb">USER_CONFIG_MISO_PIN</a></td></tr>
+<tr class="memdesc:a315722498711fce1e1aa6ea6654385cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for MISO.  <a href="#a315722498711fce1e1aa6ea6654385cf">More...</a><br /></td></tr>
+<tr class="separator:a315722498711fce1e1aa6ea6654385cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe60e7ed263fb0a42cf331107c96fe3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a1fe60e7ed263fb0a42cf331107c96fe3">SPI_WPB_PIN</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#ae572a3f57e3737d798d9ed6e6bbcbdd6">USER_CONFIG_IO2_PIN</a></td></tr>
+<tr class="memdesc:a1fe60e7ed263fb0a42cf331107c96fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for WPb - IO2.  <a href="#a1fe60e7ed263fb0a42cf331107c96fe3">More...</a><br /></td></tr>
+<tr class="separator:a1fe60e7ed263fb0a42cf331107c96fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1f6b114a23d4672d3658ee5c5d1ea5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a4a1f6b114a23d4672d3658ee5c5d1ea5">SPI_HOLDB_PIN</a>&#160;&#160;&#160;<a class="el" href="user__config_8h.html#aaa27bce01f856b8e7cf3c035a95c52d6">USER_CONFIG_IO3_PIN</a></td></tr>
+<tr class="memdesc:a4a1f6b114a23d4672d3658ee5c5d1ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for HOLDb - IO3.  <a href="#a4a1f6b114a23d4672d3658ee5c5d1ea5">More...</a><br /></td></tr>
+<tr class="separator:a4a1f6b114a23d4672d3658ee5c5d1ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62249e384b997229a3e2ae74ade334e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a62249e384b997229a3e2ae74ade334e2">DELAY</a>&#160;&#160;&#160;5U</td></tr>
+<tr class="memdesc:a62249e384b997229a3e2ae74ade334e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half clock period delay interval.  <a href="#a62249e384b997229a3e2ae74ade334e2">More...</a><br /></td></tr>
+<tr class="separator:a62249e384b997229a3e2ae74ade334e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadd93900fc87105fa3ef514675d4133b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#aadd93900fc87105fa3ef514675d4133b">SPI</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:aadd93900fc87105fa3ef514675d4133b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a649ee33974abe97f0eda5a2e00c6e2d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a649ee33974abe97f0eda5a2e00c6e2d7">QPI</a>&#160;&#160;&#160;1</td></tr>
@@ -119,21 +164,21 @@ Functions</h2></td></tr>
 <tr class="memitem:aef605abf4a7dc228c4cf0ee100e9e8af"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#aef605abf4a7dc228c4cf0ee100e9e8af">SPI_DualReceiveByte</a> ()</td></tr>
 <tr class="memdesc:aef605abf4a7dc228c4cf0ee100e9e8af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a byte along both MOSI and MISO and returns the value received.  <a href="#aef605abf4a7dc228c4cf0ee100e9e8af">More...</a><br /></td></tr>
 <tr class="separator:aef605abf4a7dc228c4cf0ee100e9e8af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90b2da1022a05fa89b1e92759c640a60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a90b2da1022a05fa89b1e92759c640a60">SPI_SendByte</a> (uint8_t tx)</td></tr>
-<tr class="memdesc:a90b2da1022a05fa89b1e92759c640a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MOSI.  <a href="#a90b2da1022a05fa89b1e92759c640a60">More...</a><br /></td></tr>
-<tr class="separator:a90b2da1022a05fa89b1e92759c640a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae30e3fbefdca1de90c1c5bf88593a13d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#ae30e3fbefdca1de90c1c5bf88593a13d">SPI_DualSendByte</a> (uint8_t tx)</td></tr>
-<tr class="memdesc:ae30e3fbefdca1de90c1c5bf88593a13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along both MOSI and MISO.  <a href="#ae30e3fbefdca1de90c1c5bf88593a13d">More...</a><br /></td></tr>
-<tr class="separator:ae30e3fbefdca1de90c1c5bf88593a13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72ac0633e04a5c40107d1e4e57f9196b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a72ac0633e04a5c40107d1e4e57f9196b">SPI_SendByte</a> (uint8_t transmittedByte)</td></tr>
+<tr class="memdesc:a72ac0633e04a5c40107d1e4e57f9196b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MOSI.  <a href="#a72ac0633e04a5c40107d1e4e57f9196b">More...</a><br /></td></tr>
+<tr class="separator:a72ac0633e04a5c40107d1e4e57f9196b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae71984b2f4f613cc106c8d2f6e71a5d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#ae71984b2f4f613cc106c8d2f6e71a5d7">SPI_DualSendByte</a> (uint8_t transmittedByte)</td></tr>
+<tr class="memdesc:ae71984b2f4f613cc106c8d2f6e71a5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along both MOSI and MISO.  <a href="#ae71984b2f4f613cc106c8d2f6e71a5d7">More...</a><br /></td></tr>
+<tr class="separator:ae71984b2f4f613cc106c8d2f6e71a5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786323fc5d9796cce39741889c686ddf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a786323fc5d9796cce39741889c686ddf">SPI_ClockTick</a> ()</td></tr>
 <tr class="memdesc:a786323fc5d9796cce39741889c686ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the clock: current_state-&gt;high-&gt;low.  <a href="#a786323fc5d9796cce39741889c686ddf">More...</a><br /></td></tr>
 <tr class="separator:a786323fc5d9796cce39741889c686ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f275eebcc8ea4123081591a7142b40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a69f275eebcc8ea4123081591a7142b40">SPI_SendBit</a> (uint8_t bit_tx)</td></tr>
-<tr class="memdesc:a69f275eebcc8ea4123081591a7142b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single bit along MOSI while toggling the clock.  <a href="#a69f275eebcc8ea4123081591a7142b40">More...</a><br /></td></tr>
-<tr class="separator:a69f275eebcc8ea4123081591a7142b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5093710083d48f1cd5a21af6bede3789"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a5093710083d48f1cd5a21af6bede3789">SPI_Delay</a> (uint32_t delay_time)</td></tr>
-<tr class="memdesc:a5093710083d48f1cd5a21af6bede3789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a delay_time number of NOPs.  <a href="#a5093710083d48f1cd5a21af6bede3789">More...</a><br /></td></tr>
-<tr class="separator:a5093710083d48f1cd5a21af6bede3789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a954d152fe8e99174a6e46c15959049dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a954d152fe8e99174a6e46c15959049dd">SPI_SendBit</a> (uint8_t transmittedBit)</td></tr>
+<tr class="memdesc:a954d152fe8e99174a6e46c15959049dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single bit along MOSI while toggling the clock.  <a href="#a954d152fe8e99174a6e46c15959049dd">More...</a><br /></td></tr>
+<tr class="separator:a954d152fe8e99174a6e46c15959049dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49fc6e76e2393e9d9876e76e5715365a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a49fc6e76e2393e9d9876e76e5715365a">SPI_Delay</a> (uint32_t delayTime)</td></tr>
+<tr class="memdesc:a49fc6e76e2393e9d9876e76e5715365a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a delayTime number of NOPs.  <a href="#a49fc6e76e2393e9d9876e76e5715365a">More...</a><br /></td></tr>
+<tr class="separator:a49fc6e76e2393e9d9876e76e5715365a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fe761b2eb1f2e218d2e75f2bc4692c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a4fe761b2eb1f2e218d2e75f2bc4692c9">SPI_ConfigureSingleSPIIOs</a> ()</td></tr>
 <tr class="memdesc:a4fe761b2eb1f2e218d2e75f2bc4692c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the IOs for SPI bit banging usage. 4 pins are needed: CSb, SCK, MOSI, MISO.  <a href="#a4fe761b2eb1f2e218d2e75f2bc4692c9">More...</a><br /></td></tr>
 <tr class="separator:a4fe761b2eb1f2e218d2e75f2bc4692c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,9 +197,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af86bb49ff4a65743e82910a4c1bc512d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#af86bb49ff4a65743e82910a4c1bc512d">SPI_ConfigureQuadSPIIOsOutput</a> ()</td></tr>
 <tr class="memdesc:af86bb49ff4a65743e82910a4c1bc512d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures SPIO IOs for quad output. This changes the MISO pin to an output so that the master can drive all 4 IOs.  <a href="#af86bb49ff4a65743e82910a4c1bc512d">More...</a><br /></td></tr>
 <tr class="separator:af86bb49ff4a65743e82910a4c1bc512d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb012f5ab43c05b4a9ae358dd1ec1bd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#abb012f5ab43c05b4a9ae358dd1ec1bd3">SPI_QuadSendByte</a> (uint8_t tx)</td></tr>
-<tr class="memdesc:abb012f5ab43c05b4a9ae358dd1ec1bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MISO, MOSI, WPb, and HOLDb.  <a href="#abb012f5ab43c05b4a9ae358dd1ec1bd3">More...</a><br /></td></tr>
-<tr class="separator:abb012f5ab43c05b4a9ae358dd1ec1bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f1da27466aa9ed94c9230653d37e6e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a7f1da27466aa9ed94c9230653d37e6e0">SPI_QuadSendByte</a> (uint8_t transmittedByte)</td></tr>
+<tr class="memdesc:a7f1da27466aa9ed94c9230653d37e6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MISO, MOSI, WPb, and HOLDb.  <a href="#a7f1da27466aa9ed94c9230653d37e6e0">More...</a><br /></td></tr>
+<tr class="separator:a7f1da27466aa9ed94c9230653d37e6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c2a2e9c3c4d36665159c4ea1f477200"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8h.html#a8c2a2e9c3c4d36665159c4ea1f477200">SPI_QuadReceiveByte</a> ()</td></tr>
 <tr class="memdesc:a8c2a2e9c3c4d36665159c4ea1f477200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a byte along MOSI, MISO, HOLDb, and WPb and returns the value received.  <a href="#a8c2a2e9c3c4d36665159c4ea1f477200">More...</a><br /></td></tr>
 <tr class="separator:a8c2a2e9c3c4d36665159c4ea1f477200"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +211,24 @@ Functions</h2></td></tr>
 <tr class="separator:ace24fb90f800edd7e01deaf1c46d933c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a62249e384b997229a3e2ae74ade334e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62249e384b997229a3e2ae74ade334e2">&#9670;&nbsp;</a></span>DELAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DELAY&#160;&#160;&#160;5U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Half clock period delay interval. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00108">108</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
 <a id="a649ee33974abe97f0eda5a2e00c6e2d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a649ee33974abe97f0eda5a2e00c6e2d7">&#9670;&nbsp;</a></span>QPI</h2>
 
@@ -178,7 +241,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00056">56</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00111">111</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
 
 </div>
 </div>
@@ -194,7 +257,261 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00055">55</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00110">110</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="ae6395328cc97808bed84e09897a2baf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6395328cc97808bed84e09897a2baf0">&#9670;&nbsp;</a></span>SPI_CSB_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_CSB_PIN&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a87904fa3b101e43fc4332e815c875786">USER_CONFIG_CSB_PIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pin number for CSb </p><dl class="section warning"><dt>Warning</dt><dd>Changes based on adapter used! Use pin 4 with Moneta, pin 1 with others on K82 board. </dd>
+<dd>
+Don't forget to update <a class="el" href="user__config_8c.html#ab12365a59df355fd84d6634a736a7657" title="Configures the board for program usage. Initializes the requisite ports/pins for use as GPIOs...">USER_CONFIG_BoardInit()</a> called from main! As is, both CSb pins are configured as outputs so the changes above and below in this file are the only things needed (pin and port numbers for CSb). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00094">94</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a1678acc83b89635797c577980225e72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1678acc83b89635797c577980225e72f">&#9670;&nbsp;</a></span>SPI_CSB_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_CSB_PORT&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a94d8d4ab8253282e9dff99b1359443ca">USER_CONFIG_CSB_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for CSb control. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Use port D for Moneta shield, port C for Dataflash/AT25 shield. on K82 board. Port D = 0x400FF0C0U, Port C = 0x400FF080U </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00061">61</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a4a1f6b114a23d4672d3658ee5c5d1ea5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a1f6b114a23d4672d3658ee5c5d1ea5">&#9670;&nbsp;</a></span>SPI_HOLDB_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_HOLDB_PIN&#160;&#160;&#160;<a class="el" href="user__config_8h.html#aaa27bce01f856b8e7cf3c035a95c52d6">USER_CONFIG_IO3_PIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin number for HOLDb - IO3. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00106">106</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d07b309569186a05034ad516d5c43f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d07b309569186a05034ad516d5c43f1">&#9670;&nbsp;</a></span>SPI_HOLDB_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_HOLDB_PORT&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a7fc15384839bae2e30382934d4a46076">USER_CONFIG_IO3_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for HOLDb control. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00085">85</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a315722498711fce1e1aa6ea6654385cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a315722498711fce1e1aa6ea6654385cf">&#9670;&nbsp;</a></span>SPI_MISO_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_MISO_PIN&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a81733a30777c79cb394939f3deb1ccfb">USER_CONFIG_MISO_PIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin number for MISO. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00102">102</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a28f80193fbde762d8b7f896aa393deb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f80193fbde762d8b7f896aa393deb6">&#9670;&nbsp;</a></span>SPI_MISO_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_MISO_PORT&#160;&#160;&#160;<a class="el" href="user__config_8h.html#acb486874cd2966b3e1d74cd5bc709cbc">USER_CONFIG_MISO_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for MISO control. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00077">77</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a67d2c0b6e0ecbd0351958756e4830172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d2c0b6e0ecbd0351958756e4830172">&#9670;&nbsp;</a></span>SPI_MOSI_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_MOSI_PIN&#160;&#160;&#160;<a class="el" href="user__config_8h.html#aa2ea48eee7df0cc112f0cba6c5254b54">USER_CONFIG_MOSI_PIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin number for MOSI. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00100">100</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="ae524a02b21071c5529918a33e35e846b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae524a02b21071c5529918a33e35e846b">&#9670;&nbsp;</a></span>SPI_MOSI_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_MOSI_PORT&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a6138e769139abf47d43e3dbc2e0d8415">USER_CONFIG_MOSI_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for MOSI control. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00073">73</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="aee89f642bb559e12db93e9f412ea185e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee89f642bb559e12db93e9f412ea185e">&#9670;&nbsp;</a></span>SPI_SCK_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_SCK_PIN&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a8a12e8356e8e88a7e1edb3e5b0f66a5b">USER_CONFIG_SCK_PIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin number for SCK. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00098">98</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a6f9b7e59b3a2efdc061e0c886c80e068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f9b7e59b3a2efdc061e0c886c80e068">&#9670;&nbsp;</a></span>SPI_SCK_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_SCK_PORT&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a44284d0f93cdb69aabaf04f547e49452">USER_CONFIG_SCK_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for SCK control. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00069">69</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="ad0da7cf15f73baef40e165338ab29c2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0da7cf15f73baef40e165338ab29c2a">&#9670;&nbsp;</a></span>SPI_TRIGGER_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_TRIGGER_PIN&#160;&#160;&#160;<a class="el" href="user__config_8h.html#afe245e869fc3e2bb21642925af8872c6">USER_CONFIG_TRIGGER_PIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin number for TRIGGER. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00096">96</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="ade902845feb9681f6550117ba7aefbf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade902845feb9681f6550117ba7aefbf0">&#9670;&nbsp;</a></span>SPI_TRIGGER_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_TRIGGER_PORT&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a9a1a62529e14b3d2d700cf57dc72fb4f">USER_CONFIG_TRIGGER_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for TRIGGER control. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00065">65</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a1fe60e7ed263fb0a42cf331107c96fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe60e7ed263fb0a42cf331107c96fe3">&#9670;&nbsp;</a></span>SPI_WPB_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_WPB_PIN&#160;&#160;&#160;<a class="el" href="user__config_8h.html#ae572a3f57e3737d798d9ed6e6bbcbdd6">USER_CONFIG_IO2_PIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin number for WPb - IO2. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00104">104</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
+
+</div>
+</div>
+<a id="a3b05d215ec24c6a73edb2152fd5e36ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b05d215ec24c6a73edb2152fd5e36ea">&#9670;&nbsp;</a></span>SPI_WPB_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_WPB_PORT&#160;&#160;&#160;<a class="el" href="user__config_8h.html#a60a5597786313d0ab11c94c6db4c618f">USER_CONFIG_IO2_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for WPb control. </p>
+
+<p class="definition">Definition at line <a class="el" href="spi__driver_8h_source.html#l00081">81</a> of file <a class="el" href="spi__driver_8h_source.html">spi_driver.h</a>.</p>
 
 </div>
 </div>
@@ -368,8 +685,8 @@ Only call this function once at the beginning of the program to configure the IO
 
 </div>
 </div>
-<a id="a5093710083d48f1cd5a21af6bede3789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5093710083d48f1cd5a21af6bede3789">&#9670;&nbsp;</a></span>SPI_Delay()</h2>
+<a id="a49fc6e76e2393e9d9876e76e5715365a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49fc6e76e2393e9d9876e76e5715365a">&#9670;&nbsp;</a></span>SPI_Delay()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,16 +695,16 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_Delay </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>delay_time</em></td><td>)</td>
+          <td class="paramname"><em>delayTime</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Performs a delay_time number of NOPs. </p>
+<p>Performs a delayTime number of NOPs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delay_time</td><td>The number of NOPs to be run. </td></tr>
+    <tr><td class="paramname">delayTime</td><td>The number of NOPs to be run. </td></tr>
   </table>
   </dd>
 </dl>
@@ -471,7 +788,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00356">356</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00355">355</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -498,12 +815,12 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00269">269</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00268">268</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
-<a id="ae30e3fbefdca1de90c1c5bf88593a13d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae30e3fbefdca1de90c1c5bf88593a13d">&#9670;&nbsp;</a></span>SPI_DualSendByte()</h2>
+<a id="ae71984b2f4f613cc106c8d2f6e71a5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae71984b2f4f613cc106c8d2f6e71a5d7">&#9670;&nbsp;</a></span>SPI_DualSendByte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -512,7 +829,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_DualSendByte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedByte</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -521,7 +838,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a byte along both MOSI and MISO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tx</td><td>Byte to be sent. </td></tr>
+    <tr><td class="paramname">transmittedByte</td><td>Byte to be sent. </td></tr>
   </table>
   </dd>
 </dl>
@@ -598,7 +915,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00326">326</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00325">325</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -626,7 +943,7 @@ Only call this function once at the beginning of the program to configure the IO
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>There must be a short, user inserted, delay after resetting with a JEDEC reset. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00493">493</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00492">492</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -886,7 +1203,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00407">407</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00406">406</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -913,12 +1230,12 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00293">293</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00292">292</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
-<a id="abb012f5ab43c05b4a9ae358dd1ec1bd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb012f5ab43c05b4a9ae358dd1ec1bd3">&#9670;&nbsp;</a></span>SPI_QuadSendByte()</h2>
+<a id="a7f1da27466aa9ed94c9230653d37e6e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f1da27466aa9ed94c9230653d37e6e0">&#9670;&nbsp;</a></span>SPI_QuadSendByte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -927,7 +1244,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_QuadSendByte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedByte</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -936,7 +1253,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a byte along MISO, MOSI, WPb, and HOLDb. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tx</td><td>Byte to be sent. </td></tr>
+    <tr><td class="paramname">transmittedByte</td><td>Byte to be sent. </td></tr>
   </table>
   </dd>
 </dl>
@@ -947,7 +1264,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00212">212</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00211">211</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -974,7 +1291,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00252">252</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00251">251</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -1005,8 +1322,8 @@ Only call this function once at the beginning of the program to configure the IO
 
 </div>
 </div>
-<a id="a69f275eebcc8ea4123081591a7142b40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69f275eebcc8ea4123081591a7142b40">&#9670;&nbsp;</a></span>SPI_SendBit()</h2>
+<a id="a954d152fe8e99174a6e46c15959049dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a954d152fe8e99174a6e46c15959049dd">&#9670;&nbsp;</a></span>SPI_SendBit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1015,7 +1332,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_SendBit </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>bit_tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedBit</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1024,7 +1341,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a single bit along MOSI while toggling the clock. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bit_tx</td><td>Bit to be sent, either 1 or 0. </td></tr>
+    <tr><td class="paramname">transmittedBit</td><td>Bit to be sent, either 1 or 0. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1039,8 +1356,8 @@ Only call this function once at the beginning of the program to configure the IO
 
 </div>
 </div>
-<a id="a90b2da1022a05fa89b1e92759c640a60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90b2da1022a05fa89b1e92759c640a60">&#9670;&nbsp;</a></span>SPI_SendByte()</h2>
+<a id="a72ac0633e04a5c40107d1e4e57f9196b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ac0633e04a5c40107d1e4e57f9196b">&#9670;&nbsp;</a></span>SPI_SendByte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1049,7 +1366,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_SendByte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedByte</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1058,7 +1375,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a byte along MOSI. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tx</td><td>Byte to be sent. </td></tr>
+    <tr><td class="paramname">transmittedByte</td><td>Byte to be sent. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1096,7 +1413,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00486">486</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00485">485</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -1104,7 +1421,7 @@ Only call this function once at the beginning of the program to configure the IO
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

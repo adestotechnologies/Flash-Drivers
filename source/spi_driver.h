@@ -52,6 +52,61 @@
 
 #include "user_config.h"
 
+/*!
+ * @brief Base register used for CSb control.
+ * @warning Use port D for Moneta shield, port C for Dataflash/AT25 shield.
+ * on K82 board.
+ * Port D = 0x400FF0C0U, Port C = 0x400FF080U
+ */
+#define SPI_CSB_PORT  USER_CONFIG_CSB_PORT
+/*!
+ * @brief Base register used for TRIGGER control.
+ */
+#define SPI_TRIGGER_PORT  USER_CONFIG_TRIGGER_PORT
+/*!
+ * @brief Base register used for SCK control.
+ */
+#define SPI_SCK_PORT  USER_CONFIG_SCK_PORT
+/*!
+ * @brief Base register used for MOSI control.
+ */
+#define SPI_MOSI_PORT USER_CONFIG_MOSI_PORT
+/*!
+ * @brief Base register used for MISO control.
+ */
+#define SPI_MISO_PORT USER_CONFIG_MISO_PORT
+/*!
+ * @brief Base register used for WPb control.
+ */
+#define SPI_WPB_PORT  USER_CONFIG_IO2_PORT
+/*!
+ * @brief Base register used for HOLDb control.
+ */
+#define SPI_HOLDB_PORT USER_CONFIG_IO3_PORT
+
+//! Pin number for CSb
+//! @warning Changes based on adapter used!
+//! Use pin 4 with Moneta, pin 1 with others on K82 board.
+//! @warning Don't forget to update USER_CONFIG_BoardInit()
+//! called from main! As is, both CSb pins are configured as outputs
+//! so the changes above and below in this file are the only things
+//! needed (pin and port numbers for CSb).
+#define SPI_CSB_PIN  USER_CONFIG_CSB_PIN
+//! Pin number for TRIGGER
+#define SPI_TRIGGER_PIN  USER_CONFIG_TRIGGER_PIN
+//! Pin number for SCK
+#define SPI_SCK_PIN  USER_CONFIG_SCK_PIN
+//! Pin number for MOSI
+#define SPI_MOSI_PIN USER_CONFIG_MOSI_PIN
+//! Pin number for MISO
+#define SPI_MISO_PIN USER_CONFIG_MISO_PIN
+//! Pin number for WPb - IO2
+#define SPI_WPB_PIN USER_CONFIG_IO2_PIN
+//! Pin number for HOLDb - IO3
+#define SPI_HOLDB_PIN USER_CONFIG_IO3_PIN
+//! Half clock period delay interval
+#define DELAY 5U
+
 #define SPI 0
 #define QPI 1
 
@@ -183,18 +238,18 @@ uint8_t SPI_DualReceiveByte();
 /*!
  * @brief Sends a byte along MOSI.
  *
- * @param tx Byte to be sent.
+ * @param transmittedByte Byte to be sent.
  * @retval void
  */
-void SPI_SendByte(uint8_t tx);
+void SPI_SendByte(uint8_t transmittedByte);
 
 /*!
  * @brief Sends a byte along both MOSI and MISO.
  *
- * @param tx Byte to be sent.
+ * @param transmittedByte Byte to be sent.
  * @retval void
  */
-void SPI_DualSendByte(uint8_t tx);
+void SPI_DualSendByte(uint8_t transmittedByte);
 
 /*!
  * @brief Toggles the clock: current_state->high->low
@@ -206,18 +261,18 @@ void SPI_ClockTick();
 /*!
  * @brief Sends a single bit along MOSI while toggling the clock.
  *
- * @param bit_tx Bit to be sent, either 1 or 0.
+ * @param transmittedBit Bit to be sent, either 1 or 0.
  * @retval void
  */
-void SPI_SendBit(uint8_t bit_tx);
+void SPI_SendBit(uint8_t transmittedBit);
 
 /*!
- * @brief Performs a delay_time number of NOPs
+ * @brief Performs a delayTime number of NOPs
  *
- * @param delay_time The number of NOPs to be run.
+ * @param delayTime The number of NOPs to be run.
  * @retval void
  */
-void SPI_Delay(uint32_t delay_time);
+void SPI_Delay(uint32_t delayTime);
 
 /*!
  * @brief Configure the IOs for SPI bit banging usage. 4 pins are
@@ -291,10 +346,10 @@ void SPI_ConfigureQuadSPIIOsOutput();
 /*!
  * @brief Sends a byte along MISO, MOSI, WPb, and HOLDb.
  *
- * @param tx Byte to be sent.
+ * @param transmittedByte Byte to be sent.
  * @retval void
  */
-void SPI_QuadSendByte(uint8_t tx);
+void SPI_QuadSendByte(uint8_t transmittedByte);
 
 /*!
  * @brief Receives a byte along MOSI, MISO, HOLDb, and WPb

@@ -1554,6 +1554,26 @@ uint32_t dataflashTest()
 		printf("RMW through Buffer 2 command successful.\n");
 	}
 #endif
+
+#if (PARTNO == AT45DQ161) || \
+	(PARTNO == AT45DQ321) || \
+	(ALL == 1)
+	dataflashQuadEnable();
+	dataflashWaitOnReady();
+	// Read data on 4 IO lines
+	dataflashQuadOutputRead(0, dataRead, 100);
+	if(!compareByteArrays(dataWrite, dataRead, 100))
+	{
+		printf("Error with Quad Output Read command.\n");
+		errorCount++;
+	}
+	else
+	{
+		printf("Quad Output Read command successful.\n");
+	}
+	dataflashQuadDisable();
+	dataflashWaitOnReady();
+#endif
 	// Test complete. Print messages and exit.
 	printf("\n\n#############################################\n\n");
 	printf("Testing complete.\n");

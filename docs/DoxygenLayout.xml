@@ -3,25 +3,14 @@
   <!-- Navigation index tabs for HTML output -->
 
   <navindex>
-    <tab type="mainpage" visible="yes" title=""/>
-    <tab type="user" url="@ref USER_CONFIGURATION_DESCRIPTION" visible="yes" title="Configuration Layer"/>
+    <tab type="mainpage" visible="yes" title="Read Me"/>
+    <tab type="user" url="@ref USER_CONFIGURATION_DESCRIPTION" visible="yes" title="Configuration"/>
     <tab type="user" url="@ref ADESTO_LAYER_DESCRIPTION" visible="yes" title="Adesto Layer"/>
     <tab type="user" url="@ref SPI_LAYER_DESCRIPTION" visible="yes" title="SPI Layer"/>
-    <!-- <tab type="modules" visible="yes" title="Modules" intro=""/>
-    <tab type="namespaces" visible="yes" title="">
-      <tab type="namespacelist" visible="yes" title="" intro=""/>
-      <tab type="namespacemembers" visible="yes" title="" intro=""/>
-    </tab> -->
-  <!--   <tab type="classes" visible="yes" title="">
-      <tab type="classlist" visible="yes" title="" intro=""/>
-      <tab type="classindex" visible="$ALPHABETICAL_INDEX" title=""/> 
-      <tab type="hierarchy" visible="yes" title="" intro=""/>
-      <tab type="classmembers" visible="yes" title="" intro=""/>
-    </tab> -->
-    <tab type="user" url="@ref PORTING_GUIDE" visible="yes" title="Porting Guide"/>
     <tab type="files" visible="yes" title="Files">
       <tab type="filelist" visible="yes" title="" intro=""/>
       <tab type="globals" visible="yes" title="" intro=""/>
+      <tab type="user" url="https://github.com/adestotechnologies/Flash-Drivers" visible="yes" title="Download Page"/>
     </tab>
     <tab type="user" url="@ref LICENSE" visible="yes" title="License"/>
     <tab type="examples" visible="yes" title="" intro=""/>  

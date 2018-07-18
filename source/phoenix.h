@@ -94,6 +94,7 @@ extern uint8_t txPhoenixInternalBuffer[MAXIMUM_TX_BYTES];
  * 1. QPI read manufacturing ID.
  * 2. QPI write and read commands.
  * 3. QPI read commands
+ * 4. Dual Input Byte/Page Program
  *
  * At each stage various messages will confirm that the tests have passed or failed.
  * Failure is expected during power down modes, as the inputs lines are not driven, thus
@@ -162,29 +163,6 @@ void phoenixWriteEnable();
  * @retval void
  */
 void phoenixWriteDisable();
-
-/*!
- * @brief OPCODE: 0x05 <br>
- * Reads the value in the device status register (byte 1).
- *
- * @param rxBuffer Pointer to the byte array in which the read data will be stored.
- * Must have at least 1 element.
- *
- * @retval void
- */
-void phoenixReadSRB1(uint8_t *rxBuffer);
-
-/*!
- * @brief OPCODE: 0x01 <br>
- * Writes the value in data to the status register byte 1, or bytes 1 and 2.
- * At least 1 byte needs to be written.
- *
- * @param txBuffer Byte(s) of data to be written into the status register.
- * @param txNumBytes The number of bytes to be transmitted, either 1 or 2.
- *
- * @retval void
- */
-void phoenixWriteSRB(uint8_t *txBuffer, uint8_t txNumBytes);
 
 /*!
  * @brief OPCODE: 0x03 <br>
@@ -318,7 +296,49 @@ void phoenixReadID(uint8_t *rxBuffer);
  */
 void phoenixReadMID(uint8_t *rxBuffer);
 #endif
+#if (PARTNO == AT25SF641) 	|| \
+	(PARTNO == AT25SF321)	|| \
+	(PARTNO == AT25SF161) 	|| \
+	(PARTNO == AT25SF081) 	|| \
+	(PARTNO == AT25SF041) 	|| \
+	(PARTNO == AT25SL128A) 	|| \
+	(PARTNO == AT25SL641) 	|| \
+	(PARTNO == AT25SL321) 	|| \
+	(PARTNO == AT25QL128A) 	|| \
+	(PARTNO == AT25QL641) 	|| \
+	(PARTNO == AT25QL321) 	|| \
+	(PARTNO == AT25QF641)   || \
+	(ALL == 1)
+/*!
+ * @brief OPCODE: 0x01 <br>
+ * Writes the value in data to the status register byte 1, or bytes 1 and 2.
+ * At least 1 byte needs to be written.
+ *
+ * @param txBuffer Byte(s) of data to be written into the status register.
+ * @param txNumBytes The number of bytes to be transmitted, either 1 or 2.
+ *
+ * @retval void
+ */
+void phoenixWriteSR(uint8_t *txBuffer, uint8_t txNumBytes);
+#endif
 
+#if (PARTNO == AT25SF641) 	|| \
+	(PARTNO == AT25SL128A) 	|| \
+	(PARTNO == AT25SL641) 	|| \
+	(PARTNO == AT25SL321) 	|| \
+	(PARTNO == AT25QL128A) 	|| \
+ 	(PARTNO == AT25QL641) 	|| \
+	(PARTNO == AT25QL321) 	|| \
+	(PARTNO == AT25QF641)   || \
+	(PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)	|| \
+	(ALL == 1)
+void phoenixWriteSRB1(uint8_t regVal);
+void phoenixWriteSRB2(uint8_t regVal);
+#endif
 
 #if (PARTNO == AT25SF641) 	|| \
 	(PARTNO == AT25SF321)	|| \
@@ -342,15 +362,20 @@ void phoenixReadMID(uint8_t *rxBuffer);
 void phoenixWriteEnableVolatileSR();
 
 /*!
+ * @brief OPCODE: 0x05 <br>
+ * Reads the value in the device status register (byte 1).
+ *
+ * @retval Byte stored in the status register.
+ */
+uint8_t phoenixReadSRB1();
+
+/*!
  * @brief OPCODE: 0x35 <br>
  * Reads the value in the device status register (byte 2).
  *
- * @param rxBuffer Pointer to the byte array in which the read data will be stored.
- * Must have at least 1 element.
- *
- * @retval void
+ * @retval Byte stored in the status register.
  */
-void phoenixReadSRB2(uint8_t *rxBuffer);
+uint8_t phoenixReadSRB2();
 
 /*!
  * @brief OPCODE: 0x3B <br>
@@ -549,7 +574,6 @@ void phoenixEraseProgramSuspend();
 void phoenixEraseProgramResume();
 #endif
 
-
 #if (PARTNO == AT25SF641) 	|| \
 	(PARTNO == AT25SL128A)  || \
 	(PARTNO == AT25SL641) 	|| \
@@ -623,6 +647,14 @@ void phoenixExitSecuredOTP();
 	(PARTNO == AT25DF321A)  || \
 	(PARTNO == AT25DF641A)	|| \
 	(ALL == 1)
+/*!
+ * @brief OPCODE: 0x05 <br>
+ * Reads the value in the device status register (byte 1 and 2).
+ *
+ * @retval void
+ */
+void phoenixReadSR(uint8_t *rxBuffer);
+
 /*!
  * @brief OPCODE: 0xA2 <br>
  * Programs 'txNumBytes' bytes of data starting at the address indicated by address

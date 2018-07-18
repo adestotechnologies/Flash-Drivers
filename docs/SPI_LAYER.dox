@@ -1,8 +1,31 @@
 /*!
   @page SPI_LAYER_DESCRIPTION SPI Layer
   
-  @details The SPI layer is used as a SPI driver to communicate with the flash device. This is accomplished through the use of bit banging. As such, the SPI layer is built on top of a functional, MCU specific GPIO driver. Once a GPIO driver has been connected to this layer (see the @ref PORTING_GUIDE for a how-to), function calls from the Adesto or SPI layers should work.\n\n
-  The SPI layer contains functionality for sending and receiving data bytes via SPI. Included are functions such as SPI_Exchange(), SPI_DualExchange(), and SPI_QuadExchange(). Documentation for the SPI driver is comprehensive and can be found in the header file SPI_driver.h.  
+  @details The SPI layer is used as a SPI driver to communicate with the flash device. This is accomplished through the use of bit banging. As such, the SPI layer is built on top of a functional, MCU specific GPIO driver. Once a GPIO driver has been connected to this layer (see the @ref USER_CONFIGURATION_DESCRIPTION for a how-to), function calls from the Adesto or SPI layers should work. Code for this layer consists of a header and c file which contain functions for single, dual, and quad SPI communication. Adesto layer commands access the SPI layer to communicate with the flash device. The SPI layer calls functions from the user configurable config.h and config.c files. See the @ref USER_CONFIGURATION_DESCRIPTION documentation for more details.\n\n
+
+  Reading and writing to the the IOs occurs after the falling edge of the clock but before the rising edge in the current implementation of the SPI drivers. This behavior can be seen within the SPI_ReceiveByte() and SPI_SendByte() functions where data is sampled or written, then the clock toggled from low to high.\n\n
+
+  Users are intended to access the larger SPI transactions functions which handle the order of bytes transmitted, configuration of the IOs, and bit/byte shifting. These functions allow the user to shape the SPI transaction to include dummy bytes and communicate portions of the message using 1, 2, or 4 IOs. These transactions are accomplished through the following 3 functions calls:
+  -# SPI_Exchange()
+  -# SPI_DualExchange()
+  -# SPI_QuadExchange()
+
+  Documentation for each of these functions details how the specifics of each argument and how the transaction is carried out. In summary, the user passes in 2 byte arrays; one for trasnmitting and one for receiving. The user also specifies the number of bytes being transmitted or received from 0-N (N being determined usually by the page size of the device being used, but ultimately variable and dependant on what the user needs). The number of dummy bytes is also passed in, the value independant of the transmitted number of bytes. The dual and quad exchange functions include another parameter which determines the number of bytes from the MCU transmitted SPI exchange to be sent in single SPI (transmission along MOSI alone). This number must be less than or equal to the total number of transmitted bytes. With this variable the user can send a quad or dual communication in a range of formats from 1-1-2 to 4-4-4 or even 0-4-4 (opcode-address-data, values representing the number of IOs used in the transaction of each component). For example, a user wishes to send a 1-byte opcode along MOSI, a 3-byte address along 4 IOs, 2 dummy bytes after the address, and receive a 5-byte data packet along 4 IOs. This transaction would be classified as 1-4-4, and the corresponding function call would look like this:
+
+  @code SPI_QuadExchange(1, txBuffer, 4, rxBuffer, 5, 2) @endcode
+
+  The arguments in order are explained as follows:
+  -# \b 1 - The single opcode byte sent in standard SPI along MOSI.
+  -# \b txBuffer - A pointer corresponding to the buffer containing the opcode and 3 address bytes.
+  -# \b 4 - The total number of bytes being transmitted; 4. 1 for opcode and 3 for address.
+  -# \b rxBufer - The byte array where the received data will be stored.
+  -# \b 5 - The total number of bytes to be received; 5 bytes.
+  -# \b 2 - The number of dummy bytes being transmitted; 2 bytes.
+
+  Since only 1 byte is sent in standard SPI mode, all communication after the opcode is done with 4 IOs, \b including the dummy bytes! The transaction looks like this when viewed with a logic analyzer:
+
+  @image html "quad_exchange144.png"
+  <center><b>Quad Exchange:</b> Sample SPI transaction showing a 1-4-4 communication via SPI_QuadExchange().</center>
 
   @section SPI_LAYER_LINKS File Links
 	@ref SPI_LAYER
@@ -10,7 +33,6 @@
 
 /*!
   @defgroup SPI_LAYER SPI Layer
-  @brief All SPI layer files.
 
-  @details This group includes all SPI layer files.
+  @details Source code for the flash drivers can be found at the following URL: <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">Download ZIP</a>
  */

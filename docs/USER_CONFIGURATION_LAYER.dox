@@ -1,5 +1,39 @@
 /*!
-	@page USER_CONFIGURATION_DESCRIPTION User Configuration Layer
+	@page USER_CONFIGURATION_DESCRIPTION User Configuration
 
-	@details The user configuration layer gives the user a one-stop location to customize the driver to their specific MCU and flash device. Through the use of conditional compilation, function calls, and various c-defines the user can specify the GPIO driver used in their project and tie the SPI IO lines to specific ports and pins.
+	@details This layer gives the user a one-stop location to customize the driver to their specific MCU and flash device. Through the use of conditional compilation, function calls, and various c-defines the user can specify the GPIO driver used in their project and tie the SPI IO lines to specific ports and pins.
+	
+	Porting this project to a specific MCU involves declaring the ports and pins connected to the flash device, defining various functions tied to the SPI layer, and declaring the flash device used. This guide is broken into sections addressing each of these steps. Once they have been completed, the Adesto layer should be fully functional.
+
+	@section PORTS_AND_PINS Ports and Pins
+	@details The port and pin numbers used in this project must be defined based on the MCU and board being used. The definitions should be placed in user_config.h. The port and pin information is used when initializing and toggling GPIOs, and these 2 identiffiers should be all that's needed. The port/pins that need defining are as follows:
+	-# @ref USER_CONFIG_CSB_PORT
+	-# @ref USER_CONFIG_CSB_PIN
+	-# @ref USER_CONFIG_TRIGGER_PORT
+	-# @ref USER_CONFIG_TRIGGER_PIN
+	-# @ref USER_CONFIG_SCK_PORT
+	-# @ref USER_CONFIG_SCK_PIN
+	-# @ref USER_CONFIG_MOSI_PORT
+	-# @ref USER_CONFIG_MOSI_PIN
+	-# @ref USER_CONFIG_MISO_PORT
+	-# @ref USER_CONFIG_MISO_PIN
+	-# @ref USER_CONFIG_IO2_PORT
+	-# @ref USER_CONFIG_IO2_PIN
+	-# @ref USER_CONFIG_IO3_PORT
+	-# @ref USER_CONFIG_IO3_PIN
+
+	The port should be an address, while the pin should be pin number within the port, although the user may implement the functions that use these data variables differently. See the following section to see how these port and pin numbers are used.
+
+	@section SPI_USER_FUNCTIONS SPI User Defined Functions
+	@details The user must also define the following functions within the user configuration layer:
+	-# USER_CONFIG_BoardInit()
+	-# USER_CONFIG_PinInit()
+	-# USER_CONFIG_PinClear()
+	-# USER_CONFIG_PinSet()
+	-# USER_CONFIG_PinRead()
+
+	As the names imply, these functions are the hooks to a GPIO driver specific to the MCU being used. The functions must initialize a pin on single port as either an input or an output, and set the level. The documentation for the functions describe their behaviour and should be referenced when redefining them.
+
+	@section FLASH_DEVICE Flash Device Selected 
+	@details While the SPI layer bit-banged driver is built to cover the full range of Adesto SPI flash products, the Adesto layer is meant to be general purpose within a given family. Almost all features are declared/defined. As such, some functionality may not be supported on a device within a certain family. To differentiate between devices in the general Adesto layer, conditional compilation 'locks' and 'unlocks' the opcodes and related functions. Before using the driver a user must specify the flash device being used in user_config.h with @ref PARTNO, a list of which can be seen within the comments of that file. (EX: '#define PARTNO AT45DB041E').
  */

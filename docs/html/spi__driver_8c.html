@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Adesto Flash Drivers: Adesto-Flash-Drivers/source/spi_driver.c File Reference</title>
+<title>Adesto Flash Drivers: Flash-Drivers/source/spi_driver.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_69504257db341e5b74fc84a56c3eacab.html">Adesto-Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_52beb24232acd37e6e939e109eb586c2.html">source</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97eae8f018b86b66cbd5d5c55269fecf.html">Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_8833f0deafcb5b7d589ca41553802abd.html">source</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -112,24 +113,24 @@ Functions</h2></td></tr>
 <tr class="memitem:af86bb49ff4a65743e82910a4c1bc512d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#af86bb49ff4a65743e82910a4c1bc512d">SPI_ConfigureQuadSPIIOsOutput</a> ()</td></tr>
 <tr class="memdesc:af86bb49ff4a65743e82910a4c1bc512d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures SPIO IOs for quad output. This changes the MISO pin to an output so that the master can drive all 4 IOs.  <a href="#af86bb49ff4a65743e82910a4c1bc512d">More...</a><br /></td></tr>
 <tr class="separator:af86bb49ff4a65743e82910a4c1bc512d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5093710083d48f1cd5a21af6bede3789"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a5093710083d48f1cd5a21af6bede3789">SPI_Delay</a> (uint32_t delay_time)</td></tr>
-<tr class="memdesc:a5093710083d48f1cd5a21af6bede3789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a delay_time number of NOPs.  <a href="#a5093710083d48f1cd5a21af6bede3789">More...</a><br /></td></tr>
-<tr class="separator:a5093710083d48f1cd5a21af6bede3789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49fc6e76e2393e9d9876e76e5715365a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a49fc6e76e2393e9d9876e76e5715365a">SPI_Delay</a> (uint32_t delayTime)</td></tr>
+<tr class="memdesc:a49fc6e76e2393e9d9876e76e5715365a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a delayTime number of NOPs.  <a href="#a49fc6e76e2393e9d9876e76e5715365a">More...</a><br /></td></tr>
+<tr class="separator:a49fc6e76e2393e9d9876e76e5715365a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786323fc5d9796cce39741889c686ddf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a786323fc5d9796cce39741889c686ddf">SPI_ClockTick</a> ()</td></tr>
 <tr class="memdesc:a786323fc5d9796cce39741889c686ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the clock: current_state-&gt;high-&gt;low.  <a href="#a786323fc5d9796cce39741889c686ddf">More...</a><br /></td></tr>
 <tr class="separator:a786323fc5d9796cce39741889c686ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f275eebcc8ea4123081591a7142b40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a69f275eebcc8ea4123081591a7142b40">SPI_SendBit</a> (uint8_t bit_tx)</td></tr>
-<tr class="memdesc:a69f275eebcc8ea4123081591a7142b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single bit along MOSI while toggling the clock.  <a href="#a69f275eebcc8ea4123081591a7142b40">More...</a><br /></td></tr>
-<tr class="separator:a69f275eebcc8ea4123081591a7142b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90b2da1022a05fa89b1e92759c640a60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a90b2da1022a05fa89b1e92759c640a60">SPI_SendByte</a> (uint8_t tx)</td></tr>
-<tr class="memdesc:a90b2da1022a05fa89b1e92759c640a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MOSI.  <a href="#a90b2da1022a05fa89b1e92759c640a60">More...</a><br /></td></tr>
-<tr class="separator:a90b2da1022a05fa89b1e92759c640a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae30e3fbefdca1de90c1c5bf88593a13d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#ae30e3fbefdca1de90c1c5bf88593a13d">SPI_DualSendByte</a> (uint8_t tx)</td></tr>
-<tr class="memdesc:ae30e3fbefdca1de90c1c5bf88593a13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along both MOSI and MISO.  <a href="#ae30e3fbefdca1de90c1c5bf88593a13d">More...</a><br /></td></tr>
-<tr class="separator:ae30e3fbefdca1de90c1c5bf88593a13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb012f5ab43c05b4a9ae358dd1ec1bd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#abb012f5ab43c05b4a9ae358dd1ec1bd3">SPI_QuadSendByte</a> (uint8_t tx)</td></tr>
-<tr class="memdesc:abb012f5ab43c05b4a9ae358dd1ec1bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MISO, MOSI, WPb, and HOLDb.  <a href="#abb012f5ab43c05b4a9ae358dd1ec1bd3">More...</a><br /></td></tr>
-<tr class="separator:abb012f5ab43c05b4a9ae358dd1ec1bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a954d152fe8e99174a6e46c15959049dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a954d152fe8e99174a6e46c15959049dd">SPI_SendBit</a> (uint8_t transmittedBit)</td></tr>
+<tr class="memdesc:a954d152fe8e99174a6e46c15959049dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single bit along MOSI while toggling the clock.  <a href="#a954d152fe8e99174a6e46c15959049dd">More...</a><br /></td></tr>
+<tr class="separator:a954d152fe8e99174a6e46c15959049dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72ac0633e04a5c40107d1e4e57f9196b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a72ac0633e04a5c40107d1e4e57f9196b">SPI_SendByte</a> (uint8_t transmittedByte)</td></tr>
+<tr class="memdesc:a72ac0633e04a5c40107d1e4e57f9196b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MOSI.  <a href="#a72ac0633e04a5c40107d1e4e57f9196b">More...</a><br /></td></tr>
+<tr class="separator:a72ac0633e04a5c40107d1e4e57f9196b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae71984b2f4f613cc106c8d2f6e71a5d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#ae71984b2f4f613cc106c8d2f6e71a5d7">SPI_DualSendByte</a> (uint8_t transmittedByte)</td></tr>
+<tr class="memdesc:ae71984b2f4f613cc106c8d2f6e71a5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along both MOSI and MISO.  <a href="#ae71984b2f4f613cc106c8d2f6e71a5d7">More...</a><br /></td></tr>
+<tr class="separator:ae71984b2f4f613cc106c8d2f6e71a5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f1da27466aa9ed94c9230653d37e6e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a7f1da27466aa9ed94c9230653d37e6e0">SPI_QuadSendByte</a> (uint8_t transmittedByte)</td></tr>
+<tr class="memdesc:a7f1da27466aa9ed94c9230653d37e6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte along MISO, MOSI, WPb, and HOLDb.  <a href="#a7f1da27466aa9ed94c9230653d37e6e0">More...</a><br /></td></tr>
+<tr class="separator:a7f1da27466aa9ed94c9230653d37e6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cdbe217fe5a1b913b21286daeaeb5b1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi__driver_8c.html#a9cdbe217fe5a1b913b21286daeaeb5b1">SPI_ReceiveByte</a> ()</td></tr>
 <tr class="memdesc:a9cdbe217fe5a1b913b21286daeaeb5b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a byte along MISO and returns the value received.  <a href="#a9cdbe217fe5a1b913b21286daeaeb5b1">More...</a><br /></td></tr>
 <tr class="separator:a9cdbe217fe5a1b913b21286daeaeb5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -325,8 +326,8 @@ Only call this function once at the beginning of the program to configure the IO
 
 </div>
 </div>
-<a id="a5093710083d48f1cd5a21af6bede3789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5093710083d48f1cd5a21af6bede3789">&#9670;&nbsp;</a></span>SPI_Delay()</h2>
+<a id="a49fc6e76e2393e9d9876e76e5715365a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49fc6e76e2393e9d9876e76e5715365a">&#9670;&nbsp;</a></span>SPI_Delay()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,16 +336,16 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_Delay </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>delay_time</em></td><td>)</td>
+          <td class="paramname"><em>delayTime</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Performs a delay_time number of NOPs. </p>
+<p>Performs a delayTime number of NOPs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delay_time</td><td>The number of NOPs to be run. </td></tr>
+    <tr><td class="paramname">delayTime</td><td>The number of NOPs to be run. </td></tr>
   </table>
   </dd>
 </dl>
@@ -428,7 +429,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00356">356</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00355">355</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -455,12 +456,12 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00269">269</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00268">268</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
-<a id="ae30e3fbefdca1de90c1c5bf88593a13d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae30e3fbefdca1de90c1c5bf88593a13d">&#9670;&nbsp;</a></span>SPI_DualSendByte()</h2>
+<a id="ae71984b2f4f613cc106c8d2f6e71a5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae71984b2f4f613cc106c8d2f6e71a5d7">&#9670;&nbsp;</a></span>SPI_DualSendByte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -469,7 +470,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_DualSendByte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedByte</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -478,7 +479,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a byte along both MOSI and MISO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tx</td><td>Byte to be sent. </td></tr>
+    <tr><td class="paramname">transmittedByte</td><td>Byte to be sent. </td></tr>
   </table>
   </dd>
 </dl>
@@ -555,7 +556,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00326">326</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00325">325</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -583,7 +584,7 @@ Only call this function once at the beginning of the program to configure the IO
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>There must be a short, user inserted, delay after resetting with a JEDEC reset. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00493">493</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00492">492</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -843,7 +844,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00407">407</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00406">406</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -870,12 +871,12 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00293">293</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00292">292</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
-<a id="abb012f5ab43c05b4a9ae358dd1ec1bd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb012f5ab43c05b4a9ae358dd1ec1bd3">&#9670;&nbsp;</a></span>SPI_QuadSendByte()</h2>
+<a id="a7f1da27466aa9ed94c9230653d37e6e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f1da27466aa9ed94c9230653d37e6e0">&#9670;&nbsp;</a></span>SPI_QuadSendByte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -884,7 +885,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_QuadSendByte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedByte</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -893,7 +894,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a byte along MISO, MOSI, WPb, and HOLDb. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tx</td><td>Byte to be sent. </td></tr>
+    <tr><td class="paramname">transmittedByte</td><td>Byte to be sent. </td></tr>
   </table>
   </dd>
 </dl>
@@ -904,7 +905,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00212">212</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00211">211</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -931,7 +932,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00252">252</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00251">251</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -962,8 +963,8 @@ Only call this function once at the beginning of the program to configure the IO
 
 </div>
 </div>
-<a id="a69f275eebcc8ea4123081591a7142b40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69f275eebcc8ea4123081591a7142b40">&#9670;&nbsp;</a></span>SPI_SendBit()</h2>
+<a id="a954d152fe8e99174a6e46c15959049dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a954d152fe8e99174a6e46c15959049dd">&#9670;&nbsp;</a></span>SPI_SendBit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -972,7 +973,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_SendBit </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>bit_tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedBit</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -981,7 +982,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a single bit along MOSI while toggling the clock. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bit_tx</td><td>Bit to be sent, either 1 or 0. </td></tr>
+    <tr><td class="paramname">transmittedBit</td><td>Bit to be sent, either 1 or 0. </td></tr>
   </table>
   </dd>
 </dl>
@@ -996,8 +997,8 @@ Only call this function once at the beginning of the program to configure the IO
 
 </div>
 </div>
-<a id="a90b2da1022a05fa89b1e92759c640a60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90b2da1022a05fa89b1e92759c640a60">&#9670;&nbsp;</a></span>SPI_SendByte()</h2>
+<a id="a72ac0633e04a5c40107d1e4e57f9196b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ac0633e04a5c40107d1e4e57f9196b">&#9670;&nbsp;</a></span>SPI_SendByte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1006,7 +1007,7 @@ Only call this function once at the beginning of the program to configure the IO
           <td class="memname">void SPI_SendByte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td class="paramname"><em>transmittedByte</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1015,7 +1016,7 @@ Only call this function once at the beginning of the program to configure the IO
 <p>Sends a byte along MOSI. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tx</td><td>Byte to be sent. </td></tr>
+    <tr><td class="paramname">transmittedByte</td><td>Byte to be sent. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1053,7 +1054,7 @@ Only call this function once at the beginning of the program to configure the IO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00486">486</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spi__driver_8c_source.html#l00485">485</a> of file <a class="el" href="spi__driver_8c_source.html">spi_driver.c</a>.</p>
 
 </div>
 </div>
@@ -1061,7 +1062,7 @@ Only call this function once at the beginning of the program to configure the IO
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

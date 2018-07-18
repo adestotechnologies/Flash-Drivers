@@ -92,12 +92,23 @@
 #define AT25QL128A 	43
 #define AT25QF641 	44
 
-#if (PARTNO > 45)
+#if (PARTNO < 1)
+#error Invalid PARTNO.
+#elif (PARTNO < 2)
+#define MONETA_DEVICE
+#elif (PARTNO < 16)
+#define FUSION_DEVICE
+#elif (PARTNO < 28)
+#define DATAFLASH_DEVICE
+#elif (PARTNO < 45)
+#define PHOENIX_DEVICE
+#else
 #error Part number not defined.
 #endif
 
 // Moneta commands
-#if (PARTNO == RM331x)
+#if (PARTNO == RM331x)|| \
+	(ALL == 1)
 #define CMD_MONETA_WRITE_ENABLE  	   0x06
 #define CMD_MONETA_WRITE_DISABLE 	   0x04
 #define CMD_MONETA_READ_SRB1 	 	   0x05
@@ -341,8 +352,6 @@
 	(ALL == 1)
 #define CMD_PHOENIX_WRITE_ENABLE				0x06
 #define CMD_PHOENIX_WRITE_DISABLE				0x04
-#define CMD_PHOENIX_READ_SRB1					0x05
-#define CMD_PHOENIX_WRITE_SR					0x01
 #define CMD_PHOENIX_READ_ARRAY_LF				0x03
 #define CMD_PHOENIX_READ_ARRAY_HF				0x0B
 #define CMD_PHOENIX_BYTE_PAGE_PROGRAM			0x02
@@ -355,6 +364,30 @@
 #define CMD_PHOENIX_RESUME_FROM_DPD				0xAB
 #define CMD_PHOENIX_READ_ID						0x90
 #define CMD_PHOENIX_READ_MID					0x9F
+#endif
+#if (PARTNO == AT25SF321)	|| \
+	(PARTNO == AT25SF161) 	|| \
+	(PARTNO == AT25SF081) 	|| \
+	(PARTNO == AT25SF041) 	|| \
+	(ALL == 1)
+#define CMD_PHOENIX_WRITE_SR					0x01
+#endif
+#if (PARTNO == AT25SF641) 	|| \
+	(PARTNO == AT25SL128A) 	|| \
+	(PARTNO == AT25SL641) 	|| \
+	(PARTNO == AT25SL321) 	|| \
+	(PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A) 	|| \
+	(PARTNO == AT25DF321A) 	|| \
+	(PARTNO == AT25DF641A) 	|| \
+	(PARTNO == AT25QL128A) 	|| \
+ 	(PARTNO == AT25QL641) 	|| \
+	(PARTNO == AT25QL321) 	|| \
+	(PARTNO == AT25QF641)   || \
+	(ALL == 1)
+#define CMD_PHOENIX_WRITE_SRB1					0x01
+#define CMD_PHOENIX_WRITE_SRB2					0x31
 #endif
 #if (PARTNO == AT25SF641) 	|| \
 	(PARTNO == AT25SF321)	|| \
@@ -370,6 +403,8 @@
 	(PARTNO == AT25QF641)   || \
 	(ALL == 1)
 #define CMD_PHOENIX_WE_FOR_VOLATILE_SR			0x50
+#define CMD_PHOENIX_WRITE_SR					0x01
+#define CMD_PHOENIX_READ_SRB1					0x05
 #define CMD_PHOENIX_READ_SRB2					0x35
 #define CMD_PHOENIX_DUAL_OUTPUT_READ			0x3B
 #define CMD_PHOENIX_DUAL_IO_READ				0xBB
@@ -419,6 +454,7 @@
 	(PARTNO == AT25DF321A) 	|| \
 	(PARTNO == AT25DF641A)  || \
 	(ALL == 1)
+#define CMD_PHOENIX_READ_SR					0x05
 #define CMD_PHOENIX_DUAL_BYTE_PAGE_PROGRAM 	0xA2
 #define CMD_PHOENIX_PROGRAM_ERASE_SUSPEND	0xB0
 #define CMD_PHOENIX_PROGRAM_ERASE_RESUME 	0xD0

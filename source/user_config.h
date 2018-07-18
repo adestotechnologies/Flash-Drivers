@@ -78,13 +78,13 @@
 
 /*
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
- * ---------------------- Part Number --------------------
+ * --------------------- Part Number ---------------------
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  */
 
 /*! Definition of part number. */
-#define PARTNO RM331x /* <- Replace with the device being used. */
-#define ALL 1
+#define PARTNO ATxxxx /* <- Replace with the device being used. */
+#define ALL 1 /* <- Replace with 0 if selecting a part above. */
 
 /*
  * List of supported parts:
@@ -142,56 +142,51 @@
 
 /*!
  * @brief Base register used for CSb control.
- * @warning Use port D for Moneta shield, port C for Dataflash/AT25 shield.
- * on K82 board.
- * Port D = 0x400FF0C0U, Port C = 0x400FF080U
  */
-#define SPI_CSB_PORT  0x400FF0C0U
+#define USER_CONFIG_CSB_PORT  GPIO3_BASE
 /*!
  * @brief Base register used for TRIGGER control.
  */
-#define SPI_TRIGGER_PORT  0x400FF080U
+#define USER_CONFIG_TRIGGER_PORT  GPIO3_BASE
 /*!
  * @brief Base register used for SCK control.
  */
-#define SPI_SCK_PORT  0x400FF0C0U
+#define USER_CONFIG_SCK_PORT  GPIO3_BASE
 /*!
  * @brief Base register used for MOSI control.
  */
-#define SPI_MOSI_PORT 0x400FF0C0U
+#define USER_CONFIG_MOSI_PORT GPIO3_BASE
 /*!
  * @brief Base register used for MISO control.
  */
-#define SPI_MISO_PORT 0x400FF0C0U
+#define USER_CONFIG_MISO_PORT GPIO3_BASE
 /*!
- * @brief Base register used for WPb control.
+ * @brief Base register used for IO2 control.
  */
-#define SPI_WPB_PORT  0x400FF0C0U
+#define USER_CONFIG_IO2_PORT  GPIO3_BASE
 /*!
- * @brief Base register used for HOLDb control.
+ * @brief Base register used for IO3 control.
  */
-#define SPI_HOLDB_PORT 0x400FF080U
+#define USER_CONFIG_IO3_PORT GPIO3_BASE
 
 //! Pin number for CSb
-//! @warning Changes based on adapter used!
-//! Use pin 4 with Moneta, pin 1 with others on K82 board.
 //! @warning Don't forget to update USER_CONFIG_BoardInit()
 //! called from main! As is, both CSb pins are configured as outputs
 //! so the changes above and below in this file are the only things
 //! needed (pin and port numbers for CSb).
-#define SPI_CSB_PIN  4U
-//! Pin number for TRIIGER
-#define SPI_TRIGGER_PIN  3U
+#define USER_CONFIG_CSB_PIN  6U
+//! Pin number for TRIGGER
+#define USER_CONFIG_TRIGGER_PIN  2U
 //! Pin number for SCK
-#define SPI_SCK_PIN  1U
+#define USER_CONFIG_SCK_PIN  7U
 //! Pin number for MOSI
-#define SPI_MOSI_PIN 2U
+#define USER_CONFIG_MOSI_PIN 8U
 //! Pin number for MISO
-#define SPI_MISO_PIN 3U
-//! Pin number for WPb
-#define SPI_WPB_PIN 4U
-//! Pin number for HOLDb
-#define SPI_HOLDB_PIN 5U
+#define USER_CONFIG_MISO_PIN 9U
+//! Pin number for IO2
+#define USER_CONFIG_IO2_PIN 10U
+//! Pin number for IO3
+#define USER_CONFIG_IO3_PIN 11U
 //! Half clock period delay interval
 #define DELAY 5U
 
@@ -254,7 +249,7 @@ uint8_t USER_CONFIG_PinRead(uint32_t port, uint32_t pin);
 
 /*
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
- * ----------------------- Board Init --------------------
+ * ---------------------- Board Init ---------------------
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  */
 

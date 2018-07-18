@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -190,15 +191,15 @@ $(function() {
 , <a class="el" href="phoenix_8h.html#a97ae51ebf1528842cb92264c5323bd8d">phoenix.h</a>
 </li>
 <li>phoenixReadArrayLowFreq()
-: <a class="el" href="phoenix_8h.html#ac7702be03603742748c04fe70ef60b9c">phoenix.h</a>
-, <a class="el" href="phoenix_8c.html#ac7702be03603742748c04fe70ef60b9c">phoenix.c</a>
+: <a class="el" href="phoenix_8c.html#ac7702be03603742748c04fe70ef60b9c">phoenix.c</a>
+, <a class="el" href="phoenix_8h.html#ac7702be03603742748c04fe70ef60b9c">phoenix.h</a>
 </li>
 <li>phoenixReadID()
 : <a class="el" href="phoenix_8c.html#a0378f779bbf46738b7761e4a4d4bd786">phoenix.c</a>
 , <a class="el" href="phoenix_8h.html#a0378f779bbf46738b7761e4a4d4bd786">phoenix.h</a>
 </li>
 <li>phoenixReadLockdownReg()
-: <a class="el" href="phoenix_8c.html#aa8437835b10aa1ad4c1b0963ba68c707">phoenix.c</a>
+: <a class="el" href="phoenix_8c.html#a1c96819b20238907ec8bdf0f338fda35">phoenix.c</a>
 , <a class="el" href="phoenix_8h.html#a1c96819b20238907ec8bdf0f338fda35">phoenix.h</a>
 </li>
 <li>phoenixReadMID()
@@ -206,20 +207,24 @@ $(function() {
 , <a class="el" href="phoenix_8h.html#aa3d7f8373e5d2e44077b42186901e6aa">phoenix.h</a>
 </li>
 <li>phoenixReadSectorProtectionReg()
-: <a class="el" href="phoenix_8c.html#a931fbdb4f09e52d1d4083500e442f877">phoenix.c</a>
-, <a class="el" href="phoenix_8h.html#a931fbdb4f09e52d1d4083500e442f877">phoenix.h</a>
+: <a class="el" href="phoenix_8h.html#a931fbdb4f09e52d1d4083500e442f877">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#a931fbdb4f09e52d1d4083500e442f877">phoenix.c</a>
 </li>
 <li>phoenixReadSecurityRegisters()
-: <a class="el" href="phoenix_8h.html#a7b7f42ffd34ee9dd61de85ab722292a9">phoenix.h</a>
-, <a class="el" href="phoenix_8c.html#a7b7f42ffd34ee9dd61de85ab722292a9">phoenix.c</a>
+: <a class="el" href="phoenix_8c.html#a7b7f42ffd34ee9dd61de85ab722292a9">phoenix.c</a>
+, <a class="el" href="phoenix_8h.html#a7b7f42ffd34ee9dd61de85ab722292a9">phoenix.h</a>
+</li>
+<li>phoenixReadSR()
+: <a class="el" href="phoenix_8h.html#a30a0c12b530ad6758502b0cf9f656df7">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#a30a0c12b530ad6758502b0cf9f656df7">phoenix.c</a>
 </li>
 <li>phoenixReadSRB1()
-: <a class="el" href="phoenix_8h.html#a0c6d00cd82027ca39b83299d761cfd4c">phoenix.h</a>
-, <a class="el" href="phoenix_8c.html#a0c6d00cd82027ca39b83299d761cfd4c">phoenix.c</a>
+: <a class="el" href="phoenix_8c.html#a5046efc41ae296ee83d496a0d32957f1">phoenix.c</a>
+, <a class="el" href="phoenix_8h.html#a5046efc41ae296ee83d496a0d32957f1">phoenix.h</a>
 </li>
 <li>phoenixReadSRB2()
-: <a class="el" href="phoenix_8c.html#ac4f4be8ea55c591615ac094b17145167">phoenix.c</a>
-, <a class="el" href="phoenix_8h.html#ac4f4be8ea55c591615ac094b17145167">phoenix.h</a>
+: <a class="el" href="phoenix_8h.html#afd004fd18d43712ccad894cc3f7eaee1">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#afd004fd18d43712ccad894cc3f7eaee1">phoenix.c</a>
 </li>
 <li>phoenixReset()
 : <a class="el" href="phoenix_8h.html#a0b9219b6e2d156ad2bb65f4b1c04e995">phoenix.h</a>
@@ -230,54 +235,59 @@ $(function() {
 , <a class="el" href="phoenix_8c.html#a28a9090ea6fbdbb335d5a3d2ca3d8dc4">phoenix.c</a>
 </li>
 <li>phoenixResumeFromDPDReadID()
-: <a class="el" href="phoenix_8h.html#a92e7e31b35770371980e91d502e92568">phoenix.h</a>
-, <a class="el" href="phoenix_8c.html#a92e7e31b35770371980e91d502e92568">phoenix.c</a>
+: <a class="el" href="phoenix_8c.html#a92e7e31b35770371980e91d502e92568">phoenix.c</a>
+, <a class="el" href="phoenix_8h.html#a92e7e31b35770371980e91d502e92568">phoenix.h</a>
 </li>
 <li>phoenixSetQEBit()
-: <a class="el" href="phoenix_8h.html#aee68704d52bd6f1cb48f27ca7b74d8f5">phoenix.h</a>
-, <a class="el" href="phoenix_8c.html#aee68704d52bd6f1cb48f27ca7b74d8f5">phoenix.c</a>
+: <a class="el" href="phoenix_8c.html#aee68704d52bd6f1cb48f27ca7b74d8f5">phoenix.c</a>
+, <a class="el" href="phoenix_8h.html#aee68704d52bd6f1cb48f27ca7b74d8f5">phoenix.h</a>
 </li>
 <li>phoenixTest()
-: <a class="el" href="phoenix_8c.html#a6837ba7fd66074e66a60b4d754ea6582">phoenix.c</a>
-, <a class="el" href="phoenix_8h.html#a6837ba7fd66074e66a60b4d754ea6582">phoenix.h</a>
+: <a class="el" href="phoenix_8h.html#a6837ba7fd66074e66a60b4d754ea6582">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#a6837ba7fd66074e66a60b4d754ea6582">phoenix.c</a>
 </li>
 <li>phoenixUnprotectSector()
-: <a class="el" href="phoenix_8c.html#ae1dadf1b6e0e09f243ded5203f0ea56e">phoenix.c</a>
-, <a class="el" href="phoenix_8h.html#ae1dadf1b6e0e09f243ded5203f0ea56e">phoenix.h</a>
+: <a class="el" href="phoenix_8h.html#ae1dadf1b6e0e09f243ded5203f0ea56e">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#ae1dadf1b6e0e09f243ded5203f0ea56e">phoenix.c</a>
 </li>
 <li>phoenixWaitOnReady()
 : <a class="el" href="phoenix_8c.html#a7d450199b5eceac3a4afc6ae9f7d2e65">phoenix.c</a>
 , <a class="el" href="phoenix_8h.html#a7d450199b5eceac3a4afc6ae9f7d2e65">phoenix.h</a>
 </li>
 <li>phoenixWriteDisable()
-: <a class="el" href="phoenix_8c.html#a8422ed2a0b88f5db1a37fb43c424eacd">phoenix.c</a>
-, <a class="el" href="phoenix_8h.html#a8422ed2a0b88f5db1a37fb43c424eacd">phoenix.h</a>
+: <a class="el" href="phoenix_8h.html#a8422ed2a0b88f5db1a37fb43c424eacd">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#a8422ed2a0b88f5db1a37fb43c424eacd">phoenix.c</a>
 </li>
 <li>phoenixWriteEnable()
 : <a class="el" href="phoenix_8h.html#a0d1bb245ed4e9163b3b00f00a6d254ba">phoenix.h</a>
 , <a class="el" href="phoenix_8c.html#a0d1bb245ed4e9163b3b00f00a6d254ba">phoenix.c</a>
 </li>
 <li>phoenixWriteEnableVolatileSR()
-: <a class="el" href="phoenix_8h.html#a6cc914113703ce952b90ff0311ad1b60">phoenix.h</a>
-, <a class="el" href="phoenix_8c.html#a6cc914113703ce952b90ff0311ad1b60">phoenix.c</a>
+: <a class="el" href="phoenix_8c.html#a6cc914113703ce952b90ff0311ad1b60">phoenix.c</a>
+, <a class="el" href="phoenix_8h.html#a6cc914113703ce952b90ff0311ad1b60">phoenix.h</a>
 </li>
-<li>phoenixWriteSRB()
-: <a class="el" href="phoenix_8h.html#af8ad7bd9f9d0dfea2523535253f15cdf">phoenix.h</a>
-, <a class="el" href="phoenix_8c.html#af8ad7bd9f9d0dfea2523535253f15cdf">phoenix.c</a>
+<li>phoenixWriteSR()
+: <a class="el" href="phoenix_8h.html#a906dc011e64c757577f7014fb70e7a52">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#a906dc011e64c757577f7014fb70e7a52">phoenix.c</a>
+</li>
+<li>phoenixWriteSRB1()
+: <a class="el" href="phoenix_8h.html#a6e46e0330d5286d3c4679b02698307b3">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#a6e46e0330d5286d3c4679b02698307b3">phoenix.c</a>
+</li>
+<li>phoenixWriteSRB2()
+: <a class="el" href="phoenix_8h.html#a0453c7284856981adbe78374e0394229">phoenix.h</a>
+, <a class="el" href="phoenix_8c.html#a0453c7284856981adbe78374e0394229">phoenix.c</a>
 </li>
 <li>printSPIExchange()
 : <a class="el" href="helper__functions_8c.html#a753ee5106c28d4caf676446108a27e59">helper_functions.c</a>
 , <a class="el" href="helper__functions_8h.html#a753ee5106c28d4caf676446108a27e59">helper_functions.h</a>
-</li>
-<li>programEraseSuspendExample()
-: <a class="el" href="phoenix_8c.html#a78a391d6e91f7c63e28be30a15a03e3e">phoenix.c</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

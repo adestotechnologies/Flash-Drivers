@@ -41,18 +41,21 @@
 
 // Project file includes. Only need one of these.
 //#include "fusion.h"
-//#include "phoenix.h"
+#include "phoenix.h"
 //#include "dataflash.h"
-#include "moneta.h"
+//#include "moneta.h"
 
 int main()
 {
-	// Configures the board.
+	// Configures the board. Modify when porting to a
+	// new board.
 	USER_CONFIG_BoardInit();
-    // Sets the various pins as inputs and output
+	// Sets the various pins as inputs and output.
     SPI_ConfigureSingleSPIIOs();
     // Sample usage of the driver
-    monetaTest();
+	// Replace with monetaTest(), dataflashTest(),
+	// fusionTest(), or phoenixTest() as appropriate/desired.
+    phoenixTest();
 
     return 0;
 }

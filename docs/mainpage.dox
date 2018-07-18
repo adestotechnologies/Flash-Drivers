@@ -1,38 +1,45 @@
 /*!
   @mainpage
-  @brief This page contains the readme for the SPI driver, as well as an overview of the source code.<br>
 
-  @section README Readme
-  	@brief This section details the intended use of the drivers, and the source code structure.
-  	@subsection intended_use Intended Use
-  		@details The purpose of these driver examples is to illustrate usage of Adesto flash memory. With these drivers, the user may test many functions available for the supported memory devices. The user may test a plethora of operations including reading, writing, and putting the flash device into various modes. Each family of devices has their own behavior and opcodes.
-		<br><br>The current families supported are:
-			-# @ref MONETA
-			-# @ref FUSION
-			-# @ref DATAFLASH
-			-# @ref PHOENIX
+  @section PURPOSE Purpose
+		@details The purpose of the flash driver examples is to illustrate proper usage of Adesto flash memory. With these drivers, a user may test many functions available for the supported memory devices. Most operations are supported including reading, writing, and switching the flash device into various modes. Each family of devices has their own behavior and opcodes.
+	<br><br>The current families supported are:
+		-# @ref MONETA
+		-# @ref FUSION
+		-# @ref DATAFLASH
+		-# @ref PHOENIX
 
-    @subsection SOURCE_CODE_STRUCTURE Source Code Structure
-      @details There are 3 main functional components to this project.
-      -# @ref USER_CONFIGURATION_DESCRIPTION
-      -# @ref ADESTO_LAYER_DESCRIPTION
-      -# @ref SPI_LAYER_DESCRIPTION
-  
-      Together, these 3 components allow the user to port and test most of the commands available for the implemented devices.\n
+    Communication relies on <a href="https://en.wikipedia.org/wiki/Bit_banging">bit-banging</a> drivers written in C. \a Bit-\a banging is the term for driving serial communication via software executed by the MPU rather than using a dedicated peripheral within the MCU. This enables low coupling with MCU specific code resulting in the drivers being highly portable to any MCU with user GPIO pins. The source code was written using the MCUXpresso IDE and tested on a FRDM-K82F development board with an Adesto flash memory shield, then ported to an i.MX RT1052 development kit. Representative devices from each family were connected to the test setup and expected functionality confirmed. Due to limitations of the testing environment, not every flash device could be tested. Based on their operating specifications, the drivers are expected to function across the entire supported SPI based product lineup.<br>
 
-      <br><i>User Configuration Layer</i> - This layer has all the factored user configuration and porting options. Using the user_config.h and user_config.c files, the project can quickly be set to work with another Adesto SPI flash device or a different MCU. More information on this is provided in the @ref PORTING_GUIDE.
+    @image html "shield_k82.png"
+    <center><b>Shield 1:</b> Adesto Shield on Freedom K82 Development Platform.</center><br>
+
+    @image html "shield_imx1052.png"
+    <center><b>Shield 2:</b> Adesto Shield on i.MX RT1052 Developer's Kit.</center>
+
+  @section SETUP_AND_USAGE Setup & Usage
+  		@details The source code and documentation in html format can be downloaded from the <a href="https://github.com/adestotechnologies/Flash-Drivers/">github page</a>. The downloaded archive file contains 2 folders; \b source and \b docs. As the names suggest, \a source contains the source code for the project, while \a docs contains the documentation. The source code is broken up into 3 sections as detailed in the @ref SOURCE_CODE_STRUCTURE section.<br><br>
+      The drivers can be used for reference material or ported to an MCU and used for testing. In order to run this project on a board the user must hook the ports, pins, and initialization code to the specific MCU being used. This linkage occurs in the User Config layer (user_config.h, user_config.c). A comprehensive description on how to port the driver to a generic MCU can be found within this documentation at the @ref USER_CONFIGURATION_DESCRIPTION page. <br><br>
+      After connecting the User Config layer to a functional GPIO driver for a specific MCU, the user must define the flash device used (see user_config.h). Defining the specific part used 'unlocks' the feature set offered by the drivers for that specific device. This accomplished by typing the part identifier after @ref PARTNO in user_config.h. The comprehensive test included with the code for each family of devices can then be run. If the manufacturing ID cannot be read properly, the setup was a failure. For more information about configuration see the @ref USER_CONFIGURATION_DESCRIPTION documentation.<br>
+
+      Users can write their own tests in main.c. Just include the relevant files and call functions from within main(). Ensure that the header file for the device under test is included in the part defined within user_config.h (@ref PARTNO).  
       
-      <br><i>Adesto Layer</i> - This layer stores the various functions and commands for each family of devices available. A user may call these functions in a sequential fashion in their program to send and receieve data from the flash device. The device family appears as the first portion of the camelCase function (ex. monetaReadMID()), and the functionality of that command is evident in the second half of the function name, Read Manufacturing ID in this case. The documentation for each function lists a brief explanation of the function, as well as the actual opcode that's sent to the device. Sending and receiving data is done through the SPI driver, this being the second of the 2 components.
+      The source code and documentation can be downloaded <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">here</a>.
 
-      <br><i>SPI Layer</i> - This layer controls the GPIO pins in order to send and receive data. Communication is done solely through the SPI protocol, although there is a JEDEC reset function bulit into the driver (SPI_JEDECReset()). The user facing functionality of the driver allows the user to send and receive bytes through tx and rx buffers with the SPI_Exchange() function. Currently, the K82 is the only board supported, but the project may be ported to other microcontrollers in the future. Note, the driver must be modified in order to port to another board. A porting guide is included with this documentation.
-      
-      @image html "project_structure.png"
+  @section SOURCE_CODE_STRUCTURE Source Code Structure
+    @details There are 3 main functional components to this project.
+    -# @ref USER_CONFIGURATION_DESCRIPTION
+    -# @ref ADESTO_LAYER_DESCRIPTION
+    -# @ref SPI_LAYER_DESCRIPTION
 
+    Together, these 3 components allow the user to port and test most of the commands available for the implemented devices. The SPI and user configuration layers are tagged within the code by either a "SPI_" or "USER_CONFIG_" at the beginning of each function call. Adesto layer functions begin with the device name (ex: monetaReadMID()).<br><br>
+    <i>User Configuration Layer</i> - This layer has all the factored user configuration and porting options. Using the user_config.h and user_config.c files, the project can quickly be set to work with another Adesto SPI flash device or a different MCU. More information on this is provided at the @ref USER_CONFIGURATION_DESCRIPTION page.<br><br>
+    <i>Adesto Layer</i> - This layer stores the various functions and commands for each family of devices available. A user may call these functions in a sequential fashion in their program to send and receieve data from the flash device. The device family appears as the first portion of the camelCase function (ex. monetaReadMID()), and the functionality of that command is evident in the second half of the function name, Read Manufacturing ID in this case. The documentation for each function lists a brief explanation of the function, as well as the actual opcode that's sent to the device. Sending and receiving data is done through the SPI driver, this being the second of the 2 components.<br><br>
+    <i>SPI Layer</i> - This layer controls the GPIO pins in order to send and receive data. Communication is done solely through the SPI protocol, although there is a JEDEC reset function bulit into the driver (SPI_JEDECReset()). The user facing functionality of the driver allows the user to send and receive bytes through tx and rx buffers with the SPI_Exchange() function. Note, the driver must be modified in order to port to another board. A porting guide is included with this documentation (@ref USER_CONFIGURATION_DESCRIPTION).
+    
+    @image html "project_structure.png"
+    <center><b>Project Structure:</b> Hierarchical source code structure.</center>
 
-	@subsection SETUP_AND_USAGE Setup & Usage
-  		@details Before using the SPI driver and Adesto layer, the user must hook the ports, pins, and initialization code to the specific MCU being used. All this is done in the SPI layer (spi_driver.h, spi_driver.c). A comprehensive overview of how to port the driver to a generic MCU can be found within this documentation in the @ref PORTING_GUIDE. <br>
-      After hooking the SPI layer to a GPIO driver for a specific MCU, the user must define the device being used (see cmd_defs.h). Defining the specific part used 'unlocks' the feature set offered by that device. The comprehensive test included with the code for each family of devices can then be run. If the manufacturing ID cannot be read properly, the setup was a failure.
-
-  @subsection DEBUGGING Debugging
+  @section DEBUGGING Debugging
       @details Debugging any issues can be done from the lowest level (examining  waveforms) to the highest (using breakpoints within an IDE). Conveniently included within the SPI and Adesto layers are functions to assist with debugging. Byte comparisons can be easily done with compareByteArrays() (see helper_functions.h), and a fully integrated debug print can be turned on and off with debugOn()/debugOff(). The SPI layer also includes support for a 'trigger' which toggles a GPIO pin through a falling edge SPI_Trigger(). 
 */

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Adesto Flash Drivers: Adesto-Flash-Drivers/source/user_config.h File Reference</title>
+<title>Adesto Flash Drivers: Flash-Drivers/source/user_config.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_69504257db341e5b74fc84a56c3eacab.html">Adesto-Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_52beb24232acd37e6e939e109eb586c2.html">source</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97eae8f018b86b66cbd5d5c55269fecf.html">Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_8833f0deafcb5b7d589ca41553802abd.html">source</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -87,51 +88,51 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad3d408f91c72c3fed79cc52eb8d781fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a>&#160;&#160;&#160;<a class="el" href="cmd__defs_8h.html#ad73e1fc0d630a3d3ab554f98215cb69c">RM331x</a> /* &lt;- Replace with the device being used. */</td></tr>
+<tr class="memitem:ad3d408f91c72c3fed79cc52eb8d781fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a>&#160;&#160;&#160;ATxxxx /* &lt;- Replace with the device being used. */</td></tr>
 <tr class="separator:ad3d408f91c72c3fed79cc52eb8d781fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1edd1ea8bddaf4d9c5eb3eae1ee1726a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a1edd1ea8bddaf4d9c5eb3eae1ee1726a">ALL</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a1edd1ea8bddaf4d9c5eb3eae1ee1726a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a1edd1ea8bddaf4d9c5eb3eae1ee1726a">ALL</a>&#160;&#160;&#160;1 /* &lt;- Replace with 0 if selecting a part above. */</td></tr>
 <tr class="separator:a1edd1ea8bddaf4d9c5eb3eae1ee1726a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1678acc83b89635797c577980225e72f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a1678acc83b89635797c577980225e72f">SPI_CSB_PORT</a>&#160;&#160;&#160;0x400FF0C0U</td></tr>
-<tr class="memdesc:a1678acc83b89635797c577980225e72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for CSb control.  <a href="#a1678acc83b89635797c577980225e72f">More...</a><br /></td></tr>
-<tr class="separator:a1678acc83b89635797c577980225e72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade902845feb9681f6550117ba7aefbf0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#ade902845feb9681f6550117ba7aefbf0">SPI_TRIGGER_PORT</a>&#160;&#160;&#160;0x400FF080U</td></tr>
-<tr class="memdesc:ade902845feb9681f6550117ba7aefbf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for TRIGGER control.  <a href="#ade902845feb9681f6550117ba7aefbf0">More...</a><br /></td></tr>
-<tr class="separator:ade902845feb9681f6550117ba7aefbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f9b7e59b3a2efdc061e0c886c80e068"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a6f9b7e59b3a2efdc061e0c886c80e068">SPI_SCK_PORT</a>&#160;&#160;&#160;0x400FF0C0U</td></tr>
-<tr class="memdesc:a6f9b7e59b3a2efdc061e0c886c80e068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for SCK control.  <a href="#a6f9b7e59b3a2efdc061e0c886c80e068">More...</a><br /></td></tr>
-<tr class="separator:a6f9b7e59b3a2efdc061e0c886c80e068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae524a02b21071c5529918a33e35e846b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#ae524a02b21071c5529918a33e35e846b">SPI_MOSI_PORT</a>&#160;&#160;&#160;0x400FF0C0U</td></tr>
-<tr class="memdesc:ae524a02b21071c5529918a33e35e846b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for MOSI control.  <a href="#ae524a02b21071c5529918a33e35e846b">More...</a><br /></td></tr>
-<tr class="separator:ae524a02b21071c5529918a33e35e846b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28f80193fbde762d8b7f896aa393deb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a28f80193fbde762d8b7f896aa393deb6">SPI_MISO_PORT</a>&#160;&#160;&#160;0x400FF0C0U</td></tr>
-<tr class="memdesc:a28f80193fbde762d8b7f896aa393deb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for MISO control.  <a href="#a28f80193fbde762d8b7f896aa393deb6">More...</a><br /></td></tr>
-<tr class="separator:a28f80193fbde762d8b7f896aa393deb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b05d215ec24c6a73edb2152fd5e36ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a3b05d215ec24c6a73edb2152fd5e36ea">SPI_WPB_PORT</a>&#160;&#160;&#160;0x400FF0C0U</td></tr>
-<tr class="memdesc:a3b05d215ec24c6a73edb2152fd5e36ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for WPb control.  <a href="#a3b05d215ec24c6a73edb2152fd5e36ea">More...</a><br /></td></tr>
-<tr class="separator:a3b05d215ec24c6a73edb2152fd5e36ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d07b309569186a05034ad516d5c43f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a4d07b309569186a05034ad516d5c43f1">SPI_HOLDB_PORT</a>&#160;&#160;&#160;0x400FF080U</td></tr>
-<tr class="memdesc:a4d07b309569186a05034ad516d5c43f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for HOLDb control.  <a href="#a4d07b309569186a05034ad516d5c43f1">More...</a><br /></td></tr>
-<tr class="separator:a4d07b309569186a05034ad516d5c43f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6395328cc97808bed84e09897a2baf0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#ae6395328cc97808bed84e09897a2baf0">SPI_CSB_PIN</a>&#160;&#160;&#160;4U</td></tr>
-<tr class="separator:ae6395328cc97808bed84e09897a2baf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0da7cf15f73baef40e165338ab29c2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#ad0da7cf15f73baef40e165338ab29c2a">SPI_TRIGGER_PIN</a>&#160;&#160;&#160;3U</td></tr>
-<tr class="memdesc:ad0da7cf15f73baef40e165338ab29c2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for TRIIGER.  <a href="#ad0da7cf15f73baef40e165338ab29c2a">More...</a><br /></td></tr>
-<tr class="separator:ad0da7cf15f73baef40e165338ab29c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee89f642bb559e12db93e9f412ea185e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#aee89f642bb559e12db93e9f412ea185e">SPI_SCK_PIN</a>&#160;&#160;&#160;1U</td></tr>
-<tr class="memdesc:aee89f642bb559e12db93e9f412ea185e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for SCK.  <a href="#aee89f642bb559e12db93e9f412ea185e">More...</a><br /></td></tr>
-<tr class="separator:aee89f642bb559e12db93e9f412ea185e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67d2c0b6e0ecbd0351958756e4830172"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a67d2c0b6e0ecbd0351958756e4830172">SPI_MOSI_PIN</a>&#160;&#160;&#160;2U</td></tr>
-<tr class="memdesc:a67d2c0b6e0ecbd0351958756e4830172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for MOSI.  <a href="#a67d2c0b6e0ecbd0351958756e4830172">More...</a><br /></td></tr>
-<tr class="separator:a67d2c0b6e0ecbd0351958756e4830172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a315722498711fce1e1aa6ea6654385cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a315722498711fce1e1aa6ea6654385cf">SPI_MISO_PIN</a>&#160;&#160;&#160;3U</td></tr>
-<tr class="memdesc:a315722498711fce1e1aa6ea6654385cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for MISO.  <a href="#a315722498711fce1e1aa6ea6654385cf">More...</a><br /></td></tr>
-<tr class="separator:a315722498711fce1e1aa6ea6654385cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fe60e7ed263fb0a42cf331107c96fe3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a1fe60e7ed263fb0a42cf331107c96fe3">SPI_WPB_PIN</a>&#160;&#160;&#160;4U</td></tr>
-<tr class="memdesc:a1fe60e7ed263fb0a42cf331107c96fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for WPb.  <a href="#a1fe60e7ed263fb0a42cf331107c96fe3">More...</a><br /></td></tr>
-<tr class="separator:a1fe60e7ed263fb0a42cf331107c96fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a1f6b114a23d4672d3658ee5c5d1ea5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a4a1f6b114a23d4672d3658ee5c5d1ea5">SPI_HOLDB_PIN</a>&#160;&#160;&#160;5U</td></tr>
-<tr class="memdesc:a4a1f6b114a23d4672d3658ee5c5d1ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for HOLDb.  <a href="#a4a1f6b114a23d4672d3658ee5c5d1ea5">More...</a><br /></td></tr>
-<tr class="separator:a4a1f6b114a23d4672d3658ee5c5d1ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94d8d4ab8253282e9dff99b1359443ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a94d8d4ab8253282e9dff99b1359443ca">USER_CONFIG_CSB_PORT</a>&#160;&#160;&#160;GPIO3_BASE</td></tr>
+<tr class="memdesc:a94d8d4ab8253282e9dff99b1359443ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for CSb control.  <a href="#a94d8d4ab8253282e9dff99b1359443ca">More...</a><br /></td></tr>
+<tr class="separator:a94d8d4ab8253282e9dff99b1359443ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a1a62529e14b3d2d700cf57dc72fb4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a9a1a62529e14b3d2d700cf57dc72fb4f">USER_CONFIG_TRIGGER_PORT</a>&#160;&#160;&#160;GPIO3_BASE</td></tr>
+<tr class="memdesc:a9a1a62529e14b3d2d700cf57dc72fb4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for TRIGGER control.  <a href="#a9a1a62529e14b3d2d700cf57dc72fb4f">More...</a><br /></td></tr>
+<tr class="separator:a9a1a62529e14b3d2d700cf57dc72fb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44284d0f93cdb69aabaf04f547e49452"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a44284d0f93cdb69aabaf04f547e49452">USER_CONFIG_SCK_PORT</a>&#160;&#160;&#160;GPIO3_BASE</td></tr>
+<tr class="memdesc:a44284d0f93cdb69aabaf04f547e49452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for SCK control.  <a href="#a44284d0f93cdb69aabaf04f547e49452">More...</a><br /></td></tr>
+<tr class="separator:a44284d0f93cdb69aabaf04f547e49452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6138e769139abf47d43e3dbc2e0d8415"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a6138e769139abf47d43e3dbc2e0d8415">USER_CONFIG_MOSI_PORT</a>&#160;&#160;&#160;GPIO3_BASE</td></tr>
+<tr class="memdesc:a6138e769139abf47d43e3dbc2e0d8415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for MOSI control.  <a href="#a6138e769139abf47d43e3dbc2e0d8415">More...</a><br /></td></tr>
+<tr class="separator:a6138e769139abf47d43e3dbc2e0d8415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb486874cd2966b3e1d74cd5bc709cbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#acb486874cd2966b3e1d74cd5bc709cbc">USER_CONFIG_MISO_PORT</a>&#160;&#160;&#160;GPIO3_BASE</td></tr>
+<tr class="memdesc:acb486874cd2966b3e1d74cd5bc709cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for MISO control.  <a href="#acb486874cd2966b3e1d74cd5bc709cbc">More...</a><br /></td></tr>
+<tr class="separator:acb486874cd2966b3e1d74cd5bc709cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a5597786313d0ab11c94c6db4c618f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a60a5597786313d0ab11c94c6db4c618f">USER_CONFIG_IO2_PORT</a>&#160;&#160;&#160;GPIO3_BASE</td></tr>
+<tr class="memdesc:a60a5597786313d0ab11c94c6db4c618f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for IO2 control.  <a href="#a60a5597786313d0ab11c94c6db4c618f">More...</a><br /></td></tr>
+<tr class="separator:a60a5597786313d0ab11c94c6db4c618f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc15384839bae2e30382934d4a46076"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a7fc15384839bae2e30382934d4a46076">USER_CONFIG_IO3_PORT</a>&#160;&#160;&#160;GPIO3_BASE</td></tr>
+<tr class="memdesc:a7fc15384839bae2e30382934d4a46076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register used for IO3 control.  <a href="#a7fc15384839bae2e30382934d4a46076">More...</a><br /></td></tr>
+<tr class="separator:a7fc15384839bae2e30382934d4a46076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87904fa3b101e43fc4332e815c875786"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a87904fa3b101e43fc4332e815c875786">USER_CONFIG_CSB_PIN</a>&#160;&#160;&#160;6U</td></tr>
+<tr class="separator:a87904fa3b101e43fc4332e815c875786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe245e869fc3e2bb21642925af8872c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#afe245e869fc3e2bb21642925af8872c6">USER_CONFIG_TRIGGER_PIN</a>&#160;&#160;&#160;2U</td></tr>
+<tr class="memdesc:afe245e869fc3e2bb21642925af8872c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for TRIGGER.  <a href="#afe245e869fc3e2bb21642925af8872c6">More...</a><br /></td></tr>
+<tr class="separator:afe245e869fc3e2bb21642925af8872c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a12e8356e8e88a7e1edb3e5b0f66a5b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a8a12e8356e8e88a7e1edb3e5b0f66a5b">USER_CONFIG_SCK_PIN</a>&#160;&#160;&#160;7U</td></tr>
+<tr class="memdesc:a8a12e8356e8e88a7e1edb3e5b0f66a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for SCK.  <a href="#a8a12e8356e8e88a7e1edb3e5b0f66a5b">More...</a><br /></td></tr>
+<tr class="separator:a8a12e8356e8e88a7e1edb3e5b0f66a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ea48eee7df0cc112f0cba6c5254b54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#aa2ea48eee7df0cc112f0cba6c5254b54">USER_CONFIG_MOSI_PIN</a>&#160;&#160;&#160;8U</td></tr>
+<tr class="memdesc:aa2ea48eee7df0cc112f0cba6c5254b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for MOSI.  <a href="#aa2ea48eee7df0cc112f0cba6c5254b54">More...</a><br /></td></tr>
+<tr class="separator:aa2ea48eee7df0cc112f0cba6c5254b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81733a30777c79cb394939f3deb1ccfb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a81733a30777c79cb394939f3deb1ccfb">USER_CONFIG_MISO_PIN</a>&#160;&#160;&#160;9U</td></tr>
+<tr class="memdesc:a81733a30777c79cb394939f3deb1ccfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for MISO.  <a href="#a81733a30777c79cb394939f3deb1ccfb">More...</a><br /></td></tr>
+<tr class="separator:a81733a30777c79cb394939f3deb1ccfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae572a3f57e3737d798d9ed6e6bbcbdd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#ae572a3f57e3737d798d9ed6e6bbcbdd6">USER_CONFIG_IO2_PIN</a>&#160;&#160;&#160;10U</td></tr>
+<tr class="memdesc:ae572a3f57e3737d798d9ed6e6bbcbdd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for IO2.  <a href="#ae572a3f57e3737d798d9ed6e6bbcbdd6">More...</a><br /></td></tr>
+<tr class="separator:ae572a3f57e3737d798d9ed6e6bbcbdd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa27bce01f856b8e7cf3c035a95c52d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#aaa27bce01f856b8e7cf3c035a95c52d6">USER_CONFIG_IO3_PIN</a>&#160;&#160;&#160;11U</td></tr>
+<tr class="memdesc:aaa27bce01f856b8e7cf3c035a95c52d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for IO3.  <a href="#aaa27bce01f856b8e7cf3c035a95c52d6">More...</a><br /></td></tr>
+<tr class="separator:aaa27bce01f856b8e7cf3c035a95c52d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62249e384b997229a3e2ae74ade334e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user__config_8h.html#a62249e384b997229a3e2ae74ade334e2">DELAY</a>&#160;&#160;&#160;5U</td></tr>
 <tr class="memdesc:a62249e384b997229a3e2ae74ade334e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half clock period delay interval.  <a href="#a62249e384b997229a3e2ae74ade334e2">More...</a><br /></td></tr>
 <tr class="separator:a62249e384b997229a3e2ae74ade334e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,7 +171,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ALL&#160;&#160;&#160;1</td>
+          <td class="memname">#define ALL&#160;&#160;&#160;1 /* &lt;- Replace with 0 if selecting a part above. */</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -193,7 +194,7 @@ Functions</h2></td></tr>
 
 <p>Half clock period delay interval. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00196">196</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00191">191</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
@@ -204,7 +205,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PARTNO&#160;&#160;&#160;<a class="el" href="cmd__defs_8h.html#ad73e1fc0d630a3d3ab554f98215cb69c">RM331x</a> /* &lt;- Replace with the device being used. */</td>
+          <td class="memname">#define PARTNO&#160;&#160;&#160;ATxxxx /* &lt;- Replace with the device being used. */</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -214,257 +215,254 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae6395328cc97808bed84e09897a2baf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6395328cc97808bed84e09897a2baf0">&#9670;&nbsp;</a></span>SPI_CSB_PIN</h2>
+<a id="a87904fa3b101e43fc4332e815c875786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87904fa3b101e43fc4332e815c875786">&#9670;&nbsp;</a></span>USER_CONFIG_CSB_PIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_CSB_PIN&#160;&#160;&#160;4U</td>
+          <td class="memname">#define USER_CONFIG_CSB_PIN&#160;&#160;&#160;6U</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pin number for CSb </p><dl class="section warning"><dt>Warning</dt><dd>Changes based on adapter used! Use pin 4 with Moneta, pin 1 with others on K82 board. </dd>
-<dd>
-Don't forget to update <a class="el" href="user__config_8h.html#ab12365a59df355fd84d6634a736a7657" title="Configures the board for program usage. Initializes the requisite ports/pins for use as GPIOs...">USER_CONFIG_BoardInit()</a> called from main! As is, both CSb pins are configured as outputs so the changes above and below in this file are the only things needed (pin and port numbers for CSb). </dd></dl>
+<p>Pin number for CSb </p><dl class="section warning"><dt>Warning</dt><dd>Don't forget to update <a class="el" href="user__config_8h.html#ab12365a59df355fd84d6634a736a7657" title="Configures the board for program usage. Initializes the requisite ports/pins for use as GPIOs...">USER_CONFIG_BoardInit()</a> called from main! As is, both CSb pins are configured as outputs so the changes above and below in this file are the only things needed (pin and port numbers for CSb). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00182">182</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00177">177</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="a1678acc83b89635797c577980225e72f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1678acc83b89635797c577980225e72f">&#9670;&nbsp;</a></span>SPI_CSB_PORT</h2>
+<a id="a94d8d4ab8253282e9dff99b1359443ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94d8d4ab8253282e9dff99b1359443ca">&#9670;&nbsp;</a></span>USER_CONFIG_CSB_PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_CSB_PORT&#160;&#160;&#160;0x400FF0C0U</td>
+          <td class="memname">#define USER_CONFIG_CSB_PORT&#160;&#160;&#160;GPIO3_BASE</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Base register used for CSb control. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Use port D for Moneta shield, port C for Dataflash/AT25 shield. on K82 board. Port D = 0x400FF0C0U, Port C = 0x400FF080U </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00149">149</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00146">146</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="a4a1f6b114a23d4672d3658ee5c5d1ea5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a1f6b114a23d4672d3658ee5c5d1ea5">&#9670;&nbsp;</a></span>SPI_HOLDB_PIN</h2>
+<a id="ae572a3f57e3737d798d9ed6e6bbcbdd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae572a3f57e3737d798d9ed6e6bbcbdd6">&#9670;&nbsp;</a></span>USER_CONFIG_IO2_PIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_HOLDB_PIN&#160;&#160;&#160;5U</td>
+          <td class="memname">#define USER_CONFIG_IO2_PIN&#160;&#160;&#160;10U</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pin number for HOLDb. </p>
+<p>Pin number for IO2. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00194">194</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00187">187</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="a4d07b309569186a05034ad516d5c43f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d07b309569186a05034ad516d5c43f1">&#9670;&nbsp;</a></span>SPI_HOLDB_PORT</h2>
+<a id="a60a5597786313d0ab11c94c6db4c618f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a5597786313d0ab11c94c6db4c618f">&#9670;&nbsp;</a></span>USER_CONFIG_IO2_PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_HOLDB_PORT&#160;&#160;&#160;0x400FF080U</td>
+          <td class="memname">#define USER_CONFIG_IO2_PORT&#160;&#160;&#160;GPIO3_BASE</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Base register used for HOLDb control. </p>
+<p>Base register used for IO2 control. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00173">173</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00166">166</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="a315722498711fce1e1aa6ea6654385cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a315722498711fce1e1aa6ea6654385cf">&#9670;&nbsp;</a></span>SPI_MISO_PIN</h2>
+<a id="aaa27bce01f856b8e7cf3c035a95c52d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa27bce01f856b8e7cf3c035a95c52d6">&#9670;&nbsp;</a></span>USER_CONFIG_IO3_PIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_MISO_PIN&#160;&#160;&#160;3U</td>
+          <td class="memname">#define USER_CONFIG_IO3_PIN&#160;&#160;&#160;11U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin number for IO3. </p>
+
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00189">189</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+
+</div>
+</div>
+<a id="a7fc15384839bae2e30382934d4a46076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc15384839bae2e30382934d4a46076">&#9670;&nbsp;</a></span>USER_CONFIG_IO3_PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USER_CONFIG_IO3_PORT&#160;&#160;&#160;GPIO3_BASE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Base register used for IO3 control. </p>
+
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00170">170</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+
+</div>
+</div>
+<a id="a81733a30777c79cb394939f3deb1ccfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81733a30777c79cb394939f3deb1ccfb">&#9670;&nbsp;</a></span>USER_CONFIG_MISO_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USER_CONFIG_MISO_PIN&#160;&#160;&#160;9U</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Pin number for MISO. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00190">190</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00185">185</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="a28f80193fbde762d8b7f896aa393deb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28f80193fbde762d8b7f896aa393deb6">&#9670;&nbsp;</a></span>SPI_MISO_PORT</h2>
+<a id="acb486874cd2966b3e1d74cd5bc709cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb486874cd2966b3e1d74cd5bc709cbc">&#9670;&nbsp;</a></span>USER_CONFIG_MISO_PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_MISO_PORT&#160;&#160;&#160;0x400FF0C0U</td>
+          <td class="memname">#define USER_CONFIG_MISO_PORT&#160;&#160;&#160;GPIO3_BASE</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Base register used for MISO control. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00165">165</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00162">162</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="a67d2c0b6e0ecbd0351958756e4830172"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67d2c0b6e0ecbd0351958756e4830172">&#9670;&nbsp;</a></span>SPI_MOSI_PIN</h2>
+<a id="aa2ea48eee7df0cc112f0cba6c5254b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ea48eee7df0cc112f0cba6c5254b54">&#9670;&nbsp;</a></span>USER_CONFIG_MOSI_PIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_MOSI_PIN&#160;&#160;&#160;2U</td>
+          <td class="memname">#define USER_CONFIG_MOSI_PIN&#160;&#160;&#160;8U</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Pin number for MOSI. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00188">188</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00183">183</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="ae524a02b21071c5529918a33e35e846b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae524a02b21071c5529918a33e35e846b">&#9670;&nbsp;</a></span>SPI_MOSI_PORT</h2>
+<a id="a6138e769139abf47d43e3dbc2e0d8415"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6138e769139abf47d43e3dbc2e0d8415">&#9670;&nbsp;</a></span>USER_CONFIG_MOSI_PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_MOSI_PORT&#160;&#160;&#160;0x400FF0C0U</td>
+          <td class="memname">#define USER_CONFIG_MOSI_PORT&#160;&#160;&#160;GPIO3_BASE</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Base register used for MOSI control. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00161">161</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00158">158</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="aee89f642bb559e12db93e9f412ea185e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee89f642bb559e12db93e9f412ea185e">&#9670;&nbsp;</a></span>SPI_SCK_PIN</h2>
+<a id="a8a12e8356e8e88a7e1edb3e5b0f66a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a12e8356e8e88a7e1edb3e5b0f66a5b">&#9670;&nbsp;</a></span>USER_CONFIG_SCK_PIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_SCK_PIN&#160;&#160;&#160;1U</td>
+          <td class="memname">#define USER_CONFIG_SCK_PIN&#160;&#160;&#160;7U</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Pin number for SCK. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00186">186</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00181">181</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="a6f9b7e59b3a2efdc061e0c886c80e068"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f9b7e59b3a2efdc061e0c886c80e068">&#9670;&nbsp;</a></span>SPI_SCK_PORT</h2>
+<a id="a44284d0f93cdb69aabaf04f547e49452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44284d0f93cdb69aabaf04f547e49452">&#9670;&nbsp;</a></span>USER_CONFIG_SCK_PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_SCK_PORT&#160;&#160;&#160;0x400FF0C0U</td>
+          <td class="memname">#define USER_CONFIG_SCK_PORT&#160;&#160;&#160;GPIO3_BASE</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Base register used for SCK control. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00157">157</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00154">154</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="ad0da7cf15f73baef40e165338ab29c2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0da7cf15f73baef40e165338ab29c2a">&#9670;&nbsp;</a></span>SPI_TRIGGER_PIN</h2>
+<a id="afe245e869fc3e2bb21642925af8872c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe245e869fc3e2bb21642925af8872c6">&#9670;&nbsp;</a></span>USER_CONFIG_TRIGGER_PIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_TRIGGER_PIN&#160;&#160;&#160;3U</td>
+          <td class="memname">#define USER_CONFIG_TRIGGER_PIN&#160;&#160;&#160;2U</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pin number for TRIIGER. </p>
+<p>Pin number for TRIGGER. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00184">184</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00179">179</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
-<a id="ade902845feb9681f6550117ba7aefbf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade902845feb9681f6550117ba7aefbf0">&#9670;&nbsp;</a></span>SPI_TRIGGER_PORT</h2>
+<a id="a9a1a62529e14b3d2d700cf57dc72fb4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a1a62529e14b3d2d700cf57dc72fb4f">&#9670;&nbsp;</a></span>USER_CONFIG_TRIGGER_PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPI_TRIGGER_PORT&#160;&#160;&#160;0x400FF080U</td>
+          <td class="memname">#define USER_CONFIG_TRIGGER_PORT&#160;&#160;&#160;GPIO3_BASE</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Base register used for TRIGGER control. </p>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00153">153</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
-
-</div>
-</div>
-<a id="a1fe60e7ed263fb0a42cf331107c96fe3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fe60e7ed263fb0a42cf331107c96fe3">&#9670;&nbsp;</a></span>SPI_WPB_PIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SPI_WPB_PIN&#160;&#160;&#160;4U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pin number for WPb. </p>
-
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00192">192</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
-
-</div>
-</div>
-<a id="a3b05d215ec24c6a73edb2152fd5e36ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b05d215ec24c6a73edb2152fd5e36ea">&#9670;&nbsp;</a></span>SPI_WPB_PORT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SPI_WPB_PORT&#160;&#160;&#160;0x400FF0C0U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Base register used for WPb control. </p>
-
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00169">169</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00150">150</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
@@ -487,7 +485,7 @@ Don't forget to update <a class="el" href="user__config_8h.html#ab12365a59df355f
 <tr><td class="fieldname"><a id="a35702fc16dc0c43ec25e4738735937e1ae310c909d76b003d016bef8bdf16936a"></a>INPUT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00210">210</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="user__config_8h_source.html#l00205">205</a> of file <a class="el" href="user__config_8h_source.html">user_config.h</a>.</p>
 
 </div>
 </div>
@@ -710,7 +708,7 @@ Don't forget to update <a class="el" href="user__config_8h.html#ab12365a59df355f
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

@@ -138,6 +138,7 @@ var searchData=
   ['cmd_5fphoenix_5fread_5fmid',['CMD_PHOENIX_READ_MID',['../cmd__defs_8h.html#afa9dbfcfea3d24650c005460d6909c2e',1,'cmd_defs.h']]],
   ['cmd_5fphoenix_5fread_5fsect_5fprot_5freg',['CMD_PHOENIX_READ_SECT_PROT_REG',['../cmd__defs_8h.html#afb16ebb0ac5ff5c735b9e5c79825e9aa',1,'cmd_defs.h']]],
   ['cmd_5fphoenix_5fread_5fsecurity_5freg_5fpage',['CMD_PHOENIX_READ_SECURITY_REG_PAGE',['../cmd__defs_8h.html#a11dc2677eca86675872248ee66dc40d8',1,'cmd_defs.h']]],
+  ['cmd_5fphoenix_5fread_5fsr',['CMD_PHOENIX_READ_SR',['../cmd__defs_8h.html#a91c49d43aed04232f5329e3c463a8874',1,'cmd_defs.h']]],
   ['cmd_5fphoenix_5fread_5fsrb1',['CMD_PHOENIX_READ_SRB1',['../cmd__defs_8h.html#a644d4df1c9570a440f17b5104809b6c4',1,'cmd_defs.h']]],
   ['cmd_5fphoenix_5fread_5fsrb2',['CMD_PHOENIX_READ_SRB2',['../cmd__defs_8h.html#a7c59dcadde54169ebd814062899099d8',1,'cmd_defs.h']]],
   ['cmd_5fphoenix_5freset',['CMD_PHOENIX_RESET',['../cmd__defs_8h.html#a092b6dab92f1423b93644609095e0637',1,'cmd_defs.h']]],
@@ -147,6 +148,8 @@ var searchData=
   ['cmd_5fphoenix_5fwe_5ffor_5fvolatile_5fsr',['CMD_PHOENIX_WE_FOR_VOLATILE_SR',['../cmd__defs_8h.html#a575ecb31432bf736a9bd3664ff8431c8',1,'cmd_defs.h']]],
   ['cmd_5fphoenix_5fwrite_5fdisable',['CMD_PHOENIX_WRITE_DISABLE',['../cmd__defs_8h.html#ac45bc754f97745c62242c707b725d3a2',1,'cmd_defs.h']]],
   ['cmd_5fphoenix_5fwrite_5fenable',['CMD_PHOENIX_WRITE_ENABLE',['../cmd__defs_8h.html#acfe91f76172027c28bb39ffe211f6870',1,'cmd_defs.h']]],
-  ['cmd_5fphoenix_5fwrite_5fsr',['CMD_PHOENIX_WRITE_SR',['../cmd__defs_8h.html#a7f8fcd17082010434d9c2d34815c4850',1,'cmd_defs.h']]],
+  ['cmd_5fphoenix_5fwrite_5fsr',['CMD_PHOENIX_WRITE_SR',['../cmd__defs_8h.html#a7f8fcd17082010434d9c2d34815c4850',1,'CMD_PHOENIX_WRITE_SR():&#160;cmd_defs.h'],['../cmd__defs_8h.html#a7f8fcd17082010434d9c2d34815c4850',1,'CMD_PHOENIX_WRITE_SR():&#160;cmd_defs.h']]],
+  ['cmd_5fphoenix_5fwrite_5fsrb1',['CMD_PHOENIX_WRITE_SRB1',['../cmd__defs_8h.html#a8b0b1e9df23b6676afd3bbc0b5710ca2',1,'cmd_defs.h']]],
+  ['cmd_5fphoenix_5fwrite_5fsrb2',['CMD_PHOENIX_WRITE_SRB2',['../cmd__defs_8h.html#a3fc15a5eadec3933e9f9a17cbf0a88d5',1,'cmd_defs.h']]],
   ['comparebytearrays',['compareByteArrays',['../helper__functions_8c.html#a862df829801ef76540699027ba744a1d',1,'compareByteArrays(uint8_t *arr1, uint8_t *arr2, uint32_t arrLength):&#160;helper_functions.c'],['../helper__functions_8h.html#a862df829801ef76540699027ba744a1d',1,'compareByteArrays(uint8_t *arr1, uint8_t *arr2, uint32_t arrLength):&#160;helper_functions.c']]]
 ];

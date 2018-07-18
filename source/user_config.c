@@ -57,12 +57,12 @@ void USER_CONFIG_PinInit(uint32_t port, uint32_t pin, enum directionIO direction
 
 void USER_CONFIG_PinClear(uint32_t port, uint32_t pin)
 {
-	GPIO_PinClear((GPIO_Type *)port, pin);
+	GPIO_PinWrite((GPIO_Type *)port, pin, 0);
 }
 
 void USER_CONFIG_PinSet(uint32_t port, uint32_t pin)
 {
-	GPIO_PinSet((GPIO_Type *)port, pin);
+	GPIO_PinWrite((GPIO_Type *)port, pin, 1);
 }
 
 uint8_t USER_CONFIG_PinRead(uint32_t port, uint32_t pin)

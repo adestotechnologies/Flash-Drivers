@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Adesto Flash Drivers: Adesto-Flash-Drivers/source/phoenix.c File Reference</title>
+<title>Adesto Flash Drivers: Flash-Drivers/source/phoenix.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -62,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_69504257db341e5b74fc84a56c3eacab.html">Adesto-Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_52beb24232acd37e6e939e109eb586c2.html">source</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_97eae8f018b86b66cbd5d5c55269fecf.html">Flash-Drivers</a></li><li class="navelem"><a class="el" href="dir_8833f0deafcb5b7d589ca41553802abd.html">source</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -102,14 +103,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:a8422ed2a0b88f5db1a37fb43c424eacd"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x04 <br />
  Sends opcode to disable writing.  <a href="#a8422ed2a0b88f5db1a37fb43c424eacd">More...</a><br /></td></tr>
 <tr class="separator:a8422ed2a0b88f5db1a37fb43c424eacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c6d00cd82027ca39b83299d761cfd4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a0c6d00cd82027ca39b83299d761cfd4c">phoenixReadSRB1</a> (uint8_t *rxBuffer)</td></tr>
-<tr class="memdesc:a0c6d00cd82027ca39b83299d761cfd4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x05 <br />
- Reads the value in the device status register (byte 1).  <a href="#a0c6d00cd82027ca39b83299d761cfd4c">More...</a><br /></td></tr>
-<tr class="separator:a0c6d00cd82027ca39b83299d761cfd4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8ad7bd9f9d0dfea2523535253f15cdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#af8ad7bd9f9d0dfea2523535253f15cdf">phoenixWriteSRB</a> (uint8_t *txBuffer, uint8_t txNumBytes)</td></tr>
-<tr class="memdesc:af8ad7bd9f9d0dfea2523535253f15cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x01 <br />
- Writes the value in data to the status register byte 1, or bytes 1 and 2. At least 1 byte needs to be written.  <a href="#af8ad7bd9f9d0dfea2523535253f15cdf">More...</a><br /></td></tr>
-<tr class="separator:af8ad7bd9f9d0dfea2523535253f15cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7702be03603742748c04fe70ef60b9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#ac7702be03603742748c04fe70ef60b9c">phoenixReadArrayLowFreq</a> (uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes)</td></tr>
 <tr class="memdesc:ac7702be03603742748c04fe70ef60b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x03 <br />
  Reads rxNumBytes starting from location 'address' and stores the data in the byte array rxBuffer. This command reads from a page in main memory at a lower frequency than other commands as specified in the datasheet.  <a href="#ac7702be03603742748c04fe70ef60b9c">More...</a><br /></td></tr>
@@ -157,14 +150,26 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa3d7f8373e5d2e44077b42186901e6aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x9F <br />
  Reads the manufacturer ID and stores the data in rxBuffer.  <a href="#aa3d7f8373e5d2e44077b42186901e6aa">More...</a><br /></td></tr>
 <tr class="separator:aa3d7f8373e5d2e44077b42186901e6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906dc011e64c757577f7014fb70e7a52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a906dc011e64c757577f7014fb70e7a52">phoenixWriteSR</a> (uint8_t *txBuffer, uint8_t txNumBytes)</td></tr>
+<tr class="memdesc:a906dc011e64c757577f7014fb70e7a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x01 <br />
+ Writes the value in data to the status register byte 1, or bytes 1 and 2. At least 1 byte needs to be written.  <a href="#a906dc011e64c757577f7014fb70e7a52">More...</a><br /></td></tr>
+<tr class="separator:a906dc011e64c757577f7014fb70e7a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e46e0330d5286d3c4679b02698307b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a6e46e0330d5286d3c4679b02698307b3">phoenixWriteSRB1</a> (uint8_t regVal)</td></tr>
+<tr class="separator:a6e46e0330d5286d3c4679b02698307b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0453c7284856981adbe78374e0394229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a0453c7284856981adbe78374e0394229">phoenixWriteSRB2</a> (uint8_t regVal)</td></tr>
+<tr class="separator:a0453c7284856981adbe78374e0394229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cc914113703ce952b90ff0311ad1b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a6cc914113703ce952b90ff0311ad1b60">phoenixWriteEnableVolatileSR</a> ()</td></tr>
 <tr class="memdesc:a6cc914113703ce952b90ff0311ad1b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x50 <br />
  Sends opcode to enable writing for the volatile status register.  <a href="#a6cc914113703ce952b90ff0311ad1b60">More...</a><br /></td></tr>
 <tr class="separator:a6cc914113703ce952b90ff0311ad1b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4f4be8ea55c591615ac094b17145167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#ac4f4be8ea55c591615ac094b17145167">phoenixReadSRB2</a> (uint8_t *rxBuffer)</td></tr>
-<tr class="memdesc:ac4f4be8ea55c591615ac094b17145167"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x35 <br />
- Reads the value in the device status register (byte 2).  <a href="#ac4f4be8ea55c591615ac094b17145167">More...</a><br /></td></tr>
-<tr class="separator:ac4f4be8ea55c591615ac094b17145167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5046efc41ae296ee83d496a0d32957f1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a5046efc41ae296ee83d496a0d32957f1">phoenixReadSRB1</a> ()</td></tr>
+<tr class="memdesc:a5046efc41ae296ee83d496a0d32957f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x05 <br />
+ Reads the value in the device status register (byte 1).  <a href="#a5046efc41ae296ee83d496a0d32957f1">More...</a><br /></td></tr>
+<tr class="separator:a5046efc41ae296ee83d496a0d32957f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd004fd18d43712ccad894cc3f7eaee1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#afd004fd18d43712ccad894cc3f7eaee1">phoenixReadSRB2</a> ()</td></tr>
+<tr class="memdesc:afd004fd18d43712ccad894cc3f7eaee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x35 <br />
+ Reads the value in the device status register (byte 2).  <a href="#afd004fd18d43712ccad894cc3f7eaee1">More...</a><br /></td></tr>
+<tr class="separator:afd004fd18d43712ccad894cc3f7eaee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7946cb2b9c662a912087fb3667a8615"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#af7946cb2b9c662a912087fb3667a8615">phoenixDualOutputRead</a> (uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes)</td></tr>
 <tr class="memdesc:af7946cb2b9c662a912087fb3667a8615"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x3B <br />
  Reads 'txNumBytes' bytes of data in Dual Output Mode starting at 'address' using both SI and SO as inputs to master.  <a href="#af7946cb2b9c662a912087fb3667a8615">More...</a><br /></td></tr>
@@ -241,6 +246,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac3e01d724d1e8561560ed9ccc00b43f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0xC1 <br />
  Exit secured OTP region.  <a href="#ac3e01d724d1e8561560ed9ccc00b43f5">More...</a><br /></td></tr>
 <tr class="separator:ac3e01d724d1e8561560ed9ccc00b43f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30a0c12b530ad6758502b0cf9f656df7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a30a0c12b530ad6758502b0cf9f656df7">phoenixReadSR</a> (uint8_t *rxBuffer)</td></tr>
+<tr class="memdesc:a30a0c12b530ad6758502b0cf9f656df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x05 <br />
+ Reads the value in the device status register (byte 1 and 2).  <a href="#a30a0c12b530ad6758502b0cf9f656df7">More...</a><br /></td></tr>
+<tr class="separator:a30a0c12b530ad6758502b0cf9f656df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35a2d9006b6e45a398e9bb55c4edad8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a35a2d9006b6e45a398e9bb55c4edad8a">phoenixDualInputBytePageProgram</a> (uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes)</td></tr>
 <tr class="memdesc:a35a2d9006b6e45a398e9bb55c4edad8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0xA2 <br />
  Programs 'txNumBytes' bytes of data starting at the address indicated by address using both the MISO and MOSI lines is inputs to the device.  <a href="#a35a2d9006b6e45a398e9bb55c4edad8a">More...</a><br /></td></tr>
@@ -268,14 +277,14 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0fbf129276c41c7692433b3b6daef23f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x34 <br />
  Freezes the current state of the sector lockdown registers.  <a href="#a0fbf129276c41c7692433b3b6daef23f">More...</a><br /></td></tr>
 <tr class="separator:a0fbf129276c41c7692433b3b6daef23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8437835b10aa1ad4c1b0963ba68c707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#aa8437835b10aa1ad4c1b0963ba68c707">phoenixReadLockdownReg</a> (uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes)</td></tr>
-<tr class="separator:aa8437835b10aa1ad4c1b0963ba68c707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c96819b20238907ec8bdf0f338fda35"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a1c96819b20238907ec8bdf0f338fda35">phoenixReadLockdownReg</a> (uint32_t address)</td></tr>
+<tr class="memdesc:a1c96819b20238907ec8bdf0f338fda35"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x35 <br />
+ Reads the sector lockdown register for address address.  <a href="#a1c96819b20238907ec8bdf0f338fda35">More...</a><br /></td></tr>
+<tr class="separator:a1c96819b20238907ec8bdf0f338fda35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cc49c29575c86a788fae78c4c360cf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a9cc49c29575c86a788fae78c4c360cf0">phoenixProgramOTPReg</a> (uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes)</td></tr>
 <tr class="memdesc:a9cc49c29575c86a788fae78c4c360cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x9B <br />
  Programs 'txNumBytes' bytes of data to the OTP register starting at the address indicated by address.  <a href="#a9cc49c29575c86a788fae78c4c360cf0">More...</a><br /></td></tr>
 <tr class="separator:a9cc49c29575c86a788fae78c4c360cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78a391d6e91f7c63e28be30a15a03e3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a78a391d6e91f7c63e28be30a15a03e3e">programEraseSuspendExample</a> ()</td></tr>
-<tr class="separator:a78a391d6e91f7c63e28be30a15a03e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6837ba7fd66074e66a60b4d754ea6582"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="phoenix_8c.html#a6837ba7fd66074e66a60b4d754ea6582">phoenixTest</a> ()</td></tr>
 <tr class="memdesc:a6837ba7fd66074e66a60b4d754ea6582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample use of the driver for a Phoenix device. <br />
  This function is meant to showcase how the API is to be used by performing tests on the device, and outputting messages based on performance. Not all functions are used, although most are. This is NOT meant as a standalone reference and should be used in conjunction with the provided documentation and the relevant datasheets. <br />
@@ -319,7 +328,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00244">244</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00254">254</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -354,7 +363,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00231">231</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00241">241</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -389,7 +398,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00257">257</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00267">267</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -442,7 +451,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00210">210</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00220">220</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -470,7 +479,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00270">270</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00280">280</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -498,7 +507,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00283">283</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00293">293</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -527,7 +536,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00110">110</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00135">135</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -555,7 +564,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00533">533</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00635">635</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -583,7 +592,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00544">544</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00646">646</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -612,7 +621,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00694">694</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00796">796</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -639,7 +648,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00296">296</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00306">306</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -692,7 +701,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00767">767</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00883">883</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -767,7 +776,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00399">399</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00501">501</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -820,7 +829,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00389">389</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00491">491</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -849,7 +858,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00682">682</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00784">784</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -878,7 +887,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00706">706</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00808">808</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -906,7 +915,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00732">732</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00834">834</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -934,7 +943,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00656">656</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00758">758</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -962,7 +971,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00643">643</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00745">745</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -991,7 +1000,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00557">557</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00659">659</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1028,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00745">745</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00847">847</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1048,7 +1057,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00836">836</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00952">952</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1076,7 +1085,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00795">795</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00911">911</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1104,7 +1113,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00785">785</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00901">901</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1167,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00859">859</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00975">975</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1211,7 +1220,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00567">567</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00669">669</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1239,7 +1248,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00805">805</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00921">921</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1314,7 +1323,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00468">468</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00570">570</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1376,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00458">458</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00560">560</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1427,7 +1436,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00608">608</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00710">710</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1480,7 +1489,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00197">197</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00207">207</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1533,7 +1542,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00187">187</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00197">197</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1568,43 +1577,37 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00322">322</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00332">332</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
-<a id="aa8437835b10aa1ad4c1b0963ba68c707"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8437835b10aa1ad4c1b0963ba68c707">&#9670;&nbsp;</a></span>phoenixReadLockdownReg()</h2>
+<a id="a1c96819b20238907ec8bdf0f338fda35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c96819b20238907ec8bdf0f338fda35">&#9670;&nbsp;</a></span>phoenixReadLockdownReg()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void phoenixReadLockdownReg </td>
+          <td class="memname">uint8_t phoenixReadLockdownReg </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>address</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>address</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>rxBuffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>rxNumBytes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00847">847</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p>OPCODE: 0x35 <br />
+ Reads the sector lockdown register for address address. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>byte indicating whether or not the sector is locked-down.<br />
+ 0xFF indicates the sector is locked-down, 0x00 indicates the sector is not locked-down. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00963">963</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1639,7 +1642,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00335">335</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00345">345</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1669,7 +1672,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00824">824</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00940">940</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1722,18 +1725,18 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00585">585</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00687">687</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
-<a id="a0c6d00cd82027ca39b83299d761cfd4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c6d00cd82027ca39b83299d761cfd4c">&#9670;&nbsp;</a></span>phoenixReadSRB1()</h2>
+<a id="a30a0c12b530ad6758502b0cf9f656df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a0c12b530ad6758502b0cf9f656df7">&#9670;&nbsp;</a></span>phoenixReadSR()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void phoenixReadSRB1 </td>
+          <td class="memname">void phoenixReadSR </td>
           <td>(</td>
           <td class="paramtype">uint8_t *&#160;</td>
           <td class="paramname"><em>rxBuffer</em></td><td>)</td>
@@ -1743,13 +1746,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>OPCODE: 0x05 <br />
- Reads the value in the device status register (byte 1). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rxBuffer</td><td>Pointer to the byte array in which the read data will be stored. Must have at least 1 element.</td></tr>
-  </table>
-  </dd>
-</dl>
+ Reads the value in the device status register (byte 1 and 2). </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">void</td><td></td></tr>
@@ -1757,21 +1754,48 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00156">156</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00870">870</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
-<a id="ac4f4be8ea55c591615ac094b17145167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f4be8ea55c591615ac094b17145167">&#9670;&nbsp;</a></span>phoenixReadSRB2()</h2>
+<a id="a5046efc41ae296ee83d496a0d32957f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5046efc41ae296ee83d496a0d32957f1">&#9670;&nbsp;</a></span>phoenixReadSRB1()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void phoenixReadSRB2 </td>
+          <td class="memname">uint8_t phoenixReadSRB1 </td>
           <td>(</td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>rxBuffer</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OPCODE: 0x05 <br />
+ Reads the value in the device status register (byte 1). </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Byte</td><td>stored in the status register. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00461">461</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+
+</div>
+</div>
+<a id="afd004fd18d43712ccad894cc3f7eaee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd004fd18d43712ccad894cc3f7eaee1">&#9670;&nbsp;</a></span>phoenixReadSRB2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t phoenixReadSRB2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1779,20 +1803,14 @@ Variables</h2></td></tr>
 
 <p>OPCODE: 0x35 <br />
  Reads the value in the device status register (byte 2). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rxBuffer</td><td>Pointer to the byte array in which the read data will be stored. Must have at least 1 element.</td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">void</td><td></td></tr>
+    <tr><td class="paramname">Byte</td><td>stored in the status register. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00376">376</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00476">476</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1821,7 +1839,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00719">719</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00821">821</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1849,7 +1867,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00309">309</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00319">319</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1884,7 +1902,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00595">595</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00697">697</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1913,7 +1931,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00090">90</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00099">99</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1948,6 +1966,7 @@ Variables</h2></td></tr>
 <li>QPI read manufacturing ID.</li>
 <li>QPI write and read commands.</li>
 <li>QPI read commands</li>
+<li>Dual Input Byte/Page Program</li>
 </ol>
 <p>At each stage various messages will confirm that the tests have passed or failed. Failure is expected during power down modes, as the inputs lines are not driven, thus causing data read to be unpredictable.</p>
 <dl class="retval"><dt>Return values</dt><dd>
@@ -1957,7 +1976,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l01068">1068</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l01013">1013</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -1986,7 +2005,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00814">814</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00930">930</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -2014,7 +2033,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00079">79</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00077">77</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -2042,7 +2061,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00143">143</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00184">184</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -2070,7 +2089,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00130">130</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00171">171</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -2098,18 +2117,18 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00363">363</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00448">448</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
-<a id="af8ad7bd9f9d0dfea2523535253f15cdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8ad7bd9f9d0dfea2523535253f15cdf">&#9670;&nbsp;</a></span>phoenixWriteSRB()</h2>
+<a id="a906dc011e64c757577f7014fb70e7a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a906dc011e64c757577f7014fb70e7a52">&#9670;&nbsp;</a></span>phoenixWriteSR()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void phoenixWriteSRB </td>
+          <td class="memname">void phoenixWriteSR </td>
           <td>(</td>
           <td class="paramtype">uint8_t *&#160;</td>
           <td class="paramname"><em>txBuffer</em>, </td>
@@ -2144,26 +2163,47 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00169">169</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00372">372</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
-<a id="a78a391d6e91f7c63e28be30a15a03e3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78a391d6e91f7c63e28be30a15a03e3e">&#9670;&nbsp;</a></span>programEraseSuspendExample()</h2>
+<a id="a6e46e0330d5286d3c4679b02698307b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e46e0330d5286d3c4679b02698307b3">&#9670;&nbsp;</a></span>phoenixWriteSRB1()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int programEraseSuspendExample </td>
+          <td class="memname">void phoenixWriteSRB1 </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>regVal</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00891">891</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00406">406</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+
+</div>
+</div>
+<a id="a0453c7284856981adbe78374e0394229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0453c7284856981adbe78374e0394229">&#9670;&nbsp;</a></span>phoenixWriteSRB2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void phoenixWriteSRB2 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>regVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00420">420</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -2180,7 +2220,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00075">75</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phoenix_8c_source.html#l00073">73</a> of file <a class="el" href="phoenix_8c_source.html">phoenix.c</a>.</p>
 
 </div>
 </div>
@@ -2188,7 +2228,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

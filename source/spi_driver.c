@@ -137,10 +137,10 @@ void SPI_ConfigureQuadSPIIOsOutput()
 	SPI_PinInit(SPI_WPB_PORT, SPI_WPB_PIN, OUTPUT);
 }
 
-void SPI_Delay(uint32_t delay_time)
+void SPI_Delay(uint32_t delayTime)
 {
     volatile uint32_t i = 0;
-    for (i = 0; i < delay_time; ++i)
+    for (i = 0; i < delayTime; ++i)
     {
         __asm("NOP"); /* delay */
     }
@@ -154,12 +154,12 @@ void SPI_ClockTick()
 	SPI_PinClear(SPI_SCK_PORT, SPI_SCK_PIN);
 }
 
-void SPI_SendBit(uint8_t bit_tx)
+void SPI_SendBit(uint8_t transmittedBit)
 {
 	// Guarantee clock is set to low
 	SPI_PinClear(SPI_SCK_PORT, SPI_SCK_PIN);
-	// Set MOSI based on bit_tx
-	if(bit_tx)
+	// Set MOSI based on transmittedBit
+	if(transmittedBit)
 		SPI_PinSet(SPI_MOSI_PORT, SPI_MOSI_PIN);
 	else
 		SPI_PinClear(SPI_MOSI_PORT, SPI_MOSI_PIN);
@@ -167,17 +167,17 @@ void SPI_SendBit(uint8_t bit_tx)
 	SPI_ClockTick(DELAY);
 }
 
-void SPI_SendByte(uint8_t tx)
+void SPI_SendByte(uint8_t transmittedByte)
 {
 	int32_t i = 0;
 	// Send byte
 	for(i = 7; i >= 0; i--)
 	{
-		SPI_SendBit((tx >> i) & 1);
+		SPI_SendBit((transmittedByte >> i) & 1);
 	}
 }
 
-void SPI_DualSendByte(uint8_t tx)
+void SPI_DualSendByte(uint8_t transmittedByte)
 {
 	int32_t i = 0;
 	uint8_t bit_tx = 0;
@@ -188,7 +188,7 @@ void SPI_DualSendByte(uint8_t tx)
 		SPI_PinClear(SPI_SCK_PORT, SPI_SCK_PIN);
 
 		// Send MSB first
-		bit_tx = (tx >> i) & 1;
+		bit_tx = (transmittedByte >> i) & 1;
 		// Set MOSI based on bit_tx
 		if(bit_tx)
 			SPI_PinSet(SPI_MISO_PORT, SPI_MISO_PIN);
@@ -196,7 +196,7 @@ void SPI_DualSendByte(uint8_t tx)
 			SPI_PinClear(SPI_MISO_PORT, SPI_MISO_PIN);
 
 		// Send lower bit
-		bit_tx = (tx >> (i-1)) & 1;
+		bit_tx = (transmittedByte >> (i-1)) & 1;
 		// Set MOSI based on bit_tx
 		if(bit_tx)
 			SPI_PinSet(SPI_MOSI_PORT, SPI_MOSI_PIN);
@@ -208,8 +208,7 @@ void SPI_DualSendByte(uint8_t tx)
 	}
 }
 
-// TODO:
-void SPI_QuadSendByte(uint8_t tx)
+void SPI_QuadSendByte(uint8_t transmittedByte)
 {
 	int32_t i = 0;
 	uint8_t bit_tx = 0;
@@ -220,25 +219,25 @@ void SPI_QuadSendByte(uint8_t tx)
 		SPI_PinClear(SPI_SCK_PORT, SPI_SCK_PIN);
 
 		// Send MSB first
-		bit_tx = (tx >> i) & 1;
+		bit_tx = (transmittedByte >> i) & 1;
 		if(bit_tx)
 			SPI_PinSet(SPI_HOLDB_PORT, SPI_HOLDB_PIN);
 		else
 			SPI_PinClear(SPI_HOLDB_PORT, SPI_HOLDB_PIN);
 
-		bit_tx = (tx >> (i-1)) & 1;
+		bit_tx = (transmittedByte >> (i-1)) & 1;
 		if(bit_tx)
 			SPI_PinSet(SPI_WPB_PORT, SPI_WPB_PIN);
 		else
 			SPI_PinClear(SPI_WPB_PORT, SPI_WPB_PIN);
 
-		bit_tx = (tx >> (i-2)) & 1;
+		bit_tx = (transmittedByte >> (i-2)) & 1;
 		if(bit_tx)
 			SPI_PinSet(SPI_MISO_PORT, SPI_MISO_PIN);
 		else
 			SPI_PinClear(SPI_MISO_PORT, SPI_MISO_PIN);
 
-		bit_tx = (tx >> (i-3)) & 1;
+		bit_tx = (transmittedByte >> (i-3)) & 1;
 		if(bit_tx)
 			SPI_PinSet(SPI_MOSI_PORT, SPI_MOSI_PIN);
 		else

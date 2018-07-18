@@ -59,8 +59,6 @@
 	(PARTNO == AT25QL321) 	|| \
 	(PARTNO == AT25QF641)	|| \
 	(ALL == 1)
-
-
 /*!
  * @brief Communication mode byte. This byte is changed when various commands are executed.
  * See phoenixEnableQPI(), and phoenixDisableQPI().<br>
@@ -78,29 +76,56 @@ uint8_t txPhoenixInternalBuffer[MAXIMUM_TX_BYTES];
 
 void phoenixWaitOnReady()
 {
-	uint8_t SR;
+	uint8_t SRArray[2] = {0, 0};
 	do
 	{
-		phoenixReadSRB1(&SR);
+#if (PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)
+		phoenixReadSR(SRArray);
 		SPI_Delay(10);
 	}
-	while(SR & (1<<0));
+	while(SRArray[1] & (1<<0));
+#else
+		SRArray[0] = phoenixReadSRB1();
+		SPI_Delay(10);
+	}
+	while(SRArray[0] & (1<<0));
+#endif
 }
 
 void phoenixSetQEBit()
 {
-	uint8_t SRArray[2];
+	uint8_t SRArray[2] = {0, 0};
 	// Read both status register bytes.
-	phoenixReadSRB1(&SRArray[0]);
-	phoenixReadSRB2(&SRArray[1]);
+#if (PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)
+	phoenixReadSR(SRArray);
+#else
+	SRArray[0] = phoenixReadSRB1();
+	SRArray[1] = phoenixReadSRB2();
+#endif
 	// Store a 1 in the QE bit.
 	SRArray[1] |= (1 << 1);
 	// Altering the device data, so send over a write enable first.
 	phoenixWriteEnable();
 	// Store the command and new SRB values. NOTE this needs to be done after
 	// the write enable since the internal buffer used is a shared resource.
-	phoenixWriteSRB(SRArray, 2);
-
+#if (PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)
+	phoenixWriteSRB1(SRArray[0]);
+	phoenixWriteSRB2(SRArray[1]);
+#else
+	phoenixWriteSR(SRArray, 2);
+#endif
 	if(DISPLAY_OUTPUT)
 	{
 		printSPIExchange(txPhoenixInternalBuffer, 3, NULL, 0);
@@ -109,18 +134,34 @@ void phoenixSetQEBit()
 
 void phoenixClearQEBit()
 {
-	uint8_t SRArray[2];
+	uint8_t SRArray[2] = {0, 0};
 	// Read both status register bytes.
-	phoenixReadSRB1(&SRArray[0]);
-	phoenixReadSRB2(&SRArray[1]);
+#if (PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)
+	phoenixReadSR(SRArray);
+#else
+	SRArray[0] = phoenixReadSRB1();
+	SRArray[1] = phoenixReadSRB2();
+#endif
 	// Store a 0 in the QE bit.
 	SRArray[1] &= ~(1 << 1);
 	// Altering the device data, so send over a write enable first.
 	phoenixWriteEnable();
 	// Store the command and new SRB values. NOTE this needs to be done after
 	// the write enable since the internal buffer used is a shared resource.
-	phoenixWriteSRB(SRArray, 2);
-
+#if (PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)
+	phoenixWriteSRB1(SRArray[0]);
+	phoenixWriteSRB2(SRArray[1]);
+#else
+	phoenixWriteSR(SRArray, 2);
+#endif
 	if(DISPLAY_OUTPUT)
 	{
 		printSPIExchange(txPhoenixInternalBuffer, 3, NULL, 0);
@@ -150,37 +191,6 @@ void phoenixWriteDisable()
 	if(DISPLAY_OUTPUT)
 	{
 		printSPIExchange(txPhoenixInternalBuffer, 1, NULL,  0);
-	}
-}
-
-void phoenixReadSRB1(uint8_t *rxBuffer)
-{
-	txPhoenixInternalBuffer[0] = CMD_PHOENIX_READ_SRB1;
-	if(MCU_SPI_MODE == SPI)
-		SPI_Exchange(txPhoenixInternalBuffer, 1, rxBuffer, 1, 0);
-	else
-		SPI_QuadExchange(0, txPhoenixInternalBuffer, 1, rxBuffer, 1, 0);
-	if(DISPLAY_OUTPUT)
-	{
-		printSPIExchange(txPhoenixInternalBuffer, 1, rxBuffer, 1);
-	}
-}
-
-void phoenixWriteSRB(uint8_t *txBuffer, uint8_t txNumBytes)
-{
-	txPhoenixInternalBuffer[0] = CMD_PHOENIX_WRITE_SR;
-	txPhoenixInternalBuffer[1] = txBuffer[0];
-	if(txNumBytes > 1)
-	{
-		txPhoenixInternalBuffer[2] = txBuffer[1];
-	}
-	if(MCU_SPI_MODE == SPI)
-		SPI_Exchange(txPhoenixInternalBuffer, txNumBytes+1, NULL, 0, 0);
-	else
-		SPI_QuadExchange(0, txPhoenixInternalBuffer, txNumBytes+1, NULL, 0, 0);
-	if(DISPLAY_OUTPUT)
-	{
-		printSPIExchange(txPhoenixInternalBuffer, txNumBytes+1, NULL, 0);
 	}
 }
 
@@ -345,7 +355,82 @@ void phoenixReadMID(uint8_t *rxBuffer)
 	}
 }
 #endif
+#if (PARTNO == AT25SF641) 	|| \
+	(PARTNO == AT25SF321)	|| \
+	(PARTNO == AT25SF161) 	|| \
+	(PARTNO == AT25SF081) 	|| \
+	(PARTNO == AT25SF041) 	|| \
+	(PARTNO == AT25SL128A) 	|| \
+	(PARTNO == AT25SL641) 	|| \
+	(PARTNO == AT25SL321) 	|| \
+	(PARTNO == AT25QL128A) 	|| \
+	(PARTNO == AT25QL641) 	|| \
+	(PARTNO == AT25QL321) 	|| \
+	(PARTNO == AT25QF641)   || \
+	(ALL == 1)
 
+void phoenixWriteSR(uint8_t *txBuffer, uint8_t txNumBytes)
+{
+	txPhoenixInternalBuffer[0] = CMD_PHOENIX_WRITE_SR;
+	txPhoenixInternalBuffer[1] = txBuffer[0];
+	if(txNumBytes > 1)
+	{
+		txPhoenixInternalBuffer[2] = txBuffer[1];
+	}
+	if(MCU_SPI_MODE == SPI)
+		SPI_Exchange(txPhoenixInternalBuffer, txNumBytes+1, NULL, 0, 0);
+	else
+		SPI_QuadExchange(0, txPhoenixInternalBuffer, txNumBytes+1, NULL, 0, 0);
+	if(DISPLAY_OUTPUT)
+	{
+		printSPIExchange(txPhoenixInternalBuffer, txNumBytes+1, NULL, 0);
+	}
+}
+#endif
+
+#if (PARTNO == AT25SF641) 	|| \
+	(PARTNO == AT25SL128A) 	|| \
+	(PARTNO == AT25SL641) 	|| \
+	(PARTNO == AT25SL321) 	|| \
+	(PARTNO == AT25QL128A) 	|| \
+ 	(PARTNO == AT25QL641) 	|| \
+	(PARTNO == AT25QL321) 	|| \
+	(PARTNO == AT25QF641)   || \
+	(PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)	|| \
+	(ALL == 1)
+
+void phoenixWriteSRB1(uint8_t regVal)
+{
+	txPhoenixInternalBuffer[0] = CMD_PHOENIX_WRITE_SRB1;
+	txPhoenixInternalBuffer[1] = regVal;
+	if(MCU_SPI_MODE == SPI)
+		SPI_Exchange(txPhoenixInternalBuffer, 2, NULL, 0, 0);
+	else
+		SPI_QuadExchange(0, txPhoenixInternalBuffer, 2, NULL, 0, 0);
+	if(DISPLAY_OUTPUT)
+	{
+		printSPIExchange(txPhoenixInternalBuffer, 2, NULL, 0);
+	}
+}
+
+void phoenixWriteSRB2(uint8_t regVal)
+{
+	txPhoenixInternalBuffer[0] = CMD_PHOENIX_WRITE_SRB2;
+	txPhoenixInternalBuffer[1] = regVal;
+	if(MCU_SPI_MODE == SPI)
+		SPI_Exchange(txPhoenixInternalBuffer, 2, NULL, 0, 0);
+	else
+		SPI_QuadExchange(0, txPhoenixInternalBuffer, 2, NULL, 0, 0);
+	if(DISPLAY_OUTPUT)
+	{
+		printSPIExchange(txPhoenixInternalBuffer, 2, NULL, 0);
+	}
+}
+#endif
 
 #if (PARTNO == AT25SF641) 	|| \
 	(PARTNO == AT25SF321)	|| \
@@ -373,17 +458,34 @@ void phoenixWriteEnableVolatileSR()
 	}
 }
 
-void phoenixReadSRB2(uint8_t *rxBuffer)
+uint8_t phoenixReadSRB1()
 {
-	txPhoenixInternalBuffer[0] = CMD_PHOENIX_READ_SRB2;
+	uint8_t regVal = 0;
+	txPhoenixInternalBuffer[0] = CMD_PHOENIX_READ_SRB1;
 	if(MCU_SPI_MODE == SPI)
-		SPI_Exchange(txPhoenixInternalBuffer, 1, rxBuffer, 1, 0);
+		SPI_Exchange(txPhoenixInternalBuffer, 1, &regVal, 1, 0);
 	else
-		SPI_QuadExchange(0, txPhoenixInternalBuffer, 1, rxBuffer, 1, 0);
+		SPI_QuadExchange(0, txPhoenixInternalBuffer, 1, &regVal, 1, 0);
 	if(DISPLAY_OUTPUT)
 	{
-		printSPIExchange(txPhoenixInternalBuffer, 1, rxBuffer, 1);
+		printSPIExchange(txPhoenixInternalBuffer, 1, &regVal, 1);
 	}
+	return regVal;
+}
+
+uint8_t phoenixReadSRB2()
+{
+	uint8_t regVal = 0;
+	txPhoenixInternalBuffer[0] = CMD_PHOENIX_READ_SRB2;
+	if(MCU_SPI_MODE == SPI)
+		SPI_Exchange(txPhoenixInternalBuffer, 1, &regVal, 1, 0);
+	else
+		SPI_QuadExchange(0, txPhoenixInternalBuffer, 1, &regVal, 1, 0);
+	if(DISPLAY_OUTPUT)
+	{
+		printSPIExchange(txPhoenixInternalBuffer, 1, &regVal, 1);
+	}
+	return regVal;
 }
 
 void phoenixDualOutputRead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes)
@@ -764,6 +866,20 @@ void phoenixExitSecuredOTP()
 	(PARTNO == AT25DF321A)  || \
 	(PARTNO == AT25DF641A)	|| \
 	(ALL == 1)
+
+void phoenixReadSR(uint8_t *rxBuffer)
+{
+	txPhoenixInternalBuffer[0] = CMD_PHOENIX_READ_SR;
+	if(MCU_SPI_MODE == SPI)
+		SPI_Exchange(txPhoenixInternalBuffer, 1, rxBuffer, 2, 0);
+	else
+		SPI_QuadExchange(0, txPhoenixInternalBuffer, 1, rxBuffer, 2, 0);
+	if(DISPLAY_OUTPUT)
+	{
+		printSPIExchange(txPhoenixInternalBuffer, 1, rxBuffer, 2);
+	}
+}
+
 void phoenixDualInputBytePageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes)
 {
 	load4BytesToTxBuffer(txPhoenixInternalBuffer, CMD_PHOENIX_DUAL_BYTE_PAGE_PROGRAM, address);
@@ -844,7 +960,7 @@ void phoenixFreezeLockdownState()
 	}
 }
 
-void phoenixReadLockdownReg(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes)
+uint8_t phoenixReadLockdownReg(uint32_t address)
 {
 	uint8_t registerVal = 0;
 	load4BytesToTxBuffer(txPhoenixInternalBuffer, CMD_PHOENIX_READ_LOCKDOWN_REG, address);
@@ -873,177 +989,6 @@ void phoenixProgramOTPReg(uint32_t address, uint8_t *txBuffer, uint32_t txNumByt
 		printSPIExchange(txPhoenixInternalBuffer, totalBytes, NULL, 0);
 	}
 }
-#endif
-
-
-#if (PARTNO == AT25SF641) 	|| \
-	(PARTNO == AT25SF321)	|| \
-	(PARTNO == AT25SF161) 	|| \
-	(PARTNO == AT25SL128A)  || \
-	(PARTNO == AT25SL641) 	|| \
-	(PARTNO == AT25SL321) 	|| \
-	(PARTNO == AT25QL128A)  || \
- 	(PARTNO == AT25QL641) 	|| \
-	(PARTNO == AT25QL321) 	|| \
-	(PARTNO == AT25QF641)	|| \
-	(ALL == 1)
-
-int programEraseSuspendExample()
-{
-	// Data programmed to the first block
-	uint8_t flashData[] = "When in the Course of human events\n"
-			"it becomes necessary for one people to dissolve \n"
-			"the political bands which have connected them with \n"
-			"another and to assume among the powers of the earth, \n"
-			"the separate and equal station to which the Laws of \n"
-			"Nature and of Nature's God entitle them, a decent \n"
-			"respect to the opinions of mankind requires that they \n"
-			"should declare the causes which impel them to the \n"
-			"separation. We hold these truths to be self-evident, \n"
-			"that all men are created equal, that they are endowed by \n"
-			"their Creator with certain unalienable Rights, that among \n"
-			"these are Life, Liberty and the pursuit of Happiness. — \n"
-			"That to secure these rights, Governments are instituted \n"
-			"among Men, deriving their just powers from the consent of \n"
-			"the governed, — That whenever any Form of Government \n"
-			"becomes destructive of these ends, it is the Right of the \n"
-			"People to alter or to abolish it, and to institute new \n"
-			"Government, laying its foundation on such principles and \n"
-			"organizing its powers in such form, as to them shall \n"
-			"seem most likely to effect their Safety and Happiness. \n"
-			"Prudence, indeed, will dictate that Governments long established \n"
-			"should not be changed for light and transient causes; and \n";
-	// Buffer used when reading data back to confirm flash memory was properly programmed
-	uint8_t readData[2000];
-	// 'random' data to be programmed
-	uint8_t someData[] = "123456";
-	/* Init board hardware. */
-	// Set pinmuxes and clock
-	BOARD_InitBootPins();
-	BOARD_InitBootClocks();
-	BOARD_InitBootPeripherals();
-	/* Init FSL debug console. */
-	BOARD_InitDebugConsole();
-
-	// Sets the various pins as inputs and output
-	SPI_ConfigureSingleSPIIOs();
-
-	// Set up the device for programming
-	// Write enable the device
-	phoenixWriteEnable();
-	// Erase the first block
-	phoenixBlockErase4K(0);
-	// Wait for it to complete
-	phoenixWaitOnReady();
-	// Write enable the device
-	phoenixWriteEnable();
-	// Erase the first block
-	phoenixBlockErase4K(0x6000);
-	// Wait for it to complete
-	phoenixWaitOnReady();
-
-	// Program address 0x0 with data.
-	int i = 0;
-
-	for(; i < (sizeof(flashData)/sizeof(flashData[0])-0xFF); i+=0x100)
-	{
-		phoenixWriteEnable();
-		phoenixBytePageProgram(i, &flashData[i], 0x100);
-		phoenixWaitOnReady();
-	}
-	phoenixWriteEnable();
-	phoenixBytePageProgram(i, &flashData[i], sizeof(flashData)/sizeof(flashData[0])-i);
-	phoenixWaitOnReady();
-	phoenixReadArrayHighFreq(0, readData, sizeof(flashData)/sizeof(flashData[0]));
-	printf("Data programmed at address 0x0: \n%s\n\n", readData);
-
-	// Read the status registers
-	phoenixReadSRB1(readData);
-	printf("Status register byte 1 before erase: %02X\n", readData[0]);
-	phoenixReadSRB2(readData);
-	printf("Status register byte 2 before erase: %02X\n\n", readData[0]);
-
-	printf("Begin erase...\n\n");
-
-	// Write enable to perform a block erase
-	phoenixWriteEnable();
-	// Perform block erase at address 0. Note, suspend doesn't work
-	// during chip erase as per the datasheet.
-	phoenixBlockErase4K(0);
-
-	// CORE ELEMENT ----------------------------------------------------------
-
-	// Interrupt the erase operation.
-	phoenixEraseProgramSuspend();
-
-	// END CORE ELEMENT -----------------------------------------------------
-
-	// Confirm it was interrupted by examining the status registers
-	// Not necessary in an application.
-	phoenixReadSRB1(readData);
-	printf("Status register byte 1 after suspend: %02X\n", readData[0]);
-
-	phoenixReadSRB2(readData);
-	printf("Status register byte 2 after suspend: %02X\n\n", readData[0]);
-
-
-	// CORE SEQUENCE ---------------------------------------------------------
-
-	// Try programming new data in.
-	// First write enable the device since data will be modified.
-	phoenixWriteEnable();
-	// Program 4 bytes using 0x02
-	phoenixBytePageProgram(0x6000, someData, 4);
-	// Wait for the data to be programmed
-	phoenixWaitOnReady();
-
-	// END CORE SEQUENCE ----------------------------------------------------
-
-	// Not necessary in an application.
-	// Read the data back
-	phoenixReadArrayHighFreq(0x6000, readData, 20);
-	// insert a terminator in readData for printing purposes
-	readData[15] = '\0';
-	printf("Data programmed to 0x6000 after erase suspend: %s\n\n", readData);
-
-	// Confirm erase is still interrupted by examining the status registers
-	phoenixReadSRB1(readData);
-	printf("Status register byte 1 after suspend: %02X\n", readData[0]);
-
-	phoenixReadSRB2(readData);
-	printf("Status register byte 2 after suspend: %02X\n\n", readData[0]);
-
-	printf("Erase resume...\n\n");
-
-	// CORE ELEMENT -------------------------------------------------------------
-
-	phoenixEraseProgramResume();
-	phoenixWaitOnReady();
-
-	// END CORE ELEMENT --------------------------------------------------------
-
-	// Confirm erase completed and the status register is clear.
-	phoenixReadSRB1(readData);
-	printf("Status register byte 1 after erase complete: %02X\n", readData[0]);
-
-	phoenixReadSRB2(readData);
-	printf("Status register byte 2 after erase complete: %02X\n\n", readData[0]);
-
-	phoenixReadArrayHighFreq(0, readData, 20);
-	readData[15] = '\0';
-	printf("Data read from address 0x0: %s\n\n", readData);
-
-	phoenixReadArrayHighFreq(0x6000, readData, 20);
-	readData[15] = '\0';
-	printf("Data read from address 0x6000: %s\n\n", readData);
-
-
-	printf("Done\n");
-
-
-	return 0;
-}
-
 #endif
 
 #if (PARTNO == AT25SF641) 	|| \
@@ -1208,10 +1153,19 @@ uint32_t phoenixTest()
 	 */
 
 	printf("\n\nTesting Standard Write and Read Commands -----------\n\n");
-
 	// Part A: Test read.
 	// Get data to be programmed.
 	fillArrayPattern(dataWrite, 100, 0x10);
+#if (PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)	|| \
+	(ALL == 1)
+	// Write enable the device and un-protect the first sector.
+	phoenixWriteEnable();
+	phoenixUnprotectSector(0);
+#endif
 	// Write enable the device then erase the first 4K block.
 	phoenixWriteEnable();
 	phoenixBlockErase4K(0);
@@ -1249,7 +1203,6 @@ uint32_t phoenixTest()
 	{
 		printf("Write and ReadHF success.\n");
 	}
-
 #if (PARTNO == AT25SF641) 	|| \
 	(PARTNO == AT25SF321)	|| \
 	(PARTNO == AT25SF161) 	|| \
@@ -1471,9 +1424,13 @@ uint32_t phoenixTest()
 	(PARTNO == AT25QF641)	|| \
 	(ALL == 1)
 
-	printf("\n\nThis device has Quad IO Capabilities. The following commands will confirm proper device setup.\n\n");
+	printf("\n\nThis device has Quad IO Capabilities.\n");
 
 	printf("\n\nTesting Read MID Quad IO ----------------------------\n\n");
+
+	/********************************************************************
+	 *		    		1. Read manufacturing ID						*
+	 ********************************************************************/
 
 	phoenixWriteEnable();
 	phoenixSetQEBit();
@@ -1629,6 +1586,41 @@ uint32_t phoenixTest()
 	phoenixWaitOnReady();
 	phoenixClearQEBit();
 	phoenixWaitOnReady();
+
+#endif
+
+#if (PARTNO == AT25DL081) 	|| \
+	(PARTNO == AT25DL161) 	|| \
+	(PARTNO == AT25DF081A)  || \
+	(PARTNO == AT25DF321A)  || \
+	(PARTNO == AT25DF641A)	|| \
+	(ALL == 1)
+
+	/********************************************************************
+	 *		    			4. Dual-Input Program						*
+	 ********************************************************************/
+
+	printf("\nThis device has the ability to program using 2 IOs.\n");
+	fillArrayPattern(dataWrite, 100, 0x26);
+	// Write enable the device for an erase and erase.
+	phoenixWriteEnable();
+	phoenixBlockErase4K(0);
+	phoenixWaitOnReady();
+	// Write enable for a program and then program starting at address 0x0.
+	phoenixWriteEnable();
+	phoenixDualInputBytePageProgram(0, dataWrite, 100);
+	phoenixWaitOnReady();
+	// Read it back and confirm the program worked.
+	phoenixReadArrayHighFreq(0, dataRead, 100);
+	if(!compareByteArrays(dataRead, dataWrite, 100))
+	{
+		printf("Dual Write or HF Read failure.\n");
+		errorCount++;
+	}
+	else
+	{
+		printf("Dual Write and HF Read success.\n");
+	}
 
 #endif
 

@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -66,18 +67,36 @@ $(function() {
 <div class="title">SPI Layer </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The SPI layer is used as a SPI driver to communicate with the flash device. This is accomplished through the use of bit banging. As such, the SPI layer is built on top of a functional, MCU specific GPIO driver. Once a GPIO driver has been connected to this layer (see the <a class="el" href="_p_o_r_t_i_n_g__g_u_i_d_e.html">Porting Guide</a> for a how-to), function calls from the Adesto or SPI layers should work.<br />
+<div class="textblock"><p>The SPI layer is used as a SPI driver to communicate with the flash device. This is accomplished through the use of bit banging. As such, the SPI layer is built on top of a functional, MCU specific GPIO driver. Once a GPIO driver has been connected to this layer (see the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> for a how-to), function calls from the Adesto or SPI layers should work. Code for this layer consists of a header and c file which contain functions for single, dual, and quad SPI communication. Adesto layer commands access the SPI layer to communicate with the flash device. The SPI layer calls functions from the user configurable config.h and config.c files. See the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> documentation for more details.<br />
 <br />
-The SPI layer contains functionality for sending and receiving data bytes via SPI. Included are functions such as <a class="el" href="spi__driver_8c.html#a16fbd6043228ac91a69a5303e51499e5" title="Sends and receives bytes based on the function parameters. MISO and MOSI fill their standard SPI role...">SPI_Exchange()</a>, <a class="el" href="spi__driver_8c.html#abbbd859b7c1d944dbb3515a3d1986ec2" title="Sends and receives bytes based on the function parameters. MOSI is used for the opcode and address...">SPI_DualExchange()</a>, and <a class="el" href="spi__driver_8c.html#abadb0ea0c16bbddb7f0810f24e7632a9" title="Sends and receives bytes based on the function parameters. MOSI can used for the opcode and address...">SPI_QuadExchange()</a>. Documentation for the SPI driver is comprehensive and can be found in the header file <a class="el" href="spi__driver_8h.html" title="Declarations of spi_driver functions. ">SPI_driver.h</a>. <br />
- </p>
-<h1><a class="anchor" id="SPI_LAYER_LINKS"></a>
+ Reading and writing to the the IOs occurs after the falling edge of the clock but before the rising edge in the current implementation of the SPI drivers. This behavior can be seen within the <a class="el" href="spi__driver_8c.html#a9cdbe217fe5a1b913b21286daeaeb5b1" title="Receives a byte along MISO and returns the value received. ">SPI_ReceiveByte()</a> and <a class="el" href="spi__driver_8c.html#a72ac0633e04a5c40107d1e4e57f9196b" title="Sends a byte along MOSI. ">SPI_SendByte()</a> functions where data is sampled or written, then the clock toggled from low to high.<br />
+<br />
+ Users are intended to access the larger SPI transactions functions which handle the order of bytes transmitted, configuration of the IOs, and bit/byte shifting. These functions allow the user to shape the SPI transaction to include dummy bytes and communicate portions of the message using 1, 2, or 4 IOs. These transactions are accomplished through the following 3 functions calls:</p><ol type="1">
+<li><a class="el" href="spi__driver_8c.html#a16fbd6043228ac91a69a5303e51499e5" title="Sends and receives bytes based on the function parameters. MISO and MOSI fill their standard SPI role...">SPI_Exchange()</a></li>
+<li><a class="el" href="spi__driver_8c.html#abbbd859b7c1d944dbb3515a3d1986ec2" title="Sends and receives bytes based on the function parameters. MOSI is used for the opcode and address...">SPI_DualExchange()</a></li>
+<li><a class="el" href="spi__driver_8c.html#abadb0ea0c16bbddb7f0810f24e7632a9" title="Sends and receives bytes based on the function parameters. MOSI can used for the opcode and address...">SPI_QuadExchange()</a></li>
+</ol>
+<p>Documentation for each of these functions details how the specifics of each argument and how the transaction is carried out. In summary, the user passes in 2 byte arrays; one for trasnmitting and one for receiving. The user also specifies the number of bytes being transmitted or received from 0-N (N being determined usually by the page size of the device being used, but ultimately variable and dependant on what the user needs). The number of dummy bytes is also passed in, the value independant of the transmitted number of bytes. The dual and quad exchange functions include another parameter which determines the number of bytes from the MCU transmitted SPI exchange to be sent in single SPI (transmission along MOSI alone). This number must be less than or equal to the total number of transmitted bytes. With this variable the user can send a quad or dual communication in a range of formats from 1-1-2 to 4-4-4 or even 0-4-4 (opcode-address-data, values representing the number of IOs used in the transaction of each component). For example, a user wishes to send a 1-byte opcode along MOSI, a 3-byte address along 4 IOs, 2 dummy bytes after the address, and receive a 5-byte data packet along 4 IOs. This transaction would be classified as 1-4-4, and the corresponding function call would look like this:</p>
+<div class="fragment"><div class="line"><a class="code" href="spi__driver_8c.html#abadb0ea0c16bbddb7f0810f24e7632a9">SPI_QuadExchange</a>(1, txBuffer, 4, rxBuffer, 5, 2) </div></div><!-- fragment --><p>The arguments in order are explained as follows:</p><ol type="1">
+<li><b>1</b> - The single opcode byte sent in standard SPI along MOSI.</li>
+<li><b>txBuffer</b> - A pointer corresponding to the buffer containing the opcode and 3 address bytes.</li>
+<li><b>4</b> - The total number of bytes being transmitted; 4. 1 for opcode and 3 for address.</li>
+<li><b>rxBufer</b> - The byte array where the received data will be stored.</li>
+<li><b>5</b> - The total number of bytes to be received; 5 bytes.</li>
+<li><b>2</b> - The number of dummy bytes being transmitted; 2 bytes.</li>
+</ol>
+<p>Since only 1 byte is sent in standard SPI mode, all communication after the opcode is done with 4 IOs, <b>including</b> the dummy bytes! The transaction looks like this when viewed with a logic analyzer:</p>
+<div class="image">
+<img src="quad_exchange144.png" alt="quad_exchange144.png"/>
+</div>
+ <center><b>Quad Exchange:</b> Sample SPI transaction showing a 1-4-4 communication via <a class="el" href="spi__driver_8c.html#abadb0ea0c16bbddb7f0810f24e7632a9" title="Sends and receives bytes based on the function parameters. MOSI can used for the opcode and address...">SPI_QuadExchange()</a>.</center><h1><a class="anchor" id="SPI_LAYER_LINKS"></a>
 File Links</h1>
 <p><a class="el" href="group___s_p_i___l_a_y_e_r.html">SPI Layer</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

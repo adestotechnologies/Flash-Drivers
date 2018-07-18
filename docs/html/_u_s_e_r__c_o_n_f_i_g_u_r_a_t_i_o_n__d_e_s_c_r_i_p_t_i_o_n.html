@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Adesto Flash Drivers: User Configuration Layer</title>
+<title>Adesto Flash Drivers: User Configuration</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -63,15 +64,48 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">User Configuration Layer </div>  </div>
+<div class="title">User Configuration </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The user configuration layer gives the user a one-stop location to customize the driver to their specific MCU and flash device. Through the use of conditional compilation, function calls, and various c-defines the user can specify the GPIO driver used in their project and tie the SPI IO lines to specific ports and pins. </p>
+<div class="textblock"><p>This layer gives the user a one-stop location to customize the driver to their specific MCU and flash device. Through the use of conditional compilation, function calls, and various c-defines the user can specify the GPIO driver used in their project and tie the SPI IO lines to specific ports and pins.</p>
+<p>Porting this project to a specific MCU involves declaring the ports and pins connected to the flash device, defining various functions tied to the SPI layer, and declaring the flash device used. This guide is broken into sections addressing each of these steps. Once they have been completed, the Adesto layer should be fully functional.</p>
+<h1><a class="anchor" id="PORTS_AND_PINS"></a>
+Ports and Pins</h1>
+<p>The port and pin numbers used in this project must be defined based on the MCU and board being used. The definitions should be placed in <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>. The port and pin information is used when initializing and toggling GPIOs, and these 2 identiffiers should be all that's needed. The port/pins that need defining are as follows:</p><ol type="1">
+<li><a class="el" href="user__config_8h.html#a94d8d4ab8253282e9dff99b1359443ca">USER_CONFIG_CSB_PORT</a></li>
+<li><a class="el" href="user__config_8h.html#a87904fa3b101e43fc4332e815c875786">USER_CONFIG_CSB_PIN</a></li>
+<li><a class="el" href="user__config_8h.html#a9a1a62529e14b3d2d700cf57dc72fb4f">USER_CONFIG_TRIGGER_PORT</a></li>
+<li><a class="el" href="user__config_8h.html#afe245e869fc3e2bb21642925af8872c6">USER_CONFIG_TRIGGER_PIN</a></li>
+<li><a class="el" href="user__config_8h.html#a44284d0f93cdb69aabaf04f547e49452">USER_CONFIG_SCK_PORT</a></li>
+<li><a class="el" href="user__config_8h.html#a8a12e8356e8e88a7e1edb3e5b0f66a5b">USER_CONFIG_SCK_PIN</a></li>
+<li><a class="el" href="user__config_8h.html#a6138e769139abf47d43e3dbc2e0d8415">USER_CONFIG_MOSI_PORT</a></li>
+<li><a class="el" href="user__config_8h.html#aa2ea48eee7df0cc112f0cba6c5254b54">USER_CONFIG_MOSI_PIN</a></li>
+<li><a class="el" href="user__config_8h.html#acb486874cd2966b3e1d74cd5bc709cbc">USER_CONFIG_MISO_PORT</a></li>
+<li><a class="el" href="user__config_8h.html#a81733a30777c79cb394939f3deb1ccfb">USER_CONFIG_MISO_PIN</a></li>
+<li><a class="el" href="user__config_8h.html#a60a5597786313d0ab11c94c6db4c618f">USER_CONFIG_IO2_PORT</a></li>
+<li><a class="el" href="user__config_8h.html#ae572a3f57e3737d798d9ed6e6bbcbdd6">USER_CONFIG_IO2_PIN</a></li>
+<li><a class="el" href="user__config_8h.html#a7fc15384839bae2e30382934d4a46076">USER_CONFIG_IO3_PORT</a></li>
+<li><a class="el" href="user__config_8h.html#aaa27bce01f856b8e7cf3c035a95c52d6">USER_CONFIG_IO3_PIN</a></li>
+</ol>
+<p>The port should be an address, while the pin should be pin number within the port, although the user may implement the functions that use these data variables differently. See the following section to see how these port and pin numbers are used.</p>
+<h1><a class="anchor" id="SPI_USER_FUNCTIONS"></a>
+SPI User Defined Functions</h1>
+<p>The user must also define the following functions within the user configuration layer:</p><ol type="1">
+<li><a class="el" href="user__config_8c.html#ab12365a59df355fd84d6634a736a7657" title="Configures the board for program usage. Initializes the requisite ports/pins for use as GPIOs...">USER_CONFIG_BoardInit()</a></li>
+<li><a class="el" href="user__config_8c.html#a65c65ef7e9eda8776c31fbb1e5e28a3f" title="Initializes a given pin as either an input or output. When porting, this function must be redefined...">USER_CONFIG_PinInit()</a></li>
+<li><a class="el" href="user__config_8c.html#ac6e2d7b6f6336fac7cd0100fcab01d50" title="Clears a given pin on a port to LOW. ">USER_CONFIG_PinClear()</a></li>
+<li><a class="el" href="user__config_8c.html#a0dc12ee98be5fcddf7a30617a687a9b2" title="Sets a given pin on a port to HIGH. ">USER_CONFIG_PinSet()</a></li>
+<li><a class="el" href="user__config_8c.html#a86888c8f5d2418b332e12c8988dca2d7" title="Reads the voltage on a given pin. ">USER_CONFIG_PinRead()</a></li>
+</ol>
+<p>As the names imply, these functions are the hooks to a GPIO driver specific to the MCU being used. The functions must initialize a pin on single port as either an input or an output, and set the level. The documentation for the functions describe their behaviour and should be referenced when redefining them.</p>
+<h1><a class="anchor" id="FLASH_DEVICE"></a>
+Flash Device Selected</h1>
+<p>While the SPI layer bit-banged driver is built to cover the full range of Adesto SPI flash products, the Adesto layer is meant to be general purpose within a given family. Almost all features are declared/defined. As such, some functionality may not be supported on a device within a certain family. To differentiate between devices in the general Adesto layer, conditional compilation 'locks' and 'unlocks' the opcodes and related functions. Before using the driver a user must specify the flash device being used in <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a> with <a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a>, a list of which can be seen within the comments of that file. (EX: '#define PARTNO AT45DB041E'). </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen_html_style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=index.html style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -66,15 +67,15 @@ $(function() {
 <div class="title">Adesto Layer </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The Adesto layer is flash device/family specific. family of devices (i.e. Dataflash) has its own header and c file, and a set of opcodes defined in <a class="el" href="cmd__defs_8h.html" title="Definitions for opcodes. ">cmd_defs.h</a>. Almost all commands available to each device have been declread and defined, and each has been commented. In addition, a sample sequence presented as a 'test' of the flash device can be found within the c files for each family. The 'test' runs through a sequence of events and showcases how to use the driver and commands. Not all commands are present in the sample 'test,' and they serve only as an example as to how the driver should be used.<br />
+<div class="textblock"><p>The Adesto layer is flash device/family specific. family of devices (i.e. Dataflash) has its own header and c file, and a set of opcodes defined in <a class="el" href="cmd__defs_8h.html" title="Definitions for opcodes. ">cmd_defs.h</a>. Almost all commands available to each device have been declared and defined, and each has been commented. In addition, a sample sequence presented as a 'test' of the flash device can be found within the c files for each family. The 'test' runs through a sequence of events and showcases how to use the driver and commands. Not all commands are present in the sample 'test,' and they serve only as an example as to how the driver should be used.<br />
 <br />
 </p>
-<p>All Adesto layer functions have 2 core elements: Load a buffer with data, then communicate with the flash device via the bit banged SPI driver. Building on top of these features on finds options for printing the received and transmitted bytes (debug tool), and certain conditionals for complex commands. A few functions can be found within each family which are clearly derived, such as <a class="el" href="phoenix_8c.html#a7d450199b5eceac3a4afc6ae9f7d2e65" title=": Wait while Read/Busy Status bit in SRB is 1 (device is busy). This is accomplished by reading the f...">phoenixWaitOnReady()</a>. These fucntions are helpful for programming and showcase how other functions can be put together to form a 'complex' sequence of commands.<br />
+<p>All Adesto layer functions have 2 core elements: Load a buffer with data, then communicate with the flash device via the bit-banged SPI driver. Built on top of these features one finds options for printing the received and transmitted bytes (debug tool), and certain conditionals for complex commands. A few functions can be found within each family which are clearly derived, such as <a class="el" href="phoenix_8c.html#a7d450199b5eceac3a4afc6ae9f7d2e65" title=": Wait while Read/Busy Status bit in SRB is 1 (device is busy). This is accomplished by reading the f...">phoenixWaitOnReady()</a>. These fucntions are helpful for programming and showcase how other functions can be put together to form a 'complex' sequence of commands.<br />
 <br />
  Loading a buffer:</p><div class="fragment"><div class="line"><a class="code" href="fusion_8c.html#adf8e0d69cd6a9654ced3e033003c482e">txFusionInternalBuffer</a>[0] = <a class="code" href="cmd__defs_8h.html#a0574cb3399692b6611ffef02470c628a">CMD_FUSION_WRITE_SRB2</a>; </div></div><!-- fragment --><p> Transmitting via the SPI driver:</p><div class="fragment"><div class="line"><a class="code" href="spi__driver_8c.html#a16fbd6043228ac91a69a5303e51499e5">SPI_Exchange</a>(<a class="code" href="fusion_8c.html#adf8e0d69cd6a9654ced3e033003c482e">txFusionInternalBuffer</a>, 2, NULL, 0, 0); </div></div><!-- fragment --><p> <br />
- A near comprehensive list of supported opcodes can be found in <a class="el" href="cmd__defs_8h.html" title="Definitions for opcodes. ">cmd_defs.h</a>. The datasheet should still be consulted before using a flash device. The sample code is not intended as a be-all-end-all resource, rather it provides a point of reference for starting out with serial communication between an MCU and Adesto flash memory. Indeed, when tested on certain microcontrollers, the measured bit banged SPI clock rate when running through a test program was lower than 1MHz, less than ideal for high speed applications.<br />
+ A near comprehensive list of supported opcodes can be found in <a class="el" href="cmd__defs_8h.html" title="Definitions for opcodes. ">cmd_defs.h</a>. The datasheet should still be consulted before using a flash device. The sample code is not intended as a be-all-end-all resource, rather it provides a point of reference for starting out with serial communication between an MCU and Adesto flash memory. Indeed, when tested on certain microcontrollers, the measured bit-banged SPI clock rate when running through a test program was lower than 1MHz, less than ideal for high speed applications.<br />
 <br />
- Included with each layer is a ___Test() function which shows the user how to call the various functions, how to switch between various modes when relevant, and programming examples. See <a class="el" href="phoenix_8c.html#a6837ba7fd66074e66a60b4d754ea6582" title="Sample use of the driver for a Phoenix device.   This function is meant to showcase how the API is to...">phoenixTest()</a>, <a class="el" href="moneta_8c.html#abd5f22c0f2897309187481cd3ad732ff" title="Sample use of the driver for a Moneta device.   This function is meant to showcase how the API is use...">monetaTest()</a>, <a class="el" href="dataflash_8c.html#a58e3a2dae25ef029e297e80d8fcee9fa" title="Sample use of the driver for a Dataflash device.   This function is meant to showcase how the API is ...">dataflashTest()</a>, and <a class="el" href="fusion_8c.html#a72975b646efc378432bfa6c02b6a9db5" title="Sample use of the driver for a Fusion device.   This function is meant to showcase how the API is to ...">fusionTest()</a>. If one has the driver properly set up (see <a class="el" href="_p_o_r_t_i_n_g__g_u_i_d_e.html">Porting Guide</a>), these functions calls will run a testbench that should have 0 errors after completion.</p>
+ Included with each layer is a test function which shows the user how to call the various functions, how to switch between various modes when relevant, and programming examples. See <a class="el" href="phoenix_8c.html#a6837ba7fd66074e66a60b4d754ea6582" title="Sample use of the driver for a Phoenix device.   This function is meant to showcase how the API is to...">phoenixTest()</a>, <a class="el" href="moneta_8c.html#abd5f22c0f2897309187481cd3ad732ff" title="Sample use of the driver for a Moneta device.   This function is meant to showcase how the API is use...">monetaTest()</a>, <a class="el" href="dataflash_8c.html#a58e3a2dae25ef029e297e80d8fcee9fa" title="Sample use of the driver for a Dataflash device.   This function is meant to showcase how the API is ...">dataflashTest()</a>, and <a class="el" href="fusion_8c.html#a72975b646efc378432bfa6c02b6a9db5" title="Sample use of the driver for a Fusion device.   This function is meant to showcase how the API is to ...">fusionTest()</a>. If one has the driver properly set up (see <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a>), these functions calls will run a testbench that should have 0 errors after completion.</p>
 <h1><a class="anchor" id="ADESTO_LAYER_LINKS"></a>
 File Links</h1>
 <h2><a class="anchor" id="ADESTO_LAYER_FILES"></a>
@@ -91,7 +92,7 @@ Family Specific Files</h2>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 <!-- Generated by &#160;<a href="https://www.adestotech.com/"> -->
-	<a href="https://www.adestotech.com/">
+	<a href=license.html>
 	Clear BSD License Copyright ©2018 Adesto Technologies Corporation, Inc. All rights reserved.
 </small></address>
 </body>

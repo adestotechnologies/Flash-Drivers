@@ -22,11 +22,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Main Page",url:"index.html"},
-{text:"Configuration Layer",url:"_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html"},
+{text:"Read Me",url:"index.html"},
+{text:"Configuration",url:"_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html"},
 {text:"Adesto Layer",url:"_a_d_e_s_t_o__l_a_y_e_r__d_e_s_c_r_i_p_t_i_o_n.html"},
 {text:"SPI Layer",url:"_s_p_i__l_a_y_e_r__d_e_s_c_r_i_p_t_i_o_n.html"},
-{text:"Porting Guide",url:"_p_o_r_t_i_n_g__g_u_i_d_e.html"},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
@@ -65,5 +64,7 @@ var menudata={children:[
 {text:"p",url:"globals_defs_p.html#index_p"},
 {text:"q",url:"globals_defs_q.html#index_q"},
 {text:"r",url:"globals_defs_r.html#index_r"},
-{text:"s",url:"globals_defs_s.html#index_s"}]}]}]},
+{text:"s",url:"globals_defs_s.html#index_s"},
+{text:"u",url:"globals_defs_u.html#index_u"}]}]},
+{text:"Download Page",url:"https://github.com/adestotechnologies/Flash-Drivers"}]},
 {text:"License",url:"_l_i_c_e_n_s_e.html"}]}

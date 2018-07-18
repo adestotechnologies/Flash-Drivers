@@ -1,0 +1,11 @@
+div.image img{ 
+    width: 100%;
+    height: auto;
+	max-width: 750px
+}
+
+div.image img[src="quad_exchange144.png"]{ 
+    width: 100%;
+    height: auto;
+    max-width: 1280px
+}
