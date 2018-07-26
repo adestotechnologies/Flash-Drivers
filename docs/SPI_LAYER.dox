@@ -1,7 +1,7 @@
 /*!
   @page SPI_LAYER_DESCRIPTION SPI Layer
   
-  @details The SPI layer is used as a SPI driver to communicate with the flash device. This is accomplished through the use of bit banging. As such, the SPI layer is built on top of a functional, MCU specific GPIO driver. Once a GPIO driver has been connected to this layer (see the @ref USER_CONFIGURATION_DESCRIPTION for a how-to), function calls from the Adesto or SPI layers should work. Code for this layer consists of a header and c file which contain functions for single, dual, and quad SPI communication. Adesto layer commands access the SPI layer to communicate with the flash device. The SPI layer calls functions from the user configurable config.h and config.c files. See the @ref USER_CONFIGURATION_DESCRIPTION documentation for more details.\n\n
+  @details The SPI layer is used as a SPI driver to communicate with the flash device. This is accomplished through the use of <a href="https://en.wikipedia.org/wiki/Bit_banging">bit-banging</a>. As such, the SPI layer is built on top of a functional MCU specific GPIO driver. Once a GPIO driver has been connected to this layer (see the @ref USER_CONFIGURATION_DESCRIPTION guide for a how-to), function calls from the Adesto or SPI layers should work. Code for the SPI layer consists of a header and c file which contain functions for single, dual, and quad SPI communication. Adesto layer commands access the SPI layer to communicate with the flash device. The SPI layer calls functions from the user configurable user_config.h and user_config.c files. See the @ref USER_CONFIGURATION_DESCRIPTION documentation for more details.\n\n
 
   Reading and writing to the the IOs occurs after the falling edge of the clock but before the rising edge in the current implementation of the SPI drivers. This behavior can be seen within the SPI_ReceiveByte() and SPI_SendByte() functions where data is sampled or written, then the clock toggled from low to high.\n\n
 
@@ -16,16 +16,18 @@
 
   The arguments in order are explained as follows:
   -# \b 1 - The single opcode byte sent in standard SPI along MOSI.
-  -# \b txBuffer - A pointer corresponding to the buffer containing the opcode and 3 address bytes.
+  -# \b txBuffer - A pointer to the buffer containing the opcode and 3 address bytes.
   -# \b 4 - The total number of bytes being transmitted; 4. 1 for opcode and 3 for address.
-  -# \b rxBufer - The byte array where the received data will be stored.
+  -# \b rxBufer - A pointer to the array where the received data will be stored.
   -# \b 5 - The total number of bytes to be received; 5 bytes.
   -# \b 2 - The number of dummy bytes being transmitted; 2 bytes.
 
-  Since only 1 byte is sent in standard SPI mode, all communication after the opcode is done with 4 IOs, \b including the dummy bytes! The transaction looks like this when viewed with a logic analyzer:
+  Since only 1 byte is sent in standard SPI mode, all communication after the opcode is done with 4 IOs, \b including the dummy bytes. The transaction looks like this when viewed with a logic analyzer:
 
   @image html "quad_exchange144.png"
   <center><b>Quad Exchange:</b> Sample SPI transaction showing a 1-4-4 communication via SPI_QuadExchange().</center>
+
+  Note the number of clocks used for each portion of the transaction. For a 1-4-4 communication the opcode is clocked out 1 bit at a time, followed by a nibble on each clock for the address, dummy, and data bytes. 
 
   @section SPI_LAYER_LINKS File Links
 	@ref SPI_LAYER

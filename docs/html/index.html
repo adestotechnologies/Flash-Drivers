@@ -69,7 +69,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="PURPOSE"></a>
 Purpose</h1>
-<p>The purpose of the flash driver examples is to illustrate proper usage of Adesto flash memory. With these drivers, a user may test many functions available for the supported memory devices. Most operations are supported including reading, writing, and switching the flash device into various modes. Each family of devices has their own behavior and opcodes. <br />
+<p>The purpose of these flash drivers is to provide a reference for SPI (<a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">Serial Peripheral Interface</a>) communication with Adesto flash memory. With these drivers, a user may test many functions available for the supported memory devices. Most operations are supported including reading, writing, and switching the flash device into various modes. Each family of devices has their own behavior and opcodes. <br />
 <br />
 The current families supported are:</p><ol type="1">
 <li><a class="el" href="group___m_o_n_e_t_a.html">Moneta</a></li>
@@ -77,7 +77,7 @@ The current families supported are:</p><ol type="1">
 <li><a class="el" href="group___d_a_t_a_f_l_a_s_h.html">Dataflash</a></li>
 <li><a class="el" href="group___p_h_o_e_n_i_x.html">Phoenix</a></li>
 </ol>
-<p>Communication relies on <a href="https://en.wikipedia.org/wiki/Bit_banging">bit-banging</a> drivers written in C. <em>Bit-<em>banging</em> is</em> the term for driving serial communication via software executed by the MPU rather than using a dedicated peripheral within the MCU. This enables low coupling with MCU specific code resulting in the drivers being highly portable to any MCU with user GPIO pins. The source code was written using the MCUXpresso IDE and tested on a FRDM-K82F development board with an Adesto flash memory shield, then ported to an i.MX RT1052 development kit. Representative devices from each family were connected to the test setup and expected functionality confirmed. Due to limitations of the testing environment, not every flash device could be tested. Based on their operating specifications, the drivers are expected to function across the entire supported SPI based product lineup.<br />
+<p>Communication relies on <a href="https://en.wikipedia.org/wiki/Bit_banging">bit-banging</a> drivers written in C. <em>Bit-banging</em> is the term for driving serial communication via software executed by the MPU rather than using a dedicated peripheral within the MCU. This enables low coupling with MCU specific code resulting in the drivers being highly portable to any MCU with user GPIO pins. The source code was written using the MCUXpresso IDE and tested on a FRDM-K82F development board with an Adesto flash memory shield, then ported to an i.MX RT1052 evaluation kit. The memory shield assisted with development but is not necessary for usage of the drivers. Representative devices from each family were connected to the test setup and expected functionality confirmed. Due to limitations of the testing environment, not every flash device could be tested. Based on their operating specifications, the drivers are expected to function across the entire supported SPI based product lineup.<br />
 </p>
 <div class="image">
 <img src="shield_k82.png" alt="shield_k82.png"/>
@@ -87,7 +87,7 @@ The current families supported are:</p><ol type="1">
 <div class="image">
 <img src="shield_imx1052.png" alt="shield_imx1052.png"/>
 </div>
- <center><b>Shield 2:</b> Adesto Shield on i.MX RT1052 Developer's Kit.</center><h1><a class="anchor" id="SETUP_AND_USAGE"></a>
+ <center><b>Shield 2:</b> Adesto Shield on i.MX RT1052 Evaluation Kit.</center><h1><a class="anchor" id="SETUP_AND_USAGE"></a>
 Setup &amp; Usage</h1>
 <p>The source code and documentation in html format can be downloaded from the <a href="https://github.com/adestotechnologies/Flash-Drivers/">github page</a>. The downloaded archive file contains 2 folders; <b>source</b> and <b>docs</b>. As the names suggest, <em>source</em> contains the source code for the project, while <em>docs</em> contains the documentation. The source code is broken up into 3 sections as detailed in the <a class="el" href="index.html#SOURCE_CODE_STRUCTURE">Source Code Structure</a> section.<br />
 <br />
@@ -96,7 +96,9 @@ Setup &amp; Usage</h1>
  After connecting the User Config layer to a functional GPIO driver for a specific MCU, the user must define the flash device used (see <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>). Defining the specific part used 'unlocks' the feature set offered by the drivers for that specific device. This accomplished by typing the part identifier after <a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a> in <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>. The comprehensive test included with the code for each family of devices can then be run. If the manufacturing ID cannot be read properly, the setup was a failure. For more information about configuration see the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> documentation.<br />
 </p>
 <p>Users can write their own tests in <a class="el" href="main_8c.html" title="Example usage of driver. ">main.c</a>. Just include the relevant files and call functions from within <a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>. Ensure that the header file for the device under test is included in the part defined within <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a> (<a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a>). <br />
- The source code and documentation can be downloaded <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">here</a>.</p>
+ The source code and documentation can be downloaded <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">here</a>.<br />
+<br />
+</p>
 <h1><a class="anchor" id="SOURCE_CODE_STRUCTURE"></a>
 Source Code Structure</h1>
 <p>There are 3 main functional components to this project.</p><ol type="1">

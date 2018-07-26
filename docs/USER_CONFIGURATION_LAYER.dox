@@ -22,7 +22,7 @@
 	-# @ref USER_CONFIG_IO3_PORT
 	-# @ref USER_CONFIG_IO3_PIN
 
-	The port should be an address, while the pin should be pin number within the port, although the user may implement the functions that use these data variables differently. See the following section to see how these port and pin numbers are used.
+	The port should be an address, while the pin should be the pin number within the port, although the user may implement the functions that use these variables differently. See the following section for details on how these port and pin numbers are used.
 
 	@section SPI_USER_FUNCTIONS SPI User Defined Functions
 	@details The user must also define the following functions within the user configuration layer:
