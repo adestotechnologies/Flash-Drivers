@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Adesto Flash Drivers: Main Page</title>
+<title>Adesto Flash Driver Reference Package: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="https://www.adestotech.com/"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Drivers
+   <div id="projectname"><a href=https://github.com/adestotechnologies/Flash-Drivers style="color:black">Adesto Flash Driver Reference Package
    </div>
    <div id="projectbrief">Sample SPI drivers for a number of the Adesto Technologies flash devices.</div>
   </td>
@@ -64,61 +64,80 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Adesto Flash Drivers Documentation</div>  </div>
+<div class="title">Adesto Flash Driver Reference Package Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="PURPOSE"></a>
-Purpose</h1>
-<p>The purpose of these flash drivers is to provide a reference for SPI (<a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">Serial Peripheral Interface</a>) communication with Adesto flash memory. With these drivers, a user may test many functions available for the supported memory devices. Most operations are supported including reading, writing, and switching the flash device into various modes. Each family of devices has their own behavior and opcodes. <br />
+<div class="textblock"><h1><a class="anchor" id="OVERVIEW"></a>
+Overview</h1>
+<p>The purpose of the Adesto Flash Driver Reference Package is to provide a source code reference for controlling and operating Adesto flash memory products. Using this package, users can understand how Adesto flash devices are controlled and operated, test their functionality, and get a starting point for developing their own drivers.<br />
 <br />
-The current families supported are:</p><ol type="1">
+ The current Adesto product families supported are:</p>
+<ol type="1">
 <li><a class="el" href="group___m_o_n_e_t_a.html">Moneta</a></li>
 <li><a class="el" href="group___f_u_s_i_o_n.html">Fusion</a></li>
 <li><a class="el" href="group___d_a_t_a_f_l_a_s_h.html">Dataflash</a></li>
 <li><a class="el" href="group___p_h_o_e_n_i_x.html">Phoenix</a></li>
 </ol>
-<p>Communication relies on <a href="https://en.wikipedia.org/wiki/Bit_banging">bit-banging</a> drivers written in C. <em>Bit-banging</em> is the term for driving serial communication via software executed by the MPU rather than using a dedicated peripheral within the MCU. This enables low coupling with MCU specific code resulting in the drivers being highly portable to any MCU with user GPIO pins. The source code was written using the MCUXpresso IDE and tested on a FRDM-K82F development board with an Adesto flash memory shield, then ported to an i.MX RT1052 evaluation kit. The memory shield assisted with development but is not necessary for usage of the drivers. Representative devices from each family were connected to the test setup and expected functionality confirmed. Due to limitations of the testing environment, not every flash device could be tested. Based on their operating specifications, the drivers are expected to function across the entire supported SPI based product lineup.<br />
+<p>The package, which is implemented in the C language, demonstrates most supported flash operations including memory reading, erasing and programming, control and status register reading and writing, and switching the flash device into various modes.</p>
+<p>Communication with the flash devices uses SPI (<a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">Serial Peripheral Interface</a>) and is implemented in <a href="https://en.wikipedia.org/wiki/Bit_banging">bit-banging</a> style. <em>Bit-banging</em> is the term for driving serial communication by host software directly manipulating SPI interface signals as general purpose I/Os rather than using a dedicated SPI hardware controller within the MCU. Since bit-banging can be implemented on any MCU almost the same way, the driver has very little dependency on the host MCU and as such is highly portable.<br />
 </p>
+<p>The source code was originally developed using the NXP MCUXpresso IDE and tested on a couple of NXP development boards:</p><ol type="1">
+<li>FRDM-K82F</li>
+<li>i.MX RT1050-EVKB</li>
+</ol>
+<p>It was later ported to run on a ST Nucleo board (STM32 NUCLEO L4R5ZI). In all cases an Adesto-made "shield board" with an Adesto flash device was plugged into the host board. Using this configuration most Adesto flash products have been successfully tested. However the package is not limited to the hardware configuration used nor to the specific parts covered during testing.</p>
 <div class="image">
-<img src="shield_k82.png" alt="shield_k82.png"/>
+<img src="shield_frdmk82.png" alt="shield_frdmk82.png"/>
 </div>
  <center><b>Shield 1:</b> Adesto Shield on Freedom K82 Development Platform.</center><p><br />
 </p>
 <div class="image">
-<img src="shield_imx1052.png" alt="shield_imx1052.png"/>
+<img src="shield_imx1050evkb.png" alt="shield_imx1050evkb.png"/>
 </div>
- <center><b>Shield 2:</b> Adesto Shield on i.MX RT1052 Evaluation Kit.</center><h1><a class="anchor" id="SETUP_AND_USAGE"></a>
+ <center><b>Shield 2:</b> Adesto Shield on i.MX RT1050-EVKB Evaluation Kit.</center><p><br />
+</p>
+<div class="image">
+<img src="shield_stm32nucleol4r5zi.png" alt="shield_stm32nucleol4r5zi.png"/>
+</div>
+ <center><b>Shield 2:</b> Adesto Shield on STM32 Nucleo L4R5ZI.</center><p><br />
+</p>
+<h1><a class="anchor" id="SETUP_AND_USAGE"></a>
 Setup &amp; Usage</h1>
 <p>The source code and documentation in html format can be downloaded from the <a href="https://github.com/adestotechnologies/Flash-Drivers/">github page</a>. The downloaded archive file contains 2 folders; <b>source</b> and <b>docs</b>. As the names suggest, <em>source</em> contains the source code for the project, while <em>docs</em> contains the documentation. The source code is broken up into 3 sections as detailed in the <a class="el" href="index.html#SOURCE_CODE_STRUCTURE">Source Code Structure</a> section.<br />
-<br />
- The drivers can be used for reference material or ported to an MCU and used for testing. In order to run this project on a board the user must hook the ports, pins, and initialization code to the specific MCU being used. This linkage occurs in the User Config layer (<a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>, <a class="el" href="user__config_8c.html" title="Project definitions exist here. ">user_config.c</a>). A comprehensive description on how to port the driver to a generic MCU can be found within this documentation at the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> page. <br />
-<br />
- After connecting the User Config layer to a functional GPIO driver for a specific MCU, the user must define the flash device used (see <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>). Defining the specific part used 'unlocks' the feature set offered by the drivers for that specific device. This accomplished by typing the part identifier after <a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a> in <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>. The comprehensive test included with the code for each family of devices can then be run. If the manufacturing ID cannot be read properly, the setup was a failure. For more information about configuration see the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> documentation.<br />
 </p>
-<p>Users can write their own tests in <a class="el" href="main_8c.html" title="Example usage of driver. ">main.c</a>. Just include the relevant files and call functions from within <a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a>. Ensure that the header file for the device under test is included in the part defined within <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a> (<a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a>). <br />
- The source code and documentation can be downloaded <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">here</a>.<br />
-<br />
+<p>The drivers can be used as reference material or ported to a MCU and used for testing. To run this project on a new board the user has to perform a relatively simple porting job by hooking the ports, pins, and initialization code to the specific MCU being used. This linkage occurs in the User Configuration layer (<a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>, <a class="el" href="user__config_8c.html" title="Project definitions exist here. ">user_config.c</a>). A comprehensive description on how to port the driver to a generic MCU can be found within this documentation at the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> page. <br />
+</p>
+<p>After porting the User Configuration layer to work with a GPIO driver for the host MCU, the user must define the flash device used (see <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>). Defining the specific part used 'unlocks' the feature set offered by the drivers for that specific device. This is accomplished simply by typing the part identifier after <a class="el" href="user__config_8h.html#ad3d408f91c72c3fed79cc52eb8d781fd">PARTNO</a> in <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a>. The comprehensive test included with the code for each family of devices can then be run. The first test in the sequence reads the manufacturing ID and can give an early indication of successful communication. For more information about configuration see the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> documentation.<br />
+</p>
+<p>Users can write their own tests by modifying the source code. Specifically, the original package has one test function for each product family. In a nutshell that test function sends a sequence of commands to the target and verifies the results, trying to cover as much functionality as possible. However, users may want to try their own test sequence by replacing the code in that test function with their own.</p>
+<p>The source code and documentation can be downloaded <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">here</a>.<br />
 </p>
 <h1><a class="anchor" id="SOURCE_CODE_STRUCTURE"></a>
 Source Code Structure</h1>
-<p>There are 3 main functional components to this project.</p><ol type="1">
+<p>There are 3 main functional components to the Adesto Flash Driver Reference Package.</p><ol type="1">
 <li><a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a></li>
 <li><a class="el" href="_a_d_e_s_t_o__l_a_y_e_r__d_e_s_c_r_i_p_t_i_o_n.html">Adesto Layer</a></li>
 <li><a class="el" href="_s_p_i__l_a_y_e_r__d_e_s_c_r_i_p_t_i_o_n.html">SPI Layer</a></li>
 </ol>
-<p>Together, these 3 components allow the user to port and test most of the commands available for the implemented devices. The SPI and user configuration layers are tagged within the code by either a "SPI_" or "USER_CONFIG_" at the beginning of each function call. Adesto layer functions begin with the device name (ex: <a class="el" href="moneta_8c.html#a34263d1d1a4493d9a2b67952227eedb7" title="OPCODE: 0x9F   Reads the manufacturer ID and stores the data in rxBuffer. ">monetaReadMID()</a>).<br />
-<br />
- <em>User Configuration Layer</em> - This layer has all the factored user configuration and porting options. Using the <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a> and <a class="el" href="user__config_8c.html" title="Project definitions exist here. ">user_config.c</a> files, the project can quickly be set to work with another Adesto SPI flash device or a different MCU. More information on this is provided at the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> page.<br />
-<br />
- <em>Adesto Layer</em> - This layer stores the various functions and commands for each family of devices available. A user may call these functions in a sequential fashion in their program to send and receieve data from the flash device. The device family appears as the first portion of the camelCase function (ex. <a class="el" href="moneta_8c.html#a34263d1d1a4493d9a2b67952227eedb7" title="OPCODE: 0x9F   Reads the manufacturer ID and stores the data in rxBuffer. ">monetaReadMID()</a>), and the functionality of that command is evident in the second half of the function name, Read Manufacturing ID in this case. The documentation for each function lists a brief explanation of the function, as well as the actual opcode that's sent to the device. Sending and receiving data is done through the SPI driver, this being the second of the 2 components.<br />
-<br />
- <em>SPI Layer</em> - This layer controls the GPIO pins in order to send and receive data. Communication is done solely through the SPI protocol, although there is a JEDEC reset function bulit into the driver (<a class="el" href="spi__driver_8c.html#ace24fb90f800edd7e01deaf1c46d933c" title="Performs a JEDEC reset on the SPI device. ">SPI_JEDECReset()</a>). The user facing functionality of the driver allows the user to send and receive bytes through tx and rx buffers with the <a class="el" href="spi__driver_8c.html#a16fbd6043228ac91a69a5303e51499e5" title="Sends and receives bytes based on the function parameters. MISO and MOSI fill their standard SPI role...">SPI_Exchange()</a> function. Note, the driver must be modified in order to port to another board. A porting guide is included with this documentation (<a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a>).</p>
+<p>Together, these 3 components allow the user to port and test most of the commands available for the implemented devices. The SPI and User Configuration layers are tagged within the code by either a "SPI_" or "USER_CONFIG_" at the beginning of each function call. Adesto layer functions begin with the device name (ex: <a class="el" href="moneta_8c.html#a34263d1d1a4493d9a2b67952227eedb7" title="OPCODE: 0x9F   Reads the manufacturer ID and stores the data in rxBuffer. ">monetaReadMID()</a>).<br />
+</p>
+<p><em>User Configuration Layer</em> - This layer has all the user configuration and porting options. Using the <a class="el" href="user__config_8h.html" title="Project declarations exist here. ">user_config.h</a> and <a class="el" href="user__config_8c.html" title="Project definitions exist here. ">user_config.c</a> files, the project can quickly be set to</p>
+<ul>
+<li>Work with any Adesto SPI flash product<br />
+</li>
+<li>Work with a different MCU</li>
+</ul>
+<p>More information on this is provided at the <a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a> page.<br />
+</p>
+<p><em>Adesto Layer</em> - This layer includes implementation of commands and other functions for each family of devices. The test function then calls these functions in a certain sequence to test the functionality of the device. The device family appears as the first portion of the camelCase function name (ex. <a class="el" href="moneta_8c.html#a34263d1d1a4493d9a2b67952227eedb7" title="OPCODE: 0x9F   Reads the manufacturer ID and stores the data in rxBuffer. ">monetaReadMID()</a>), and the functionality of that command is evident in the second half of the function name; Read Manufacturing ID in this case. The documentation for each function lists a brief explanation of the function, as well as the actual opcode that's sent to the device. Sending and receiving data is done through the SPI layer.<br />
+</p>
+<p><em>SPI Layer</em> - This layer controls the GPIO pins in order to send and receive data in bit-banging style. Communication is done solely through the SPI protocol. In addition there is a JEDEC reset function built into the driver (<a class="el" href="spi__driver_8c.html#ace24fb90f800edd7e01deaf1c46d933c" title="Performs a JEDEC reset on the SPI device. ">SPI_JEDECReset()</a>) for those devices which support that feature. The user facing functionality of the driver allows the user to send and receive bytes through transmit and receive buffers with the <a class="el" href="spi__driver_8c.html#a16fbd6043228ac91a69a5303e51499e5" title="Sends and receives bytes based on the function parameters. MISO and MOSI fill their standard SPI role...">SPI_Exchange()</a> function. Note, the driver must be modified in order to port to another board. A porting guide is included with this documentation (<a class="el" href="_u_s_e_r__c_o_n_f_i_g_u_r_a_t_i_o_n__d_e_s_c_r_i_p_t_i_o_n.html">User Configuration</a>).</p>
 <div class="image">
 <img src="project_structure.png" alt="project_structure.png"/>
 </div>
  <center><b>Project Structure:</b> Hierarchical source code structure.</center><h1><a class="anchor" id="DEBUGGING"></a>
 Debugging</h1>
-<p>Debugging any issues can be done from the lowest level (examining waveforms) to the highest (using breakpoints within an IDE). Conveniently included within the SPI and Adesto layers are functions to assist with debugging. Byte comparisons can be easily done with <a class="el" href="helper__functions_8c.html#a862df829801ef76540699027ba744a1d" title="Helper function to compare 2 byte arrays and print an error message if they do not match...">compareByteArrays()</a> (see <a class="el" href="helper__functions_8h.html" title="Declarations of helper functions. ">helper_functions.h</a>), and a fully integrated debug print can be turned on and off with debugOn()/debugOff(). The SPI layer also includes support for a 'trigger' which toggles a GPIO pin through a falling edge <a class="el" href="spi__driver_8c.html#a1c4c1940ae65868c4a94248a0af27896" title="Triggers a falling edge on the SPI_TRIGGER_PORT/PIN output. ">SPI_Trigger()</a>. </p>
+<p>Debugging any issues can be done at all levels from examining waveforms to using a debugger with breakpoints. Conveniently included within the SPI and Adesto layers are functions to assist with debugging. Byte comparisons can be easily done with <a class="el" href="helper__functions_8c.html#a862df829801ef76540699027ba744a1d" title="Helper function to compare 2 byte arrays and print an error message if they do not match...">compareByteArrays()</a> (see <a class="el" href="helper__functions_8h.html" title="Declarations of helper functions. ">helper_functions.h</a>), and a fully integrated debug print can be turned on and off with debugOn()/debugOff(). The SPI layer also includes support for a 'trigger' which toggles a GPIO pin through a falling edge (<a class="el" href="spi__driver_8c.html#a1c4c1940ae65868c4a94248a0af27896" title="Triggers a falling edge on the SPI_TRIGGER_PORT/PIN output. ">SPI_Trigger()</a>), to assist debugging with a logic analyzer or scope. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
