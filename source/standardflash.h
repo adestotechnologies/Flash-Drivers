@@ -32,15 +32,15 @@
  */
 
 /*!
- * @ingroup ADESTO_LAYER PHOENIX
+ * @ingroup ADESTO_LAYER STANDARDFLASH
  */
 /**
- * @file    phoenix.h
- * @brief   Declarations of Phoenix functions.
+ * @file    standardflash.h
+ * @brief   Declarations of Standardflash functions.
  */
 
-#ifndef PHOENIX_H_
-#define PHOENIX_H_
+#ifndef STANDARDFLASH_H_
+#define STANDARDFLASH_H_
 	
 #include "cmd_defs.h"
 #include "spi_driver.h"
@@ -67,47 +67,12 @@
 	(PARTNO == AT25QF641)	|| \
 	(ALL == 1)
 
-extern uint8_t txPhoenixInternalBuffer[MAXIMUM_TX_BYTES];
-
-/**
- * @brief Sample use of the driver for a Phoenix device. <br>
- * This function is meant to showcase how the API is to
- * be used by performing tests on the device, and outputting
- * messages based on performance. Not all functions are used,
- * although most are. This is NOT meant as a standalone reference
- * and should be used in conjunction with the provided documentation
- * and the relevant datasheets. <br>
- *
- * Testing is done in multiple stages. The order matters from
- * each step to the next in this example.
- *
- * Testing commences as follows:
- * 1. Read manufacturing ID.
- * 2. Write and read commands.
- * 3. Dual read commands.
- * 4. Quad read commands.
- * 5. Test deep power down mode.
- *
- * If one is using a component with specialized capabilities, the test
- * continues with features exclusive to that device.
- *
- * 1. QPI read manufacturing ID.
- * 2. QPI write and read commands.
- * 3. QPI read commands
- * 4. Dual Input Byte/Page Program
- *
- * At each stage various messages will confirm that the tests have passed or failed.
- * Failure is expected during power down modes, as the inputs lines are not driven, thus
- * causing data read to be unpredictable.
- *
- * @retval uint32_t Returns the number of errors in the testbench.
- */
-uint32_t phoenixTest();
+extern uint8_t txStandardflashInternalBuffer[MAXIMUM_TX_BYTES];
 
 /******************************************
  *
  *
- * Phoenix Commands
+ * Standardflash Commands
  *
  *
  ******************************************/
@@ -122,7 +87,7 @@ uint32_t phoenixTest();
  *
  * @retval void
  */
-void phoenixWaitOnReady();
+void standardflashWaitOnReady();
 
 /*!
  * @brief: Sets the QE bit in status register byte 2. Does not modify any other bits.
@@ -134,7 +99,7 @@ void phoenixWaitOnReady();
  *
  * @retval void
  */
-void phoenixSetQEBit();
+void standardflashSetQEBit();
 
 /*!
  * @brief: Clears the QE bit in status register byte 2. Does not modify any other bits.
@@ -146,7 +111,7 @@ void phoenixSetQEBit();
  *
  * @retval void
  */
-void phoenixClearQEBit();
+void standardflashClearQEBit();
 
 /*!
  * @brief OPCODE: 0x06 <br>
@@ -154,7 +119,7 @@ void phoenixClearQEBit();
  *
  * @retval void
  */
-void phoenixWriteEnable();
+void standardflashWriteEnable();
 
 /*!
  * @brief OPCODE: 0x04 <br>
@@ -162,7 +127,7 @@ void phoenixWriteEnable();
  *
  * @retval void
  */
-void phoenixWriteDisable();
+void standardflashWriteDisable();
 
 /*!
  * @brief OPCODE: 0x03 <br>
@@ -178,7 +143,7 @@ void phoenixWriteDisable();
  *
  * @retval void
  */
-void phoenixReadArrayLowFreq(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
+void standardflashReadArrayLowFreq(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
 
 /*!
  * @brief OPCODE: 0x0B <br>
@@ -194,7 +159,7 @@ void phoenixReadArrayLowFreq(uint32_t address, uint8_t *rxBuffer, uint32_t rxNum
  *
  * @retval void
  */
-void phoenixReadArrayHighFreq(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
+void standardflashReadArrayHighFreq(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
 
 /*!
  * @brief OPCODE: 0x02 <br>
@@ -208,7 +173,7 @@ void phoenixReadArrayHighFreq(uint32_t address, uint8_t *rxBuffer, uint32_t rxNu
  *
  * @retval void
  */
-void phoenixBytePageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
+void standardflashBytePageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
 
 /*!
  * @brief OPCODE: 0x20 <br>
@@ -218,7 +183,7 @@ void phoenixBytePageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumB
  *
  * @retval void
  */
-void phoenixBlockErase4K(uint32_t address);
+void standardflashBlockErase4K(uint32_t address);
 
 /*!
  * @brief OPCODE: 0x52 <br>
@@ -228,7 +193,7 @@ void phoenixBlockErase4K(uint32_t address);
  *
  * @retval void
  */
-void phoenixBlockErase32K(uint32_t address);
+void standardflashBlockErase32K(uint32_t address);
 
 /*!
  * @brief OPCODE: 0xD8 <br>
@@ -238,25 +203,25 @@ void phoenixBlockErase32K(uint32_t address);
  *
  * @retval void
  */
-void phoenixBlockErase64K(uint32_t address);
+void standardflashBlockErase64K(uint32_t address);
 
 /*!
  * @brief OPCODE: 0x60 <br>
  * Erases the entire chip by setting all bits.
- * phoenixChipErase2() is functionally equivalent.
+ * standardflashChipErase2() is functionally equivalent.
  *
  * @retval void
  */
-void phoenixChipErase1();
+void standardflashChipErase1();
 
 /*!
  * @brief OPCODE: 0xC7 <br>
  * Erases the entire chip by setting all bits.
- * phoenixChipErase1() is functionally equivalent.
+ * standardflashChipErase1() is functionally equivalent.
  *
  * @retval void
  */
-void phoenixChipErase2();
+void standardflashChipErase2();
 
 /*!
  * @brief OPCODE: 0xB9
@@ -265,7 +230,7 @@ void phoenixChipErase2();
  *
  * @retval void
  */
-void phoenixDPD();
+void standardflashDPD();
 
 /*!
  * @brief OPCODE: 0xAB <br>
@@ -273,7 +238,7 @@ void phoenixDPD();
  *
  * @retval void
  */
-void phoenixResumeFromDPD();
+void standardflashResumeFromDPD();
 
 /*!
  * @brief OPCODE: 0x90 <br>
@@ -284,7 +249,7 @@ void phoenixResumeFromDPD();
  *
  * @retval void
  */
-void phoenixReadID(uint8_t *rxBuffer);
+void standardflashReadID(uint8_t *rxBuffer);
 
 /*!
  * @brief OPCODE: 0x9F <br>
@@ -294,7 +259,7 @@ void phoenixReadID(uint8_t *rxBuffer);
  *
  * @retval void
  */
-void phoenixReadMID(uint8_t *rxBuffer);
+void standardflashReadMID(uint8_t *rxBuffer);
 #endif
 #if (PARTNO == AT25SF641) 	|| \
 	(PARTNO == AT25SF321)	|| \
@@ -319,7 +284,7 @@ void phoenixReadMID(uint8_t *rxBuffer);
  *
  * @retval void
  */
-void phoenixWriteSR(uint8_t *txBuffer, uint8_t txNumBytes);
+void standardflashWriteSR(uint8_t *txBuffer, uint8_t txNumBytes);
 #endif
 
 #if (PARTNO == AT25SF641) 	|| \
@@ -336,8 +301,8 @@ void phoenixWriteSR(uint8_t *txBuffer, uint8_t txNumBytes);
 	(PARTNO == AT25DF321A)  || \
 	(PARTNO == AT25DF641A)	|| \
 	(ALL == 1)
-void phoenixWriteSRB1(uint8_t regVal);
-void phoenixWriteSRB2(uint8_t regVal);
+void standardflashWriteSRB1(uint8_t regVal);
+void standardflashWriteSRB2(uint8_t regVal);
 #endif
 
 #if (PARTNO == AT25SF641) 	|| \
@@ -359,7 +324,7 @@ void phoenixWriteSRB2(uint8_t regVal);
  *
  * @retval void
  */
-void phoenixWriteEnableVolatileSR();
+void standardflashWriteEnableVolatileSR();
 
 /*!
  * @brief OPCODE: 0x05 <br>
@@ -367,7 +332,7 @@ void phoenixWriteEnableVolatileSR();
  *
  * @retval Byte stored in the status register.
  */
-uint8_t phoenixReadSRB1();
+uint8_t standardflashReadSRB1();
 
 /*!
  * @brief OPCODE: 0x35 <br>
@@ -375,7 +340,7 @@ uint8_t phoenixReadSRB1();
  *
  * @retval Byte stored in the status register.
  */
-uint8_t phoenixReadSRB2();
+uint8_t standardflashReadSRB2();
 
 /*!
  * @brief OPCODE: 0x3B <br>
@@ -390,7 +355,7 @@ uint8_t phoenixReadSRB2();
  *
  * @retval void
  */
-void phoenixDualOutputRead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
+void standardflashDualOutputRead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
 
 /*!
  * @brief OPCODE: 0xBB <br>
@@ -415,11 +380,11 @@ void phoenixDualOutputRead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBy
  * The overhead of setting up the opcode, address, and mode byte is taken care of, but different devices within
  * the same family will use a different mode value.<br>
  *  Please note, this is taken care of in the sample code when defining which part is being used.
- *  See main() in phoenix.c.
+ *  See main() in standardflash.c.
  *
  * @retval void
  */
-void phoenixDualIORead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes, uint8_t readMode, uint8_t modeByteValue);
+void standardflashDualIORead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes, uint8_t readMode, uint8_t modeByteValue);
 
 /*!
  * @brief OPCODE: 0x6B <br>
@@ -434,7 +399,7 @@ void phoenixDualIORead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes,
  *
  * @retval void
  */
-void phoenixQuadOutputRead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
+void standardflashQuadOutputRead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
 
 /*!
  * @brief OPCODE: 0xEB <br>
@@ -458,29 +423,29 @@ void phoenixQuadOutputRead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBy
  * The overhead of setting up the opcode, address, and mode byte is taken care of, but different devices within
  * the same family will use a different mode value.<br>
  *  Please note, this is taken care of in the sample code when defining which part is being used.
- *  See main() in phoenix.c.
+ *  See main() in standardflash.c.
  *
  * @retval void
  */
-void phoenixQuadIORead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes, uint8_t readMode, uint8_t modeByteValue);
+void standardflashQuadIORead(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes, uint8_t readMode, uint8_t modeByteValue);
 
 /*!
  * @brief OPCODE: 0xFFFF <br>
- * Resets the dual continuous read mode that was entered with phoenixDualIORead() when readMode
+ * Resets the dual continuous read mode that was entered with standardflashDualIORead() when readMode
  * 2 was used. Data from and to the device will be in standard SPI after using this command.
  *
  * @retval void
  */
-void phoenixContinuousReadModeDualReset();
+void standardflashContinuousReadModeDualReset();
 
 /*!
  * @brief OPCODE: 0xFF <br>
- * Resets the quad continuous read mode that was entered with phoenixQuadIORead() when readMode
+ * Resets the quad continuous read mode that was entered with standardflashQuadIORead() when readMode
  * 2 was used. Data from and to the device will be in standard SPI after using this command.
  *
  * @retval void
  */
-void phoenixContinuousReadModeQuadReset();
+void standardflashContinuousReadModeQuadReset();
 
 /*!
  * @brief OPCODE: 0x44 <br>
@@ -488,7 +453,7 @@ void phoenixContinuousReadModeQuadReset();
  *
  * @retval void
  */
-void phoenixEraseSecurityRegister(uint32_t address);
+void standardflashEraseSecurityRegister(uint32_t address);
 
 /*!
  * @brief OPCODE: 0x42 <br>
@@ -503,7 +468,7 @@ void phoenixEraseSecurityRegister(uint32_t address);
  *
  * @retval void
  */
-void phoenixProgramSecurityRegisters(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
+void standardflashProgramSecurityRegisters(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
 
 /*!
  * @brief OPCODE: 0x48 <br>
@@ -517,17 +482,17 @@ void phoenixProgramSecurityRegisters(uint32_t address, uint8_t *txBuffer, uint32
  *
  * @retval void
  */
-void phoenixReadSecurityRegisters(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
+void standardflashReadSecurityRegisters(uint32_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
 
 /*!
  * @brief OPCODE: 0xAB <br>
- * Wake the device from deep power down mode and read the 1 byte ID. See phoenixDPD().
+ * Wake the device from deep power down mode and read the 1 byte ID. See standardflashDPD().
  *
  * @param rxBuffer A byte array in which the device ID (single byte) will be stored.
  *
  * @retval void
  */
-void phoenixResumeFromDPDReadID(uint8_t *rxBuffer);
+void standardflashResumeFromDPDReadID(uint8_t *rxBuffer);
 
 /*!
  * @brief OPCODE: 0x33 <br>
@@ -543,7 +508,7 @@ void phoenixResumeFromDPDReadID(uint8_t *rxBuffer);
  *
  * @retval void
  */
-void phoenixQuadPageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes, uint8_t mode);
+void standardflashQuadPageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes, uint8_t mode);
 #endif
 
 #if (PARTNO == AT25SF641) 	|| \
@@ -563,7 +528,7 @@ void phoenixQuadPageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumB
  *
  * @retval void
  */
-void phoenixEraseProgramSuspend();
+void standardflashEraseProgramSuspend();
 
 /*!
  * @brief OPCODE: 0x7A <br>
@@ -571,7 +536,7 @@ void phoenixEraseProgramSuspend();
  *
  * @retval void
  */
-void phoenixEraseProgramResume();
+void standardflashEraseProgramResume();
 #endif
 
 #if (PARTNO == AT25SF641) 	|| \
@@ -588,41 +553,41 @@ void phoenixEraseProgramResume();
  * @brief OPCODE: 0x38 <br>
  * Switches the device from SPI mode to QPI mode, and sets a variable to quad mode.
  *
- * @warning Must first call phoenixSetQEBit() to set the QE bit!
+ * @warning Must first call standardflashSetQEBit() to set the QE bit!
  *
  * @retval void
  */
-void phoenixEnableQPI();
+void standardflashEnableQPI();
 
 /*!
  * @brief OPCODE: 0xFF <br>
  * Switches the device from QPI mode to SPI mode, and sets a variable to spi mode.
  *
- * @warning Must call phoenixClearQEBit() afterwards to reset the QE bit!
+ * @warning Must call standardflashClearQEBit() afterwards to reset the QE bit!
  *
  * @retval void
  */
-void phoenixDisableQPI();
+void standardflashDisableQPI();
 
 /*!
  * @brief OPCODE: 0x66 <br>
  * Enable software reset of the flash device.
  *
- * @warning must follow this by phoenixReset() in order to software reset the device.
+ * @warning must follow this by standardflashReset() in order to software reset the device.
  *
  * @retval void
  */
-void phoenixEnableReset();
+void standardflashEnableReset();
 
 /*!
  * @brief OPCODE: 0x99 <br>
  * Software reset the flash device.
  *
- * @warning Must have first issued phoenixEnableReset() in order to perform a software reset.
+ * @warning Must have first issued standardflashEnableReset() in order to perform a software reset.
  *
  * @retval void
  */
-void phoenixReset();
+void standardflashReset();
 
 /*!
  * @brief OPCODE: 0xB1 <br>
@@ -630,7 +595,7 @@ void phoenixReset();
  *
  * @retval void
  */
-void phoenixEnterSecureOTP();
+void standardflashEnterSecureOTP();
 
 /*!
  * @brief OPCODE: 0xC1 <br>
@@ -638,7 +603,7 @@ void phoenixEnterSecureOTP();
  *
  * @retval void
  */
-void phoenixExitSecuredOTP();
+void standardflashExitSecuredOTP();
 #endif
 
 #if (PARTNO == AT25DL081) 	|| \
@@ -653,7 +618,7 @@ void phoenixExitSecuredOTP();
  *
  * @retval void
  */
-void phoenixReadSR(uint8_t *rxBuffer);
+void standardflashReadSR(uint8_t *rxBuffer);
 
 /*!
  * @brief OPCODE: 0xA2 <br>
@@ -668,7 +633,7 @@ void phoenixReadSR(uint8_t *rxBuffer);
  *
  * @retval void
  */
-void phoenixDualInputBytePageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
+void standardflashDualInputBytePageProgram(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
 
 /*!
  * @brief OPCODE: 0xB0 <br>
@@ -676,7 +641,7 @@ void phoenixDualInputBytePageProgram(uint32_t address, uint8_t *txBuffer, uint32
  *
  * @retval void
  */
-void phoenixProgramEraseSuspend();
+void standardflashProgramEraseSuspend();
 
 /*!
  * @brief OPCODE: 0xD0 <br>
@@ -684,7 +649,7 @@ void phoenixProgramEraseSuspend();
  *
  * @retval void
  */
-void phoenixProgramEraseResume();
+void standardflashProgramEraseResume();
 
 /*!
  * @brief OPCODE: 0x36
@@ -692,7 +657,7 @@ void phoenixProgramEraseResume();
  *
  * @retval void
  */
-void phoenixProtectSector(uint32_t address);
+void standardflashProtectSector(uint32_t address);
 
 /*!
  * @brief OPCODE: 0x39 <br>
@@ -700,7 +665,7 @@ void phoenixProtectSector(uint32_t address);
  *
  * @retval void
  */
-void phoenixUnprotectSector(uint32_t address);
+void standardflashUnprotectSector(uint32_t address);
 
 /*!
  * @brief OPCODE: 0x3C <br>
@@ -709,7 +674,7 @@ void phoenixUnprotectSector(uint32_t address);
  * @retval The byte indicating whether or not the sector is protected.<br>
  * 0xFF indicates the sector is protected, 0x00 indicates the sector is unprotected.
  */
-uint8_t phoenixReadSectorProtectionReg(uint32_t address);
+uint8_t standardflashReadSectorProtectionReg(uint32_t address);
 
 /*!
  * @brief OPCODE: 0x34 <br>
@@ -719,7 +684,7 @@ uint8_t phoenixReadSectorProtectionReg(uint32_t address);
  *
  * @retval void
  */
-void phoenixFreezeLockdownState();
+void standardflashFreezeLockdownState();
 
 /*!
  * @brief OPCODE: 0x35 <br>
@@ -728,7 +693,7 @@ void phoenixFreezeLockdownState();
  * @retval The byte indicating whether or not the sector is locked-down.<br>
  * 0xFF indicates the sector is locked-down, 0x00 indicates the sector is not locked-down.
  */
-uint8_t phoenixReadLockdownReg(uint32_t address);
+uint8_t standardflashReadLockdownReg(uint32_t address);
 
 /*!
  * @brief OPCODE: 0x9B <br>
@@ -745,7 +710,8 @@ uint8_t phoenixReadLockdownReg(uint32_t address);
  *
  * @retval void
  */
-void phoenixProgramOTPReg(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
+void standardflashProgramOTPReg(uint32_t address, uint8_t *txBuffer, uint32_t txNumBytes);
+
 #endif
 
-#endif /* PHOENIX_H_ */
+#endif /* STANDARDFLASH_H_ */

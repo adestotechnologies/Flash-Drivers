@@ -8,7 +8,7 @@
 		-# @ref MONETA
 		-# @ref FUSION
 		-# @ref DATAFLASH
-		-# @ref PHOENIX
+		-# @ref STANDARDFLASH
 
     The package, which is implemented in the C language, demonstrates most supported flash operations including memory reading, erasing and programming, control and status register reading and writing, and switching the flash device into various modes. 
 
@@ -36,17 +36,18 @@
 
     After porting the User Configuration layer to work with a GPIO driver for the host MCU, the user must define the flash device used (see user_config.h). Defining the specific part used 'unlocks' the feature set offered by the drivers for that specific device. This is accomplished simply by typing the part identifier after @ref PARTNO in user_config.h. The comprehensive test included with the code for each family of devices can then be run. The first test in the sequence reads the manufacturing ID and can give an early indication of successful communication. For more information about configuration see the @ref USER_CONFIGURATION_DESCRIPTION documentation.<br>
 
-    Users can write their own tests by modifying the source code. Specifically, the original package has one test function for each product family. In a nutshell that test function sends a sequence of commands to the target and verifies the results, trying to cover as much functionality as possible. However, users may want to try their own test sequence by replacing the code in that test function with their own.
+    Users can write their own tests by either modifying the source code, or adding in their own tests in test(). Specifically, the original package has a default test function that changes based on the part used. In a nutshell that test function (defaultTest()) sends a sequence of commands to the target and verifies the results, trying to cover as much functionality as possible. However, users may want to try their own test sequence by replacing the code in that test function with their own, or writing a new one in test(). See the @ref TEST_LAYER_DESCRIPTION page for more information.
     
     The source code and documentation can be downloaded <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">here</a>.<br>
 
   @section SOURCE_CODE_STRUCTURE Source Code Structure
-    @details There are 3 main functional components to the Adesto Flash Driver Reference Package.
+    @details There are 4 main functional components to the Adesto Flash Driver Reference Package.
     -# @ref USER_CONFIGURATION_DESCRIPTION
+    -# @ref TEST_LAYER_DESCRIPTION
     -# @ref ADESTO_LAYER_DESCRIPTION
     -# @ref SPI_LAYER_DESCRIPTION
 
-    Together, these 3 components allow the user to port and test most of the commands available for the implemented devices. The SPI and User Configuration layers are tagged within the code by either a "SPI_" or "USER_CONFIG_" at the beginning of each function call. Adesto layer functions begin with the device name (ex: monetaReadMID()).<br>
+    Together, these 4 components allow the user to port and test most of the commands available for the implemented devices. The SPI and User Configuration layers are tagged within the code by either a "SPI_" or "USER_CONFIG_" at the beginning of each function call. Adesto layer functions begin with the device name (ex: monetaReadMID()).<br>
 
     <i>User Configuration Layer</i> - This layer has all the user configuration and porting options. Using the user_config.h and user_config.c files, the project can quickly be set to
 
@@ -54,6 +55,8 @@
     - Work with a different MCU
 
     More information on this is provided at the @ref USER_CONFIGURATION_DESCRIPTION page.<br>
+
+    <i>Test Layer</i> - This layer contains the default and user test functions, as well as the family specific test functions. Users can call defaultTest() to run the included example functions. defaultTest()'s definition changes according to the part selected and defined for @ref PARTNO. test() is not defined, and is available for the user to test their own command sequences.<br> 
 
     <i>Adesto Layer</i> - This layer includes implementation of commands and other functions for each family of devices. The test function then calls these functions in a certain sequence to test the functionality of the device. The device family appears as the first portion of the camelCase function name (ex. monetaReadMID()), and the functionality of that command is evident in the second half of the function name; Read Manufacturing ID in this case. The documentation for each function lists a brief explanation of the function, as well as the actual opcode that's sent to the device. Sending and receiving data is done through the SPI layer.<br>
 

@@ -126,11 +126,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a9ec3628ee3e00dfada9c086de5626fb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moneta_8c.html#a9ec3628ee3e00dfada9c086de5626fb2">monetaHardwareReset</a> ()</td></tr>
 <tr class="memdesc:a9ec3628ee3e00dfada9c086de5626fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exits Ultra Deep Power Down mode using the hardware reset option.  <a href="#a9ec3628ee3e00dfada9c086de5626fb2">More...</a><br /></td></tr>
 <tr class="separator:a9ec3628ee3e00dfada9c086de5626fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd5f22c0f2897309187481cd3ad732ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moneta_8c.html#abd5f22c0f2897309187481cd3ad732ff">monetaTest</a> ()</td></tr>
-<tr class="memdesc:abd5f22c0f2897309187481cd3ad732ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample use of the driver for a Moneta device. <br />
- This function is meant to showcase how the API is used by performing tests on the device, and outputting messages based on performance. Not all functions are used, although most are. This is NOT meant as a standalone reference and should be used in conjunction with the provided documentation and the relevant datasheets. <br />
-  <a href="#abd5f22c0f2897309187481cd3ad732ff">More...</a><br /></td></tr>
-<tr class="separator:abd5f22c0f2897309187481cd3ad732ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -285,42 +280,6 @@ Variables</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="moneta_8c_source.html#l00086">86</a> of file <a class="el" href="moneta_8c_source.html">moneta.c</a>.</p>
-
-</div>
-</div>
-<a id="abd5f22c0f2897309187481cd3ad732ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd5f22c0f2897309187481cd3ad732ff">&#9670;&nbsp;</a></span>monetaTest()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int monetaTest </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sample use of the driver for a Moneta device. <br />
- This function is meant to showcase how the API is used by performing tests on the device, and outputting messages based on performance. Not all functions are used, although most are. This is NOT meant as a standalone reference and should be used in conjunction with the provided documentation and the relevant datasheets. <br />
- </p>
-<p>Testing is done in multiple stages. The order matters from each step to then next in this example.</p>
-<p>Testing commences as follows:</p><ol type="1">
-<li>Read manufacturing ID, test write enable, test write disable.</li>
-<li>Test read and write functionality.</li>
-<li>Test ultra deep power down mode and JEDEC reset.</li>
-</ol>
-<p>At each stage various messages will confirm that the tests have passed or failed. Failure is expected during power down mode, as the MISO line is not driven, thus causing data read to be unpredictable.</p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">int</td><td>Returns the number of errors in the testbench. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="moneta_8c_source.html#l00186">186</a> of file <a class="el" href="moneta_8c_source.html">moneta.c</a>.</p>
 
 </div>
 </div>

@@ -174,31 +174,6 @@ void monetaUDPDMode1();
  */
 void monetaHardwareReset();
 
-/**
- * @brief Sample use of the driver for a Moneta device. <br>
- * This function is meant to showcase how the API is
- * used by performing tests on the device, and outputting
- * messages based on performance. Not all functions are used,
- * although most are. This is NOT meant as a standalone reference
- * and should be used in conjunction with the provided documentation
- * and the relevant datasheets. <br>
- *
- * Testing is done in multiple stages. The order matters from
- * each step to then next in this example.
- *
- * Testing commences as follows:
- * 1. Read manufacturing ID, test write enable, test write disable.
- * 2. Test read and write functionality.
- * 3. Test ultra deep power down mode and JEDEC reset.
- *
- * At each stage various messages will confirm that the tests have passed or failed.
- * Failure is expected during power down mode, as the MISO line is not driven, thus
- * causing data read to be unpredictable.
- *
- * @retval int Returns the number of errors in the testbench.
- */
-int monetaTest();
-
 #endif
 
 #endif /* ADESTO_LAYER_H_ */

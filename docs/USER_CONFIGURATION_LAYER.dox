@@ -36,4 +36,12 @@
 
 	@section FLASH_DEVICE Flash Device Selected 
 	@details While the SPI layer bit-banged driver is built to cover the full range of Adesto SPI flash products, the Adesto layer is meant to be general purpose within a given family. Almost all features are declared/defined. As such, some functionality may not be supported on a device within a certain family. To differentiate between devices in the general Adesto layer, conditional compilation 'locks' and 'unlocks' the opcodes and related functions. Before using the driver a user must specify the flash device being used in user_config.h with @ref PARTNO, a list of which can be seen within the comments of that file. (EX: '#define PARTNO AT45DB041E').
+	
+	@section USER_CONFIGURATION_LINKS File Links
+	@ref USER_CONFIG
+ */
+ /*!
+  @defgroup USER_CONFIG User Configuration Layer
+
+  @details Source code for the flash drivers can be found at the following URL: <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">Download ZIP</a>
  */

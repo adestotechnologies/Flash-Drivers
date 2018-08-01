@@ -942,35 +942,6 @@ void dataflashAutoPageRewrite2(uint32_t address);
 void dataflashBuffer2ReadLegacy(uint8_t address, uint8_t *rxBuffer, uint32_t rxNumBytes);
 #endif
 
-/**
- * @brief Sample use of the driver for a Dataflash device. <br>
- * This function is meant to showcase how the API is to
- * be used by performing tests on the device, and outputting
- * messages based on performance. Not all functions are used,
- * although most are. This is NOT meant as a standalone reference
- * and should be used in conjunction with the provided documentation
- * and the relevant datasheets. <br>
- *
- * Testing is done in multiple stages. The order matters from
- * each step to the next in this example.
- *
- * Testing commences as follows:
- * 1. Read manufacturing ID.
- * 2. Test read and write functionality.
- * 3. Test deep power down mode.
- * 4. Test ultra deep power down mode and JEDEC reset.
- * 5. Test erase commands.
- * 6. Test memory to buffer commands.
- * 7. Test Read - Modify - Write capabilities.
- *
- * At each stage various messages will confirm that the tests have passed or failed.
- * Failure is expected during power down modes, as the MISO line is not driven, thus
- * causing data read to be unpredictable.
- *
- * @retval uint32_t Returns the number of errors in the testbench.
- */
-uint32_t dataflashTest();
-
 #endif
 
 #endif /* DATAFLASH_H_ */

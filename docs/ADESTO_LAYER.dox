@@ -6,17 +6,15 @@
 	All Adesto layer functions have 2 core elements; load a buffer with data, then communicate with the flash device via the bit-banged SPI driver.<br><br>
 	Loading a buffer: @code txFusionInternalBuffer[0] = CMD_FUSION_WRITE_SRB2; @endcode
 	Transmitting via the SPI driver: @code SPI_Exchange(txFusionInternalBuffer, 2, NULL, 0, 0); @endcode
-	Options for printing the received and transmitted bytes (available as a debug tool within the code) are built on top of these features, along with certain conditionals for complex commands. A few functions (ex: phoenixWaitOnReady()), can be found within each family which are clearly derived from simpler base functions. These functions are helpful for programming and showcase how other functions can be put together to form a 'complex' sequence of commands.<br>
+	Options for printing the received and transmitted bytes (available as a debug tool within the code) are built on top of these features, along with certain conditionals for complex commands. A few functions (ex: standardflashWaitOnReady()), can be found within each family which are clearly derived from simpler base functions. These functions are helpful for programming and showcase how other functions can be put together to form a 'complex' sequence of commands.<br>
 
 	A near comprehensive list of supported opcodes can be found in cmd_defs.h. The datasheet should still be consulted before using a flash device. The sample code is not intended as a be-all-end-all resource, rather it provides a point of reference for starting out with serial communication between an MCU and Adesto flash memory. Indeed, when tested on certain microcontrollers, the measured bit-banged SPI clock rate when running through a test program was lower than 1MHz, less than ideal for high speed applications.<br>
-
-	Included with each layer is a test function which shows the user how to call the various functions, how to switch between various modes when relevant, and programming examples. See phoenixTest(), monetaTest(), dataflashTest(), and fusionTest(). If one has the driver properly set up (see @ref USER_CONFIGURATION_DESCRIPTION), these functions calls will run a testbench that should have 0 errors after completion.
 
 	@section ADESTO_LAYER_LINKS File Links
 		@subsection ADESTO_LAYER_FILES Adesto Layer Files
 			@ref ADESTO_LAYER
 		@subsection familySpecific Family Specific Files
-			@ref PHOENIX <br>
+			@ref STANDARDFLASH <br>
 			@ref MONETA <br>
 			@ref DATAFLASH <br>
 			@ref FUSION <br>
@@ -42,7 +40,7 @@
 	@details Source code for the flash drivers can be found at the following URL: <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">Download ZIP</a>
 
 
-	@defgroup PHOENIX Phoenix
+	@defgroup STANDARDFLASH Standardflash
 
 	@details Source code for the flash drivers can be found at the following URL: <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">Download ZIP</a>
  */

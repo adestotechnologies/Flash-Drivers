@@ -32,30 +32,27 @@
  */
 
 /*!
- * @ingroup ADESTO_LAYER MAIN
+ * @ingroup TEST_LAYER MAIN
  */
 /**
  * @file    main.c
  * @brief   Example usage of driver.
  */
 
-// Project file includes. Only need one of these.
-//#include "fusion.h"
-#include "phoenix.h"
-//#include "dataflash.h"
-//#include "moneta.h"
+// Project file includes.
+#include "test.h"
 
 int main()
 {
-	// Configures the board. Modify when porting to a
-	// new board.
+	// Configures the board. Modify when porting to a new board.
 	USER_CONFIG_BoardInit();
+
 	// Sets the various pins as inputs and output.
     SPI_ConfigureSingleSPIIOs();
-    // Sample usage of the driver
-	// Replace with monetaTest(), dataflashTest(),
-	// fusionTest(), or phoenixTest() as appropriate/desired.
-    phoenixTest();
+
+    // Call either the user defined or default test function from test.h.
+    // (defaultTest() or test())
+    defaultTest();
 
     return 0;
 }

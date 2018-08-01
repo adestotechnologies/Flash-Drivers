@@ -352,11 +352,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0bcae4e2d809a2640b2d0e3f12253c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPCODE: 0x56 <br />
  LEGACY: Reads rxNumBytes starting from location 'address' in buffer 2 and stores the data in the byte array rxBuffer.  <a href="#a0bcae4e2d809a2640b2d0e3f12253c07">More...</a><br /></td></tr>
 <tr class="separator:a0bcae4e2d809a2640b2d0e3f12253c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e3a2dae25ef029e297e80d8fcee9fa"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dataflash_8h.html#a58e3a2dae25ef029e297e80d8fcee9fa">dataflashTest</a> ()</td></tr>
-<tr class="memdesc:a58e3a2dae25ef029e297e80d8fcee9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample use of the driver for a Dataflash device. <br />
- This function is meant to showcase how the API is to be used by performing tests on the device, and outputting messages based on performance. Not all functions are used, although most are. This is NOT meant as a standalone reference and should be used in conjunction with the provided documentation and the relevant datasheets. <br />
-  <a href="#a58e3a2dae25ef029e297e80d8fcee9fa">More...</a><br /></td></tr>
-<tr class="separator:a58e3a2dae25ef029e297e80d8fcee9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -3049,46 +3044,6 @@ Variables</h2></td></tr>
  Perform a software reset on the device. This will terminate any read or write operation in progress. </p>
 
 <p class="definition">Definition at line <a class="el" href="dataflash_8c_source.html#l00476">476</a> of file <a class="el" href="dataflash_8c_source.html">dataflash.c</a>.</p>
-
-</div>
-</div>
-<a id="a58e3a2dae25ef029e297e80d8fcee9fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58e3a2dae25ef029e297e80d8fcee9fa">&#9670;&nbsp;</a></span>dataflashTest()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t dataflashTest </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sample use of the driver for a Dataflash device. <br />
- This function is meant to showcase how the API is to be used by performing tests on the device, and outputting messages based on performance. Not all functions are used, although most are. This is NOT meant as a standalone reference and should be used in conjunction with the provided documentation and the relevant datasheets. <br />
- </p>
-<p>Testing is done in multiple stages. The order matters from each step to the next in this example.</p>
-<p>Testing commences as follows:</p><ol type="1">
-<li>Read manufacturing ID.</li>
-<li>Test read and write functionality.</li>
-<li>Test deep power down mode.</li>
-<li>Test ultra deep power down mode and JEDEC reset.</li>
-<li>Test erase commands.</li>
-<li>Test memory to buffer commands.</li>
-<li>Test Read - Modify - Write capabilities.</li>
-</ol>
-<p>At each stage various messages will confirm that the tests have passed or failed. Failure is expected during power down modes, as the MISO line is not driven, thus causing data read to be unpredictable.</p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">uint32_t</td><td>Returns the number of errors in the testbench. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="dataflash_8c_source.html#l00893">893</a> of file <a class="el" href="dataflash_8c_source.html">dataflash.c</a>.</p>
 
 </div>
 </div>

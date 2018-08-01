@@ -188,11 +188,6 @@ Functions</h2></td></tr>
 <tr class="memitem:abd4bb88c2b4e8d0b8a958dcd46c7f5b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fusion_8c.html#abd4bb88c2b4e8d0b8a958dcd46c7f5b5">fusionHardwareReset</a> ()</td></tr>
 <tr class="memdesc:abd4bb88c2b4e8d0b8a958dcd46c7f5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a hardware (JEDEC) reset on the device.  <a href="#abd4bb88c2b4e8d0b8a958dcd46c7f5b5">More...</a><br /></td></tr>
 <tr class="separator:abd4bb88c2b4e8d0b8a958dcd46c7f5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72975b646efc378432bfa6c02b6a9db5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fusion_8c.html#a72975b646efc378432bfa6c02b6a9db5">fusionTest</a> ()</td></tr>
-<tr class="memdesc:a72975b646efc378432bfa6c02b6a9db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample use of the driver for a Fusion device. <br />
- This function is meant to showcase how the API is to be used by performing tests on the device, and outputting messages based on performance. Not all functions are used, although most are. This is NOT meant as a standalone reference and should be used in conjunction with the provided documentation and the relevant datasheets. <br />
-  <a href="#a72975b646efc378432bfa6c02b6a9db5">More...</a><br /></td></tr>
-<tr class="separator:a72975b646efc378432bfa6c02b6a9db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -958,47 +953,6 @@ Variables</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="fusion_8c_source.html#l00336">336</a> of file <a class="el" href="fusion_8c_source.html">fusion.c</a>.</p>
-
-</div>
-</div>
-<a id="a72975b646efc378432bfa6c02b6a9db5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72975b646efc378432bfa6c02b6a9db5">&#9670;&nbsp;</a></span>fusionTest()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t fusionTest </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sample use of the driver for a Fusion device. <br />
- This function is meant to showcase how the API is to be used by performing tests on the device, and outputting messages based on performance. Not all functions are used, although most are. This is NOT meant as a standalone reference and should be used in conjunction with the provided documentation and the relevant datasheets. <br />
- </p>
-<p>Testing is done in multiple stages. The order matters from each step to the next in this example.</p>
-<p>Testing commences as follows:</p><ol type="1">
-<li>Read manufacturing ID, test write enable, test write disable.</li>
-<li>Test that sectors can be properly unprotected.</li>
-<li>Test the page erase functionality.</li>
-<li>Test the sequential/byte program mode.</li>
-<li>Test dual read and write.</li>
-<li>Test deep power down mode</li>
-<li>Test global protect and global unprotect.</li>
-<li>Test ultra deep power down mode and JEDEC reset.</li>
-</ol>
-<p>At each stage various messages will confirm that the tests have passed or failed. Failure is expected during power down modes, as the MISO line is not driven, thus causing data read to be unpredictable.</p>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">uint32_t</td><td>Returns the number of errors in the testbench. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="fusion_8c_source.html#l00353">353</a> of file <a class="el" href="fusion_8c_source.html">fusion.c</a>.</p>
 
 </div>
 </div>

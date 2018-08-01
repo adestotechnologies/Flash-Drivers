@@ -32,7 +32,7 @@
  */
 
 /*!
- * @ingroup ADESTO_LAYER MAIN
+ * @ingroup USER_CONFIG Configuration Layer
  */
 /**
  * @file    user_config.h

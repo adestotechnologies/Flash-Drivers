@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['user_20configuration_20layer',['User Configuration Layer',['../group___u_s_e_r___c_o_n_f_i_g.html',1,'']]],
   ['user_5fconfig_2ec',['user_config.c',['../user__config_8c.html',1,'']]],
   ['user_5fconfig_2eh',['user_config.h',['../user__config_8h.html',1,'']]],
   ['user_5fconfig_5fboardinit',['USER_CONFIG_BoardInit',['../user__config_8c.html#ab12365a59df355fd84d6634a736a7657',1,'USER_CONFIG_BoardInit():&#160;user_config.c'],['../user__config_8h.html#ab12365a59df355fd84d6634a736a7657',1,'USER_CONFIG_BoardInit():&#160;user_config.c']]],

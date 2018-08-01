@@ -4,9 +4,12 @@
 
   <navindex>
     <tab type="mainpage" visible="yes" title="Read Me"/>
-    <tab type="user" url="@ref USER_CONFIGURATION_DESCRIPTION" visible="yes" title="Configuration"/>
-    <tab type="user" url="@ref ADESTO_LAYER_DESCRIPTION" visible="yes" title="Adesto Layer"/>
-    <tab type="user" url="@ref SPI_LAYER_DESCRIPTION" visible="yes" title="SPI Layer"/>
+    <tab type="pages" visible="yes" title="Layers">
+      <tab type="user" url="@ref USER_CONFIGURATION_DESCRIPTION" visible="yes" title="Configuration"/>
+      <tab type="user" url="@ref TEST_LAYER_DESCRIPTION" visible="yes" title="Test Layer"/>
+      <tab type="user" url="@ref ADESTO_LAYER_DESCRIPTION" visible="yes" title="Adesto Layer"/>
+      <tab type="user" url="@ref SPI_LAYER_DESCRIPTION" visible="yes" title="SPI Layer"/>
+    </tab>  
     <tab type="files" visible="yes" title="Files">
       <tab type="filelist" visible="yes" title="" intro=""/>
       <tab type="globals" visible="yes" title="" intro=""/>

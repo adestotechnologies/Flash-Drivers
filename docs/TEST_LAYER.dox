@@ -1,0 +1,15 @@
+/*!
+	@page TEST_LAYER_DESCRIPTION Test Layer
+
+	@details This layer serves as the application entry point when constructing and running test sequences, or adding in other user code. Within this layer the user is able to construct a test sequence comprised of Adesto layer function calls, or access the default tests that have been written for each family of devices, without altering the underlying drivers or reference package.<br>
+
+	After setting up the board and IOs in main(), the user then calls either defaultTest() or test(). defaultTest() contains the pre-defined family specific function calls and changes based on the selected part number defined for @ref PARTNO. test() serves as the user defined test function. A user may alter this function so suit their purposes such as test a different sequence of events. Users can also declare and define new, more complex functions related to their specific device. In this manner, the lower levels serve as APIs rather than user code.<br>
+
+	@section TEST_LAYER_LINKS File Links
+	@ref TEST_LAYER
+ */
+ /*!
+  @defgroup TEST_LAYER Test Layer
+
+  @details Source code for the flash drivers can be found at the following URL: <a href="https://github.com/adestotechnologies/Flash-Drivers/archive/master.zip">Download ZIP</a>
+ */
